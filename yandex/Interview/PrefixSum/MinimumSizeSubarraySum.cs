@@ -9,7 +9,7 @@
         /// <param name="target"></param>
         /// <param name="nums"></param>
         /// <returns>the minimal length of a subarray</returns>
-        public static int MinSubArrayLen(int target, int[] nums)
+        public static int Execute(int target, int[] nums)
         {
             int currSum = 0;
             int minLength = nums.Length + 1;
