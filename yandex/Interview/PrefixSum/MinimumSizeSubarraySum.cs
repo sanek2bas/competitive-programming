@@ -8,7 +8,7 @@
         /// </summary>
         /// <param name="target"></param>
         /// <param name="nums"></param>
-        /// <returns>the minimal length of a subarray</returns>
+        /// <returns></returns>
         public static int Execute(int target, int[] nums)
         {
             int currSum = 0;

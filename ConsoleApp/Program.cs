@@ -1,4 +1,5 @@
-﻿using Interview.LinkedList;
+﻿using Interview.HashTable;
+using Interview.LinkedList;
 using Interview.PrefixSum;
 
 //foreach(var test in MinimumSizeSubarraySum.GetTests())
@@ -7,10 +8,16 @@ using Interview.PrefixSum;
 //    Console.WriteLine(answer == test.answer);
 //}
 
-foreach (var test in MergeSortedLists.GetTests())
+//foreach (var test in MergeSortedLists.GetTests())
+//{
+//    var answer = MergeSortedLists.Execute(test.nodes);
+//    Console.WriteLine(MergeSortedLists.ConvertToString(answer) == test.answer);
+//}
+
+foreach (var test in SingleNumber.GetTests())
 {
-    var answer = MergeSortedLists.Execute(test.nodes);
-    Console.WriteLine(MergeSortedLists.ConvertToString(answer) == test.answer);
+    var answer = SingleNumber.Execute(test.numbers);
+    Console.WriteLine(answer == test.answer);
 }
 
 Console.ReadKey();
