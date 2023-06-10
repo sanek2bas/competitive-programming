@@ -11,17 +11,17 @@
         /// <returns></returns>
         public static int Execute(char[][] grid)
         {
-            var visited = new HashSet<(int row, int col)>();
             var result = 0;
             int rows = grid.Length;
             int cols = grid[0].Length;
+            var visited = new bool[rows, cols];
 
             for (int r = 0; r < rows; r++)
             {
                 for (int c = 0; c < cols; c++)
                 {
                     if (grid[r][c] == '0' ||
-                        visited.Contains((r, c)))
+                        visited[r, c] == true)
                         continue;
                     result++;
                     dfs(grid, r, c, visited);
@@ -31,14 +31,14 @@
             return result;
         }
 
-        private static void dfs(char[][] grid, int row, int col, HashSet<(int, int)> visited)
+        private static void dfs(char[][] grid, int row, int col, bool[,] visited)
         {
             if (!isCheck(grid, row, col) ||
                 grid[row][col] == '0' ||
-                visited.Contains((row, col)))
+                visited[row, col] == true)
                 return;
 
-            visited.Add((row, col));
+            visited[row, col] = true;
             dfs(grid, row, col - 1, visited);
             dfs(grid, row - 1, col, visited);
             dfs(grid, row, col + 1, visited);
