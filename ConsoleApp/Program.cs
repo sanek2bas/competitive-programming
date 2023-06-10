@@ -2,10 +2,11 @@
 using Interview.HashTable;
 using Interview.LinkedList;
 using Interview.PrefixSum;
+using Interview.Queue_Stack;
 
-foreach (var test in BinarySearch.GetTests())
+foreach (var test in ValidParentheses.GetTests())
 {
-    var answer = BinarySearch.Execute(test.numbers, test.target);
+    var answer = ValidParentheses.Execute(test.str);
     Console.WriteLine(answer == test.answer);
 }
 
