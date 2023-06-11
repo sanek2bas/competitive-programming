@@ -4,11 +4,12 @@ using Interview.HashTable;
 using Interview.LinkedList;
 using Interview.PrefixSum;
 using Interview.Queue_Stack;
+using Interview.Sort;
 
-foreach (var test in NumberOfIslands.GetTests())
+foreach (var test in MergeIntervals.GetTests())
 {
-    var answer = NumberOfIslands.Execute(test.grid);
-    Console.WriteLine(answer == test.answer);
+    var answer = MergeIntervals.Execute(test.intervals);
+    Console.WriteLine(MergeIntervals.EqualAnswer(answer, test.answer));
 }
 
 Console.ReadKey();
