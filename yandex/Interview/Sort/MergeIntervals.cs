@@ -55,7 +55,7 @@
                 });
         }
 
-        public static bool EqualAnswer(int[][] result, int[][] answer)
+        public static bool CheckResult(int[][] result, int[][] answer)
         {
             if(result == answer)
                 return true;
