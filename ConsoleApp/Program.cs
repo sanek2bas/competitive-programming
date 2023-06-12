@@ -9,10 +9,10 @@ using Interview.SlidingWindow;
 using Interview.Sort;
 using Interview.TwoPointers;
 
-foreach (var test in LongestRepeatingCharacterReplacement.GetTests())
+foreach (var test in MergeSortedLists.GetTests())
 {
-    var result = LongestRepeatingCharacterReplacement.Execute(test.s, test.k);
-    Console.WriteLine(LongestRepeatingCharacterReplacement.CheckResult(result, test.answer));
+    var result = MergeSortedLists.Execute(test.nodes);
+    Console.WriteLine(MergeSortedLists.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();

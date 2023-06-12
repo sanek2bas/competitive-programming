@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text;
+﻿using Interview.Infrastructure;
 
 namespace Interview.LinkedList
 {
@@ -40,53 +39,30 @@ namespace Interview.LinkedList
             return startNode.Next;
         }
 
-        public static string ConvertToString(ListNode node)
+        public static IEnumerable<(ListNode[] nodes, int[] answer)> GetTests()
         {
-            if (node == null)
-            {
-                return "[]";
-            }
-
-            StringBuilder answer = new StringBuilder();
-            while (node != null)
-            {
-                answer.Append(node.Value.ToString());
-                answer.Append("->");
-                node = node.Next;
-            }
-            answer.Remove(answer.Length - 2, 2);
-            return answer.ToString();
+            yield return (
+                new ListNode[]
+                {
+                    ListNode.CreateListNode(1, 4, 5),
+                    ListNode.CreateListNode(1, 3, 4),
+                    ListNode.CreateListNode(2, 6) 
+                },
+                new int[] { 1, 1, 2, 3, 4, 4, 5, 6 });
+            yield return (Array.Empty<ListNode>(), Array.Empty<int>());
         }
 
-        public static IEnumerable<(ListNode[] nodes, string answer)> GetTests()
+        public static bool CheckResult(ListNode result, int[] answer)
         {
-            yield return (new ListNode[] { createListNode(1,4,5), createListNode(1, 3, 4), createListNode(2, 6) }, "1->1->2->3->4->4->5->6");
-            yield return (new ListNode[0], "[]");
-        }
-
-        private static ListNode? createListNode(params int[] numbers)
-        {
-            var startNode = new ListNode();
-            var nextNode = startNode;
-            foreach(int number in numbers)
+            for (int i = 0; i < answer.Length; i++)
             {
-                nextNode.Next = new ListNode(number);
-                nextNode = nextNode.Next;
+                if(result == null)
+                    return false;
+                if (answer[i] != result.Value)
+                    return false;
+                result = result.Next;
             }
-            return startNode.Next;
-        }
-    }
-
-    public class ListNode
-    {
-        public int Value { get; init; }
-
-        public ListNode? Next { get; set; }
-
-        public ListNode(int value = -1, ListNode? next = null)
-        {
-            Value = value;
-            Next = next;            
+            return true;
         }
     }
 }
