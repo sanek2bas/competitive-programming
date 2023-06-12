@@ -10,10 +10,10 @@ using Interview.Sort;
 using Interview.Tree;
 using Interview.TwoPointers;
 
-foreach (var test in SameTree.GetTests())
+foreach (var test in SymmetricTree.GetTests())
 {
-    var result = SameTree.Execute(test.p, test.q);
-    Console.WriteLine(SameTree.CheckResult(result, test.answer));
+    var result = SymmetricTree.Execute(test.root);
+    Console.WriteLine(SymmetricTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
