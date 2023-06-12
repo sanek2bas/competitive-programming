@@ -11,10 +11,12 @@ using Interview.Sort;
 using Interview.Tree;
 using Interview.TwoPointers;
 
-foreach (var test in BestTimeToBuyAndSellStockII.GetTests())
+
+
+foreach (var test in TwoSum.GetTests())
 {
-    var result = BestTimeToBuyAndSellStockII.Execute(test.prices);
-    Console.WriteLine(BestTimeToBuyAndSellStockII.CheckResult(result, test.answer));
+    var result = TwoSum.Execute(test.numbers, test.target);
+    Console.WriteLine(TwoSum.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
