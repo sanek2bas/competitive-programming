@@ -20,27 +20,19 @@ namespace Interview.GreedyProblems
         /// <returns></returns>
         public static int Execute(int[] prices)
         {
-            int maxProfit = 0;
-            int buyPrice = prices[0];
+            int profit = 0;
             for (int i = 1; i < prices.Length; i++)
             {
-                int price = prices[i];
-                if (buyPrice > price)
-                {
-                    buyPrice = price;
-                    continue;
-                }
-
-                if (price - buyPrice > maxProfit)
-                    maxProfit = price - buyPrice;
+                if (prices[i] > prices[i - 1])
+                    profit += prices[i] - prices[i - 1];
             }
 
-            return maxProfit;
+            return profit;
         }
 
         public static IEnumerable<(int[] prices, int answer)> GetTests()
         {
-            yield return (new int[] {7, 1, 5, 3, 6, 4}, 5);
+            yield return (new int[] {7, 1, 5, 3, 6, 4}, 7);
             yield return (new int[] {1, 2, 3, 4, 5}, 4);
             yield return (new int[] {7, 6, 4, 3, 1}, 0);
         }
