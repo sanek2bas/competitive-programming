@@ -1,5 +1,6 @@
 ﻿using Interview.BinarySearch;
 using Interview.Dfs_Bfs;
+using Interview.GreedyProblems;
 using Interview.HashTable;
 using Interview.Heap_Hash;
 using Interview.LinkedList;
@@ -10,10 +11,10 @@ using Interview.Sort;
 using Interview.Tree;
 using Interview.TwoPointers;
 
-foreach (var test in SymmetricTree.GetTests())
+foreach (var test in BestTimeToBuyAndSellStock.GetTests())
 {
-    var result = SymmetricTree.Execute(test.root);
-    Console.WriteLine(SymmetricTree.CheckResult(result, test.answer));
+    var result = BestTimeToBuyAndSellStock.Execute(test.prices);
+    Console.WriteLine(BestTimeToBuyAndSellStock.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
