@@ -11,10 +11,10 @@ using Interview.Sort;
 using Interview.Tree;
 using Interview.TwoPointers;
 
-foreach (var test in BestTimeToBuyAndSellStock.GetTests())
+foreach (var test in BestTimeToBuyAndSellStockII.GetTests())
 {
-    var result = BestTimeToBuyAndSellStock.Execute(test.prices);
-    Console.WriteLine(BestTimeToBuyAndSellStock.CheckResult(result, test.answer));
+    var result = BestTimeToBuyAndSellStockII.Execute(test.prices);
+    Console.WriteLine(BestTimeToBuyAndSellStockII.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();

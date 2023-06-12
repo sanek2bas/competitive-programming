@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interview.Heap_Hash
+﻿namespace Interview.Heap_Hash
 {
     public static class TopKFrequentElements
     {
