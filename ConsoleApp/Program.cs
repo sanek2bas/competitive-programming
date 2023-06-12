@@ -6,11 +6,12 @@ using Interview.LinkedList;
 using Interview.PrefixSum;
 using Interview.Queue_Stack;
 using Interview.Sort;
+using Interview.TwoPointers;
 
-foreach (var test in TopKFrequentElements.GetTests())
+foreach (var test in ContainerWithMostWater.GetTests())
 {
-    var result = TopKFrequentElements.Execute(test.nums, test.k);
-    Console.WriteLine(TopKFrequentElements.CheckResult(result, test.answer));
+    var result = ContainerWithMostWater.Execute(test.heights);
+    Console.WriteLine(ContainerWithMostWater.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
