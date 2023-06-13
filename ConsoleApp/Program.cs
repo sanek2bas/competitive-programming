@@ -13,10 +13,10 @@ using Interview.TwoPointers;
 
 
 
-foreach (var test in LinkedListCycle.GetTests())
+foreach (var test in ReverseLinkedList.GetTests())
 {
-    var result = LinkedListCycle.Execute(test.node);
-    Console.WriteLine(LinkedListCycle.CheckResult(result, test.answer));
+    var result = ReverseLinkedList.Execute(test.node);
+    Console.WriteLine(ReverseLinkedList.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
