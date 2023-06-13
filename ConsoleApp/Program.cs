@@ -13,10 +13,10 @@ using Interview.TwoPointers;
 
 
 
-foreach (var test in TwoSum.GetTests())
+foreach (var test in LinkedListCycle.GetTests())
 {
-    var result = TwoSum.Execute(test.numbers, test.target);
-    Console.WriteLine(TwoSum.CheckResult(result, test.answer));
+    var result = LinkedListCycle.Execute(test.node);
+    Console.WriteLine(LinkedListCycle.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();

@@ -6,10 +6,9 @@
 
         public ListNode? Next { get; set; }
 
-        public ListNode(int value = -1, ListNode? next = null)
+        public ListNode(int value = - 1)
         {
             Value = value;
-            Next = next;
         }
 
         public static ListNode CreateListNode(params int[] numbers)
@@ -22,6 +21,24 @@
                 nextNode = nextNode.Next;
             }
             return startNode.Next;
+        }
+
+        public static ListNode CreateCycleListNode(int[] numbers, int pos)
+        {
+            var root = CreateListNode(numbers);
+            var lastNode = root;
+            while (lastNode.Next != null)
+                lastNode = lastNode.Next;
+
+            if(pos >= 0)
+            {
+                ListNode posNode = root;
+                for (int i = 1; i <= pos; i++)
+                    posNode = posNode.Next;
+                lastNode.Next = posNode;
+            }
+            
+            return root;
         }
     }
 }
