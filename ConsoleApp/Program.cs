@@ -13,10 +13,10 @@ using Interview.TwoPointers;
 
 
 
-foreach (var test in AddTwoNumber.GetTests())
+foreach (var test in SearchInRotatedSortedArray.GetTests())
 {
-    var result = AddTwoNumber.Execute(test.node1, test.node2);
-    Console.WriteLine(AddTwoNumber.CheckResult(result, test.answer));
+    var result = SearchInRotatedSortedArray.Execute(test.nums, test.target);
+    Console.WriteLine(SearchInRotatedSortedArray.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
