@@ -24,5 +24,11 @@ namespace Interview.HashTable
             yield return (new int[] { 4, 1, 2, 1, 2 }, 4);
             yield return (new int[] { 1}, 1);
         }
+
+        public static bool CheckResult(int[] result, int[] answer)
+        {
+            return result[0] == answer[0]
+                && result[1] == answer[1];
+        }
     }
 }
