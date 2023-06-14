@@ -13,10 +13,10 @@ using Interview.TwoPointers;
 
 
 
-foreach (var test in ReverseLinkedList.GetTests())
+foreach (var test in AddTwoNumber.GetTests())
 {
-    var result = ReverseLinkedList.Execute(test.node);
-    Console.WriteLine(ReverseLinkedList.CheckResult(result, test.answer));
+    var result = AddTwoNumber.Execute(test.node1, test.node2);
+    Console.WriteLine(AddTwoNumber.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
