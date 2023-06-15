@@ -11,21 +11,14 @@
             Value = value;
         }
 
-        //public static TreeNode CreateTreeNode(int rootValue, int? leftChildValue, int? rightChildValue)
-        //{
-        //    var rootNode = new TreeNode(rootValue);
-        //    if (leftChildValue != null)
-        //        rootNode.Left = new TreeNode(leftChildValue.Value);
-        //    if(rightChildValue != null)
-        //        rootNode.Right = new TreeNode(rightChildValue.Value);
-        //    return rootNode;
-        //}
-
-        public static TreeNode CreateTreeNode(params int?[] values)
+        public static TreeNode? CreateTreeNode(params int?[] values)
         {
-            var rootNode = new TreeNode(values.Length > 0 
-                ? (values[0] == null ? 0 : values[0].Value)
-                : 0);
+            if (values == null ||
+                values.Length == 0 ||
+                values[0] == null)
+                return null;
+            
+            var rootNode = new TreeNode(values[0].Value);
             
             var queue = new Queue<TreeNode>();
             queue.Enqueue(rootNode);

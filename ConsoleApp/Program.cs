@@ -13,10 +13,10 @@ using Interview.TwoPointers;
 
 
 
-foreach (var test in GroupAnagrams.GetTests())
+foreach (var test in BalancedBinaryTree.GetTests())
 {
-    var result = GroupAnagrams.Execute(test.strs);
-    Console.WriteLine(GroupAnagrams.CheckResult(result, test.answer));
+    var result = BalancedBinaryTree.Execute(test.root);
+    Console.WriteLine(BalancedBinaryTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
