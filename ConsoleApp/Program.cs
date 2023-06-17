@@ -13,10 +13,10 @@ using Interview.TwoPointers;
 
 
 
-foreach (var test in BalancedBinaryTree.GetTests())
+foreach (var test in Search2DMatrix.GetTests())
 {
-    var result = BalancedBinaryTree.Execute(test.root);
-    Console.WriteLine(BalancedBinaryTree.CheckResult(result, test.answer));
+    var result = Search2DMatrix.Execute(test.matrix, test.target);
+    Console.WriteLine(Search2DMatrix.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
