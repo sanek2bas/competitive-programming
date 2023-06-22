@@ -60,13 +60,14 @@
             if(result == answer)
                 return true;
 
-            if (result.Length != answer.Length ||
-                result[0].Length != answer[0].Length)
+            if (result.Length != answer.Length)
                 return false;
 
             for (int i = 0; i < answer.Length; i++)
             {
-                for (int j = 0; j < answer[0].Length; j++)
+                if (answer[i].Length != result[i].Length)
+                    return false;
+                for (int j = 0; j < answer[i].Length; j++)
                 {
                     if (answer[i][j] != result[i][j])
                         return false;
