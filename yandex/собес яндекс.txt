@@ -1,0 +1,82 @@
+Как и обещала, отправляю материалы для подготовки к нашим секциям)
+
+Мы запостили статью на хабре о том, как проходят наши интервью:
+https://habr.com/ru/company/yandex/blog/449890/
+
+подробнее про алгоритмы:
+Что мы рекомендуем сделать:
+1. Освежить в памяти курс алгоритмов и структур данных (вспомнить основные структуры данных, их сильные и слабые стороны, особенности, базовые алгоритмы типа сортировок и обходов графов; не нужно ботать доказательство корректности, достаточно понимания как они работают)
+2. Порешать задачки на литкоде, потренироваться доводить задачи до конца (чтобы решение проходило все тесты). Обязательно набить руку на easy (аккуратность), желательно попробовать medium (комбинация простых алгоритмов/структур данных), hard смотреть не обязательно (хардкорные алгоритмы)
+3. (Опционально) потренироваться в придумывании тестов для собственного кода, попробовать самостоятельно придумывать краевые случаи, для которых может потребоваться реализации отдельной логики
+4. Потренироваться находить баги в своём коде без компиляции/исполнения
+
+Темы и ссылки, где можно подготовиться к алгоритмам : 
+
+prefix sum:
+    https://leetcode.com/tag/prefix-sum/  (done)
+
+linked lists:
+    https://leetcode.com/problems/merge-k-sorted-lists/	 (done)
+    https://leetcode.com/problems/linked-list-cycle/    (done)
+    https://leetcode.com/problems/add-two-numbers/      (done)
+    https://leetcode.com/problems/reverse-linked-list/  (done)
+ 
+binary search:
+    https://leetcode.com/problems/binary-search/     (done)                            
+    https://leetcode.com/problems/guess-number-higher-or-lower/  (done)
+    https://leetcode.com/problems/search-a-2d-matrix/            (done)
+    https://leetcode.com/problems/search-in-rotated-sorted-array/   (done)
+    https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ 
+    https://leetcode.com/problems/search-in-rotated-sorted-array-ii/ 
+ 
+hash table:
+    https://leetcode.com/problems/single-number/  (done)
+    https://leetcode.com/problems/two-sum/        (done)
+    https://leetcode.com/problems/4sum/ 
+    https://leetcode.com/problems/group-anagrams/   (done)
+    https://leetcode.com/problems/valid-anagram/ 
+    https://leetcode.com/problems/find-all-anagrams-in-a-string/ 
+
+queue/stack:
+    https://leetcode.com/problems/valid-parentheses/ (done)
+
+dfs/bfs:
+    https://leetcode.com/problems/number-of-islands/    (done)
+    https://leetcode.com/problems/remove-invalid-parentheses/ 
+ 
+sort:
+    https://leetcode.com/problems/merge-intervals/   (done)
+ 
+heap/hash:
+    https://leetcode.com/problems/top-k-frequent-words/ 
+    https://leetcode.com/problems/top-k-frequent-elements/  (done)
+ 
+two pointers:
+    https://leetcode.com/problems/container-with-most-water/  (done)
+    https://leetcode.com/problems/partition-labels/ 
+ 
+sliding window:
+    https://leetcode.com/problems/sliding-window-median/ 
+    https://leetcode.com/problems/sliding-window-maximum/ 
+    https://leetcode.com/problems/longest-repeating-character-replacement/  (done)
+ 
+tree:
+    https://leetcode.com/problems/same-tree/   (done)
+    https://leetcode.com/problems/symmetric-tree/ (done)
+    https://leetcode.com/problems/balanced-binary-tree/   (done)
+    https://leetcode.com/problems/path-sum-ii/ 
+ 
+greedy problems:
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock/  (done)
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/  (done)
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/ 
+    https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+
+Алгоритмы, которые чаще всего бывают в задачках:
+– сортировки (например, bubble sort или quicksort)
+– разворота одно/двусвязного списка
+– разворота строки
+– обхода дерева
+
+Здесь ролик про проведение алгоритмической секции. В первом комменте тезисно выписаны основные поинты встречи. Может быть полезным)
+https://www.youtube.com/watch?v=aYuAd-IDigc
