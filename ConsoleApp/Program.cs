@@ -5,10 +5,10 @@ using TopInterview150.BitManipulation;
 
 
 
-foreach (var test in SingleNumber.GetTests())
+foreach (var test in IsomorphicStrings.GetTests())
 {
-    var result = SingleNumber.Execute(test.nums);
-    Console.WriteLine(SingleNumber.CheckResult(result, test.answer));
+    var result = IsomorphicStrings.Execute(test.s, test.t);
+    Console.WriteLine(IsomorphicStrings.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
