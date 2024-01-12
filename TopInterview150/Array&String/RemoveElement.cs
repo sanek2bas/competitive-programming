@@ -31,7 +31,7 @@
 
         public static bool CheckResult(int[] target, int targetCount, int[] answer)
         {
-            return targetCount == answer.Length
+            return answer.Length == targetCount
                 && answer.SequenceEqual(target.Take(targetCount));
         }
     }
