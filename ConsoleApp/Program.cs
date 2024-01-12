@@ -3,10 +3,10 @@ using TopInterview150.Array_String;
 
 
 
-foreach (var test in MergeSortedArray.GetTests())
+foreach (var test in RemoveElement.GetTests())
 {
-    MergeSortedArray.Execute(test.nums1, test.m, test.nums2, test.n);
-    Console.WriteLine(MergeSortedArray.CheckResult(test.nums1, test.answer));
+    var result = RemoveElement.Execute(test.nums, test.val);
+    Console.WriteLine(RemoveElement.CheckResult(test.nums, result, test.answer));
 }
 
 Console.ReadKey();
