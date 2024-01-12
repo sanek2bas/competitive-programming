@@ -8,17 +8,17 @@
         /// Alphanumeric characters include letters and numbers.
         /// Given a string s, return true if it is a palindrome, or false otherwise.
         /// </summary>
-        public static bool Execute(string str)
+        public static bool Execute(string s)
         {
             int left = 0;
-            int right = str.Length - 1;
+            int right = s.Length - 1;
             while (left < right)
             {
-                while (left < right && !char.IsLetterOrDigit(str[left]))
+                while (left < right && !char.IsLetterOrDigit(s[left]))
                     left++;
-                while (left < right && !char.IsLetterOrDigit(str[right]))
+                while (left < right && !char.IsLetterOrDigit(s[right]))
                     right--;
-                if (char.ToLower(str[left]) != char.ToLower(str[right]))
+                if (char.ToLower(s[left]) != char.ToLower(s[right]))
                     return false;
                 left++;
                 right--;
