@@ -1,22 +1,12 @@
 ﻿using Interview.BinarySearch;
-using Interview.Dfs_Bfs;
-using Interview.GreedyProblems;
-using Interview.HashTable;
-using Interview.Heap_Hash;
-using Interview.LinkedList;
-using Interview.PrefixSum;
-using Interview.Queue_Stack;
-using Interview.SlidingWindow;
-using Interview.Sort;
-using Interview.Tree;
-using Interview.TwoPointers;
+using TopInterview150.Array_String;
 
 
 
-foreach (var test in Search2DMatrix.GetTests())
+foreach (var test in MergeSortedArray.GetTests())
 {
-    var result = Search2DMatrix.Execute(test.matrix, test.target);
-    Console.WriteLine(Search2DMatrix.CheckResult(result, test.answer));
+    MergeSortedArray.Execute(test.nums1, test.m, test.nums2, test.n);
+    Console.WriteLine(MergeSortedArray.CheckResult(test.nums1, test.answer));
 }
 
 Console.ReadKey();

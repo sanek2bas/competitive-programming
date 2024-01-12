@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ozon\Route256\Route256.csproj" />
+    <ProjectReference Include="..\TopInterview150\TopInterview150.csproj" />
     <ProjectReference Include="..\yandex\Interview\Interview.csproj" />
   </ItemGroup>
 
