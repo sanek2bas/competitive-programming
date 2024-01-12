@@ -3,10 +3,10 @@ using TopInterview150.Array_String;
 
 
 
-foreach (var test in LongestCommonPrefix.GetTests())
+foreach (var test in FindIndexOfFirstOccurrenceInString.GetTests())
 {
-    var result = LongestCommonPrefix.Execute(test.strs);
-    Console.WriteLine(LongestCommonPrefix.CheckResult(result, test.answer));
+    var result = FindIndexOfFirstOccurrenceInString.Execute(test.haystack, test.needle);
+    Console.WriteLine(FindIndexOfFirstOccurrenceInString.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
