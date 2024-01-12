@@ -1,12 +1,13 @@
 ﻿using Interview.BinarySearch;
 using TopInterview150.Array_String;
+using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in FindIndexOfFirstOccurrenceInString.GetTests())
+foreach (var test in ValidPalindrome.GetTests())
 {
-    var result = FindIndexOfFirstOccurrenceInString.Execute(test.haystack, test.needle);
-    Console.WriteLine(FindIndexOfFirstOccurrenceInString.CheckResult(result, test.answer));
+    var result = ValidPalindrome.Execute(test.str);
+    Console.WriteLine(ValidPalindrome.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
