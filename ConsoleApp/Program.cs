@@ -3,10 +3,10 @@ using TopInterview150.Array_String;
 
 
 
-foreach (var test in RemoveDuplicatesFromSortedArray.GetTests())
+foreach (var test in MajorityElement.GetTests())
 {
-    var result = RemoveDuplicatesFromSortedArray.Execute(test.nums);
-    Console.WriteLine(RemoveDuplicatesFromSortedArray.CheckResult(test.nums, result, test.answer));
+    var result = MajorityElement.Execute(test.nums);
+    Console.WriteLine(MajorityElement.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
