@@ -3,10 +3,10 @@ using TopInterview150.Array_String;
 
 
 
-foreach (var test in MajorityElement.GetTests())
+foreach (var test in BestTimeToBuyAndSellStock.GetTests())
 {
-    var result = MajorityElement.Execute(test.nums);
-    Console.WriteLine(MajorityElement.CheckResult(result, test.answer));
+    var result = BestTimeToBuyAndSellStock.Execute(test.nums);
+    Console.WriteLine(BestTimeToBuyAndSellStock.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
