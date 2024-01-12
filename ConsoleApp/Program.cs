@@ -3,10 +3,10 @@ using TopInterview150.Array_String;
 
 
 
-foreach (var test in BestTimeToBuyAndSellStock.GetTests())
+foreach (var test in RomanToInteger.GetTests())
 {
-    var result = BestTimeToBuyAndSellStock.Execute(test.nums);
-    Console.WriteLine(BestTimeToBuyAndSellStock.CheckResult(result, test.answer));
+    var result = RomanToInteger.Execute(test.romanNum);
+    Console.WriteLine(RomanToInteger.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
