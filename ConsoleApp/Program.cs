@@ -10,10 +10,10 @@ using TopInterview150.LinkedList;
 
 
 
-foreach (var test in AddTwoNumbers.GetTests())
+foreach (var test in MergeTwoSortedLists.GetTests())
 {
-    var result = AddTwoNumbers.Execute(test.node1, test.node2);
-    Console.WriteLine(AddTwoNumbers.CheckResult(result, test.answer));
+    var result = MergeTwoSortedLists.Execute(test.node1, test.node2);
+    Console.WriteLine(MergeTwoSortedLists.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
