@@ -1,5 +1,4 @@
-﻿using Interview.BinarySearch;
-using TopInterview150.Array_String;
+﻿using TopInterview150.Array_String;
 using TopInterview150.Hashmap;
 using TopInterview150.BitManipulation;
 using TopInterview150.Intervals;
@@ -8,10 +7,10 @@ using TopInterview150.SlidingWindow;
 
 
 
-foreach (var test in GroupAnagrams.GetTests())
+foreach (var test in TwoSum.GetTests())
 {
-    var result = GroupAnagrams.Execute(test.strs);
-    Console.WriteLine(GroupAnagrams.CheckResult(result, test.answer));
+    var result = TwoSum.Execute(test.nums, test.target);
+    Console.WriteLine(TwoSum.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
