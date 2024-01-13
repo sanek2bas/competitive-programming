@@ -10,10 +10,10 @@ using TopInterview150.LinkedList;
 
 
 
-foreach (var test in LinkedListCycle.GetTests())
+foreach (var test in AddTwoNumbers.GetTests())
 {
-    var result = LinkedListCycle.Execute(test.node);
-    Console.WriteLine(LinkedListCycle.CheckResult(result, test.answer));
+    var result = AddTwoNumbers.Execute(test.node1, test.node2);
+    Console.WriteLine(AddTwoNumbers.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();

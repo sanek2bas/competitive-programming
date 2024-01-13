@@ -11,7 +11,6 @@ namespace TopInterview150.LinkedList
         /// the index of the node that tail's next pointer is connected to. 
         /// Note that pos is not passed as a parameter.
         /// Return true if there is a cycle in the linked list.Otherwise, return false.
-        /// 
         /// </summary>
         public static bool Execute(ListNode head)
         {
