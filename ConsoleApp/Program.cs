@@ -6,13 +6,14 @@ using Interview.GreedyProblems;
 using TopInterview150.SlidingWindow;
 using TopInterview150.Stack;
 using TopInterview150.Mathematics;
+using TopInterview150.LinkedList;
 
 
 
-foreach (var test in PlusOne.GetTests())
+foreach (var test in LinkedListCycle.GetTests())
 {
-    var result = PlusOne.Execute(test.digits);
-    Console.WriteLine(PlusOne.CheckResult(result, test.answer));
+    var result = LinkedListCycle.Execute(test.node);
+    Console.WriteLine(LinkedListCycle.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
