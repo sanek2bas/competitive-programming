@@ -54,14 +54,14 @@
                 });
         }
 
-        public static bool CheckResult(int[][] target, int[][] answer)
+        public static bool CheckResult(int[][] result, int[][] answer)
         {
-            if(answer.Length != target.Length)
+            if(answer.Length != result.Length)
                 return false;
             for(int i = 0; i < answer.Length; i++) 
             {
-                if (answer[i].Length != target[i].Length ||
-                    !answer[i].SequenceEqual(target[i]))
+                if (answer[i].Length != result[i].Length ||
+                    !answer[i].SequenceEqual(result[i]))
                     return false;
             }
             return true;

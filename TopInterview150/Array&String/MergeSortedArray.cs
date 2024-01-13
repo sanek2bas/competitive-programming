@@ -40,9 +40,9 @@
                 new int[] { 1 });
         }
 
-        public static bool CheckResult(int[] target, int[] answer)
+        public static bool CheckResult(int[] result, int[] answer)
         {
-            return target.SequenceEqual(answer);
+            return result.SequenceEqual(answer);
         }
     }
 }

@@ -8,10 +8,10 @@ using TopInterview150.SlidingWindow;
 
 
 
-foreach (var test in ValidAnagram.GetTests())
+foreach (var test in GroupAnagrams.GetTests())
 {
-    var result = ValidAnagram.Execute(test.s, test.t);
-    Console.WriteLine(ValidAnagram.CheckResult(result, test.answer));
+    var result = GroupAnagrams.Execute(test.strs);
+    Console.WriteLine(GroupAnagrams.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();

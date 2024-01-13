@@ -38,9 +38,9 @@
 
         }
 
-        public static bool CheckResult(bool target, bool answer)
+        public static bool CheckResult(bool result, bool answer)
         {
-            return answer == target;
+            return answer == result;
         }
     }
 }

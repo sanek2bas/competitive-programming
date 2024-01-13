@@ -33,9 +33,9 @@
                 "");
         }
 
-        public static bool CheckResult(string target, string answer)
+        public static bool CheckResult(string result, string answer)
         {
-            return answer == target;
+            return answer == result;
         }
     }
 }

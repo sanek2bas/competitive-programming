@@ -35,10 +35,10 @@
                 new int[] { 0, 1, 2, 3, 4 });
         }
 
-        public static bool CheckResult(int[] target, int targetCount, int[] answer)
+        public static bool CheckResult(int[] result, int resultCount, int[] answer)
         {
-            return answer.Length == targetCount 
-                && answer.SequenceEqual(target.Take(targetCount));
+            return answer.Length == resultCount
+                && answer.SequenceEqual(result.Take(resultCount));
         }
     }
 }

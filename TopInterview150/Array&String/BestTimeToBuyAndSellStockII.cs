@@ -27,9 +27,9 @@
             yield return (new int[] { 7, 6, 4, 3, 1 }, 0);
         }
 
-        public static bool CheckResult(int target, int answer)
+        public static bool CheckResult(int result, int answer)
         {
-            return target == answer;
+            return result == answer;
         }
     }
 }
