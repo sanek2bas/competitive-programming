@@ -8,10 +8,10 @@ using TopInterview150.SlidingWindow;
 
 
 
-foreach (var test in MinimumSizeSubarraySum.GetTests())
+foreach (var test in ValidAnagram.GetTests())
 {
-    var result = MinimumSizeSubarraySum.Execute(test.val, test.nums);
-    Console.WriteLine(MinimumSizeSubarraySum.CheckResult(result, test.answer));
+    var result = ValidAnagram.Execute(test.s, test.t);
+    Console.WriteLine(ValidAnagram.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
