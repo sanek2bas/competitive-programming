@@ -7,13 +7,14 @@ using TopInterview150.SlidingWindow;
 using TopInterview150.Stack;
 using TopInterview150.Mathematics;
 using TopInterview150.LinkedList;
+using TopInterview150.BinaryTreeGeneral;
 
 
 
-foreach (var test in MergeTwoSortedLists.GetTests())
+foreach (var test in SymmetricTree.GetTests())
 {
-    var result = MergeTwoSortedLists.Execute(test.node1, test.node2);
-    Console.WriteLine(MergeTwoSortedLists.CheckResult(result, test.answer));
+    var result = SymmetricTree.Execute(test.root);
+    Console.WriteLine(SymmetricTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
