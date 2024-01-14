@@ -11,10 +11,10 @@ using TopInterview150.BinaryTreeGeneral;
 
 
 
-foreach (var test in SameTree.GetTests())
+foreach (var test in MaximumDepthOfBinaryTree.GetTests())
 {
-    var result = SameTree.Execute(test.root1, test.root2);
-    Console.WriteLine(SameTree.CheckResult(result, test.answer));
+    var result = MaximumDepthOfBinaryTree.Execute(test.root);
+    Console.WriteLine(MaximumDepthOfBinaryTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
