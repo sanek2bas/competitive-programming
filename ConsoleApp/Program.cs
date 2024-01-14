@@ -11,10 +11,10 @@ using TopInterview150.BinaryTreeGeneral;
 
 
 
-foreach (var test in SymmetricTree.GetTests())
+foreach (var test in SameTree.GetTests())
 {
-    var result = SymmetricTree.Execute(test.root);
-    Console.WriteLine(SymmetricTree.CheckResult(result, test.answer));
+    var result = SameTree.Execute(test.root1, test.root2);
+    Console.WriteLine(SameTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
