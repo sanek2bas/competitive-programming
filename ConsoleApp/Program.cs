@@ -8,13 +8,14 @@ using TopInterview150.Stack;
 using TopInterview150.Mathematics;
 using TopInterview150.LinkedList;
 using TopInterview150.BinaryTreeGeneral;
+using TopInterview150.BinaryTreeBFS;
 
 
 
-foreach (var test in InvertBinaryTree.GetTests())
+foreach (var test in AverageOfLevelsInBinaryTree.GetTests())
 {
-    var result = InvertBinaryTree.Execute(test.root);
-    Console.WriteLine(InvertBinaryTree.CheckResult(result, test.answer));
+    var result = AverageOfLevelsInBinaryTree.Execute(test.root);
+    Console.WriteLine(AverageOfLevelsInBinaryTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
