@@ -9,13 +9,14 @@ using TopInterview150.Mathematics;
 using TopInterview150.LinkedList;
 using TopInterview150.BinaryTreeGeneral;
 using TopInterview150.BinaryTreeBFS;
+using TopInterview150.BinarySearchTree;
 
 
 
-foreach (var test in AverageOfLevelsInBinaryTree.GetTests())
+foreach (var test in MinimumAbsoluteDifferenceInBST.GetTests())
 {
-    var result = AverageOfLevelsInBinaryTree.Execute(test.root);
-    Console.WriteLine(AverageOfLevelsInBinaryTree.CheckResult(result, test.answer));
+    var result = MinimumAbsoluteDifferenceInBST.Execute(test.root);
+    Console.WriteLine(MinimumAbsoluteDifferenceInBST.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
