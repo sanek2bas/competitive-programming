@@ -14,10 +14,10 @@ using TopInterview150.Divide_Conquer;
 
 
 
-foreach (var test in ConvertSortedArrayToBinarySearchTree.GetTests())
+foreach (var test in AddBinary.GetTests())
 {
-    var result = ConvertSortedArrayToBinarySearchTree.Execute(test.nums);
-    Console.WriteLine(ConvertSortedArrayToBinarySearchTree.CheckResult(result, test.answer));
+    var result = AddBinary.Execute(test.a, test.b);
+    Console.WriteLine(AddBinary.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
