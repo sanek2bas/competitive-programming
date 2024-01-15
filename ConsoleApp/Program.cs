@@ -10,13 +10,14 @@ using TopInterview150.LinkedList;
 using TopInterview150.BinaryTreeGeneral;
 using TopInterview150.BinaryTreeBFS;
 using TopInterview150.BinarySearchTree;
+using TopInterview150.Divide_Conquer;
 
 
 
-foreach (var test in MinimumAbsoluteDifferenceInBST.GetTests())
+foreach (var test in ConvertSortedArrayToBinarySearchTree.GetTests())
 {
-    var result = MinimumAbsoluteDifferenceInBST.Execute(test.root);
-    Console.WriteLine(MinimumAbsoluteDifferenceInBST.CheckResult(result, test.answer));
+    var result = ConvertSortedArrayToBinarySearchTree.Execute(test.nums);
+    Console.WriteLine(ConvertSortedArrayToBinarySearchTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();

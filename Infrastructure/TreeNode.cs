@@ -54,5 +54,41 @@ namespace Infrastructure
 
             return rootNode;
         }
+
+        public static int?[] ToArray(TreeNode root)
+        {
+            var answer = new List<int?>();
+            if(root != null)
+            {
+                answer.Add(root.Value);
+                var queue = new Queue<TreeNode>();
+                queue.Enqueue(root);
+                while (queue.Count > 0)
+                {
+                    var node = queue.Dequeue();
+                    if (node.Left == null && node.Right == null)
+                        continue;
+                    if(node.Left != null)
+                    {
+                        answer.Add(node.Left.Value);
+                        queue.Enqueue(node.Left);
+                    }
+                    else
+                    {
+                        answer.Add(null);
+                    }
+                    if (node.Right != null)
+                    {
+                        answer.Add(node.Right.Value);
+                        queue.Enqueue(node.Right);
+                    }
+                    else
+                    {
+                        answer.Add(null);
+                    }
+                }
+            }
+            return answer.ToArray();
+        }
     }
 }
