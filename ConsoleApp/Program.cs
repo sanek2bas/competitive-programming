@@ -11,13 +11,14 @@ using TopInterview150.BinaryTreeGeneral;
 using TopInterview150.BinaryTreeBFS;
 using TopInterview150.BinarySearchTree;
 using TopInterview150.Divide_Conquer;
+using TopInterview150._1D_DP;
 
 
 
-foreach (var test in AddBinary.GetTests())
+foreach (var test in ClimbingStairs.GetTests())
 {
-    var result = AddBinary.Execute(test.a, test.b);
-    Console.WriteLine(AddBinary.CheckResult(result, test.answer));
+    var result = ClimbingStairs.Execute(test.n);
+    Console.WriteLine(ClimbingStairs.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
