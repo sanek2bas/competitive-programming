@@ -15,10 +15,10 @@ using TopInterview150._1D_DP;
 
 
 
-foreach (var test in ClimbingStairs.GetTests())
+foreach (var test in ReverseBits.GetTests())
 {
-    var result = ClimbingStairs.Execute(test.n);
-    Console.WriteLine(ClimbingStairs.CheckResult(result, test.answer));
+    var result = ReverseBits.Execute(test.n);
+    Console.WriteLine(ReverseBits.CheckResult(result, test.answer));
 }
 
-Console.ReadKey();
+//Console.ReadKey();
