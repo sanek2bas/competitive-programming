@@ -19,7 +19,7 @@ public static class ReverseBits
         public static IEnumerable<(uint n, uint answer)> GetTests()
         {
             yield return (43261596, 964176192);
-            yield return (4294967293, 3221225471 );
+            yield return (4294967293, 3221225471);
         }
 
         public static bool CheckResult(uint result, uint answer)

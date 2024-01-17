@@ -15,10 +15,10 @@ using TopInterview150._1D_DP;
 
 
 
-foreach (var test in ReverseBits.GetTests())
+foreach (var test in NumberOf1Bits.GetTests())
 {
-    var result = ReverseBits.Execute(test.n);
-    Console.WriteLine(ReverseBits.CheckResult(result, test.answer));
+    var result = NumberOf1Bits.Execute(test.n);
+    Console.WriteLine(NumberOf1Bits.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
