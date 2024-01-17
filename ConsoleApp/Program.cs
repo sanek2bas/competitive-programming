@@ -15,10 +15,10 @@ using TopInterview150._1D_DP;
 
 
 
-foreach (var test in PalindromeNumber.GetTests())
+foreach (var test in SqrtOfX.GetTests())
 {
-    var result = PalindromeNumber.Execute(test.x);
-    Console.WriteLine(PalindromeNumber.CheckResult(result, test.answer));
+    var result = SqrtOfX.Execute(test.x);
+    Console.WriteLine(SqrtOfX.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
