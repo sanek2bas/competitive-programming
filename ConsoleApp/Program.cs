@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in ContainsDuplicateII.GetTests())
+foreach (var test in PathSum.GetTests())
 {
-    var result = ContainsDuplicateII.Execute(test.nums, test.k);
-    Console.WriteLine(ContainsDuplicateII.CheckResult(result, test.answer));
+    var result = PathSum.Execute(test.root, test.targetSum);
+    Console.WriteLine(PathSum.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
