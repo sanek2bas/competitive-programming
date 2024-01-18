@@ -15,10 +15,10 @@ using TopInterview150._1D_DP;
 
 
 
-foreach (var test in SqrtOfX.GetTests())
+foreach (var test in SearchInsertPosition.GetTests())
 {
-    var result = SqrtOfX.Execute(test.x);
-    Console.WriteLine(SqrtOfX.CheckResult(result, test.answer));
+    var result = SearchInsertPosition.Execute(test.nums, test.target);
+    Console.WriteLine(SearchInsertPosition.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
