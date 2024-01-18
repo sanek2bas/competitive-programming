@@ -12,13 +12,14 @@ using TopInterview150.BinaryTreeBFS;
 using TopInterview150.BinarySearchTree;
 using TopInterview150.Divide_Conquer;
 using TopInterview150._1D_DP;
+using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in SummaryRanges.GetTests())
+foreach (var test in IsSubsequence.GetTests())
 {
-    var result = SummaryRanges.Execute(test.nums);
-    Console.WriteLine(SummaryRanges.CheckResult(result, test.answer));
+    var result = IsSubsequence.Execute(test.s, test.t);
+    Console.WriteLine(IsSubsequence.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
