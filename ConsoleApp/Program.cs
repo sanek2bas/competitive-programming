@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in PathSum.GetTests())
+foreach (var test in CountCompleteTreeNodes.GetTests())
 {
-    var result = PathSum.Execute(test.root, test.targetSum);
-    Console.WriteLine(PathSum.CheckResult(result, test.answer));
+    var result = CountCompleteTreeNodes.Execute(test.root);
+    Console.WriteLine(CountCompleteTreeNodes.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
