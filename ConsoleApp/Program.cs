@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in IsSubsequence.GetTests())
+foreach (var test in ContainsDuplicateII.GetTests())
 {
-    var result = IsSubsequence.Execute(test.s, test.t);
-    Console.WriteLine(IsSubsequence.CheckResult(result, test.answer));
+    var result = ContainsDuplicateII.Execute(test.nums, test.k);
+    Console.WriteLine(ContainsDuplicateII.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
