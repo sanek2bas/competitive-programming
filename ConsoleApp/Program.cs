@@ -15,10 +15,10 @@ using TopInterview150._1D_DP;
 
 
 
-foreach (var test in SearchInsertPosition.GetTests())
+foreach (var test in SummaryRanges.GetTests())
 {
-    var result = SearchInsertPosition.Execute(test.nums, test.target);
-    Console.WriteLine(SearchInsertPosition.CheckResult(result, test.answer));
+    var result = SummaryRanges.Execute(test.nums);
+    Console.WriteLine(SummaryRanges.CheckResult(result, test.answer));
 }
 
 //Console.ReadKey();
