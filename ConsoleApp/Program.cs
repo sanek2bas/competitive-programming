@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in CountCompleteTreeNodes.GetTests())
+foreach (var test in RemoveDuplicatesFromSortedArrayII.GetTests())
 {
-    var result = CountCompleteTreeNodes.Execute(test.root);
-    Console.WriteLine(CountCompleteTreeNodes.CheckResult(result, test.answer));
+    var result = RemoveDuplicatesFromSortedArrayII.Execute(test.nums);
+    Console.WriteLine(RemoveDuplicatesFromSortedArrayII.CheckResult(test.nums, result, test.answer));
 }
 
 //Console.ReadKey();
