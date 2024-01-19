@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in RotateArray.GetTests())
+foreach (var test in JumpGame.GetTests())
 {
-    RotateArray.Execute(test.nums, test.k);
-    Console.WriteLine(RotateArray.CheckResult(test.nums, test.answer));
+    var result = JumpGame.Execute(test.nums);
+    Console.WriteLine(JumpGame.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
