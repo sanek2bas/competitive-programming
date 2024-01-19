@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in JumpGameII.GetTests())
+foreach (var test in IntegerToRoman.GetTests())
 {
-    var result = JumpGameII.Execute(test.nums);
-    Console.WriteLine(JumpGameII.CheckResult(result, test.answer));
+    var result = IntegerToRoman.Execute(test.nums);
+    Console.WriteLine(IntegerToRoman.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
