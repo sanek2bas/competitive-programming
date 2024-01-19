@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in GasStation.GetTests())
+foreach (var test in ProductOfArrayExceptSelf.GetTests())
 {
-    var result = GasStation.Execute(test.gas, test.cost);
-    Console.WriteLine(GasStation.CheckResult(result, test.answer));
+    var result = ProductOfArrayExceptSelf.Execute(test.nums);
+    Console.WriteLine(ProductOfArrayExceptSelf.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
