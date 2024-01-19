@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in JumpGame.GetTests())
+foreach (var test in JumpGameII.GetTests())
 {
-    var result = JumpGame.Execute(test.nums);
-    Console.WriteLine(JumpGame.CheckResult(result, test.answer));
+    var result = JumpGameII.Execute(test.nums);
+    Console.WriteLine(JumpGameII.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
