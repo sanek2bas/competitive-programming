@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in IntegerToRoman.GetTests())
+foreach (var test in GasStation.GetTests())
 {
-    var result = IntegerToRoman.Execute(test.nums);
-    Console.WriteLine(IntegerToRoman.CheckResult(result, test.answer));
+    var result = GasStation.Execute(test.gas, test.cost);
+    Console.WriteLine(GasStation.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
