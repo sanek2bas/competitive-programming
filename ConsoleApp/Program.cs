@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in ProductOfArrayExceptSelf.GetTests())
+foreach (var test in H_Index.GetTests())
 {
-    var result = ProductOfArrayExceptSelf.Execute(test.nums);
-    Console.WriteLine(ProductOfArrayExceptSelf.CheckResult(result, test.answer));
+    var result = H_Index.Execute(test.citations);
+    Console.WriteLine(H_Index.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
