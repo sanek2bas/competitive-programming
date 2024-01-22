@@ -16,10 +16,10 @@ using TopInterview150.TwoPointers;
 
 
 
-foreach (var test in H_Index.GetTests())
+foreach (var test in InsertDeleteGetRandom.GetTests())
 {
-    var result = H_Index.Execute(test.citations);
-    Console.WriteLine(H_Index.CheckResult(result, test.answer));
+    var result = InsertDeleteGetRandom.Execute(test.function);
+    Console.WriteLine(InsertDeleteGetRandom.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
