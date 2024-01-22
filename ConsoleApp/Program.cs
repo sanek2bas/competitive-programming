@@ -13,13 +13,14 @@ using TopInterview150.BinarySearchTree;
 using TopInterview150.Divide_Conquer;
 using TopInterview150._1D_DP;
 using TopInterview150.TwoPointers;
+using TopInterview150.Matrix;
 
 
 
-foreach (var test in InsertDeleteGetRandom.GetTests())
+foreach (var test in ValidSudoku.GetTests())
 {
-    var result = InsertDeleteGetRandom.Execute(test.function);
-    Console.WriteLine(InsertDeleteGetRandom.CheckResult(result, test.answer));
+    var result = ValidSudoku.Execute(test.board);
+    Console.WriteLine(ValidSudoku.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
