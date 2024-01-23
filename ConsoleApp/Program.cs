@@ -17,10 +17,10 @@ using TopInterview150.Matrix;
 
 
 
-foreach (var test in ValidSudoku.GetTests())
+foreach (var test in SpiralMatrix.GetTests())
 {
-    var result = ValidSudoku.Execute(test.board);
-    Console.WriteLine(ValidSudoku.CheckResult(result, test.answer));
+    var result = SpiralMatrix.Execute(test.matrix);
+    Console.WriteLine(SpiralMatrix.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
