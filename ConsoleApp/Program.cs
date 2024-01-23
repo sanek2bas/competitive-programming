@@ -14,13 +14,14 @@ using TopInterview150.Divide_Conquer;
 using TopInterview150._1D_DP;
 using TopInterview150.TwoPointers;
 using TopInterview150.Matrix;
+using Multitrack;
 
 
 
-foreach (var test in SpiralMatrix.GetTests())
+foreach (var test in TimePalindrome.GetTests())
 {
-    var result = SpiralMatrix.Execute(test.matrix);
-    Console.WriteLine(SpiralMatrix.CheckResult(result, test.answer));
+    var result = TimePalindrome.Execute(test.n, test.m);
+    Console.WriteLine(TimePalindrome.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
