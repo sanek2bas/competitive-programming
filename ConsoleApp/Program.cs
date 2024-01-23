@@ -18,10 +18,10 @@ using Multitrack;
 
 
 
-foreach (var test in TimePalindrome.GetTests())
+foreach (var test in BasicCalculator.GetTests())
 {
-    var result = TimePalindrome.Execute(test.n, test.m);
-    Console.WriteLine(TimePalindrome.CheckResult(result, test.answer));
+    var result = BasicCalculator.Execute(test.s);
+    Console.WriteLine(BasicCalculator.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
