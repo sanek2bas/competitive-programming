@@ -18,10 +18,10 @@ using Multitrack;
 
 
 
-foreach (var test in BasicCalculator.GetTests())
+foreach (var test in BinaryTreeRightSideView.GetTests())
 {
-    var result = BasicCalculator.Execute(test.s);
-    Console.WriteLine(BasicCalculator.CheckResult(result, test.answer));
+    var result = BinaryTreeRightSideView.Execute(test.root);
+    Console.WriteLine(BinaryTreeRightSideView.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
