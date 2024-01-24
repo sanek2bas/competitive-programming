@@ -13,13 +13,15 @@ using TopInterview150.BinarySearchTree;
 using TopInterview150.Divide_Conquer;
 using TopInterview150._1D_DP;
 using TopInterview150.TwoPointers;
+using TopInterview150.Matrix;
+using Multitrack;
 
 
 
-foreach (var test in RemoveDuplicatesFromSortedArrayII.GetTests())
+foreach (var test in BasicCalculator.GetTests())
 {
-    var result = RemoveDuplicatesFromSortedArrayII.Execute(test.nums);
-    Console.WriteLine(RemoveDuplicatesFromSortedArrayII.CheckResult(test.nums, result, test.answer));
+    var result = BasicCalculator.Execute(test.s);
+    Console.WriteLine(BasicCalculator.CheckResult(result, test.answer));
 }
 
-//Console.ReadKey();
+Console.ReadKey();
