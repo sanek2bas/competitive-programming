@@ -15,13 +15,14 @@ using TopInterview150._1D_DP;
 using TopInterview150.TwoPointers;
 using TopInterview150.Matrix;
 using Multitrack;
+using Route256.Sandbox;
 
 
 
-foreach (var test in BinaryTreeRightSideView.GetTests())
+foreach (var test in DateCheck.GetTests())
 {
-    var result = BinaryTreeRightSideView.Execute(test.root);
-    Console.WriteLine(BinaryTreeRightSideView.CheckResult(result, test.answer));
+    var result = DateCheck.Execute(test.d, test.m, test.y);
+    Console.WriteLine(DateCheck.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
