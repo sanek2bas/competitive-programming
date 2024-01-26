@@ -1,6 +1,6 @@
 ﻿namespace Route256.Contest
 {
-    public static class B_SeaBattle
+    public static class SeaBattle
     {
         public static void Main()
         {

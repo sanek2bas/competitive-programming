@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Route256.Sandbox
 {
-    public static class J_Ryhmes
+    public static class Ryhmes
     {
         public static void Main()
         {

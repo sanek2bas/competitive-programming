@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class A_Summator
+    public static class Summator
     {
         public static void Main()
         {

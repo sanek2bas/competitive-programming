@@ -1,6 +1,6 @@
 ﻿namespace Route256.Contest
 {
-    public static class A_Form
+    public static class Form
     {
        public static void Main()
         {

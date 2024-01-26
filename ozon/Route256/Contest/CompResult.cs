@@ -1,6 +1,6 @@
 ﻿namespace Route256.Contest
 {
-    public static class D_CompResult
+    public static class CompResult
     {
         public static void Main()
         {

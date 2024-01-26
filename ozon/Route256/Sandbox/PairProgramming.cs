@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class C_PairProgramming
+    public static class PairProgramming
     {
         public static void Main()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Route256.Contest
 {
-    public static class G_DoctorAppointment
+    public static class DoctorAppointment
     {
         public static void Main()
         {

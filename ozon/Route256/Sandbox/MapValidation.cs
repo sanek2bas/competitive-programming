@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class H_MapValidation
+    public static class MapValidation
     {
         public static void Main()
         {

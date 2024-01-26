@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class I_TaskManager
+    public static class TaskManager
     {
         public static void Main()
         {;

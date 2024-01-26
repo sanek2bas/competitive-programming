@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class F_TimeSplit
+    public static class TimeSplit
     {
         public static void Main()
         {

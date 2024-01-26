@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Route256.Contest
 {
-    public static class F_PrintDoc
+    public static class PrintDoc
     {
         public static void Main()
         {

@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class G_PotentialFriends
+    public static class PotentialFriends
     {
         public static void Main()
         {

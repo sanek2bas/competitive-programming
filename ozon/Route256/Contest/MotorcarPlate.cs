@@ -2,7 +2,7 @@
 
 namespace Route256.Contest
 {
-    public static class C_MotorcarPlate
+    public static class MotorcarPlate
     {
         public static void Main()
         {

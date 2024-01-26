@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class E_Report
+    public static class Report
     {
         public static void Main()
         {

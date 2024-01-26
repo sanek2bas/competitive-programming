@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class D_ElectronicWorlsheet
+    public static class ElectronicWorlsheet
     {
         public static void Main()
         {

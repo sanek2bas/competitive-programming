@@ -1,6 +1,6 @@
 ﻿namespace Route256.Contest
 {
-    public static class E_TradeMark
+    public static class TradeMark
     {
         public static void Main()
         {

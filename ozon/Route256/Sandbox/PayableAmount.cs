@@ -1,6 +1,6 @@
 ﻿namespace Route256.Sandbox
 {
-    public static class B_PayableAmount
+    public static class PayableAmount
     {
         public static void Main()
         {
