@@ -18,11 +18,10 @@ using Multitrack;
 using Route256.Sandbox;
 
 
-
-foreach (var test in DateCheck.GetTests())
+foreach (var test in CommentTree.GetTests())
 {
-    var result = DateCheck.Execute(test.d, test.m, test.y);
-    Console.WriteLine(DateCheck.CheckResult(result, test.answer));
+    var result = CommentTree.Execute(test.comments);
+    Console.WriteLine(CommentTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
