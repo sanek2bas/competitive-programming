@@ -16,12 +16,13 @@ using TopInterview150.TwoPointers;
 using TopInterview150.Matrix;
 using Multitrack;
 using Route256.Sandbox;
+using Route256.Contest;
 
 
-foreach (var test in CommentTree.GetTests())
+foreach (var test in MotorcarPlate.GetTests())
 {
-    var result = CommentTree.Execute(test.comments);
-    Console.WriteLine(CommentTree.CheckResult(result, test.answer));
+    var result = MotorcarPlate.Execute(test.str);
+    Console.WriteLine(MotorcarPlate.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
