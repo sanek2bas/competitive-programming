@@ -19,10 +19,10 @@ using Route256.Sandbox;
 using Route256.Contest;
 
 
-foreach (var test in MotorcarPlate.GetTests())
+foreach (var test in PrintDoc.GetTests())
 {
-    var result = MotorcarPlate.Execute(test.str);
-    Console.WriteLine(MotorcarPlate.CheckResult(result, test.answer));
+    var result = PrintDoc.Execute(test.pagesCount, test.printedPages);
+    Console.WriteLine(PrintDoc.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
