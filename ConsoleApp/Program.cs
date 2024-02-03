@@ -19,10 +19,10 @@ using Route256.Sandbox;
 using Route256.Contest;
 
 
-foreach (var test in PrintDoc.GetTests())
+foreach (var test in BattleForAirConditioning.GetTests())
 {
-    var result = PrintDoc.Execute(test.pagesCount, test.printedPages);
-    Console.WriteLine(PrintDoc.CheckResult(result, test.answer));
+    var result = BattleForAirConditioning.Execute(test.temperatureLimits);
+    Console.WriteLine(BattleForAirConditioning.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
