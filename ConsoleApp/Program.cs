@@ -19,10 +19,10 @@ using Route256.Sandbox;
 using Route256.Contest;
 using TopInterview150.GraphGeneral;
 
-foreach (var test in NumberOfIslands.GetTests())
+foreach (var test in PlayingFieldAnalysis.GetTests())
 {
-    var result = NumberOfIslands.Execute(test.grid);
-    Console.WriteLine(NumberOfIslands.CheckResult(result, test.answer));
+    var result = PlayingFieldAnalysis.Execute(test.field);
+    Console.WriteLine(PlayingFieldAnalysis.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
