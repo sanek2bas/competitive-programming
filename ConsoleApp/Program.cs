@@ -17,11 +17,12 @@ using TopInterview150.Matrix;
 using Multitrack;
 using Route256.Sandbox;
 using Route256.Contest;
+using TopInterview150.GraphGeneral;
 
-foreach (var test in Terminal.GetTests())
+foreach (var test in NumberOfIslands.GetTests())
 {
-    var result = Terminal.Execute(test.str);
-    Console.WriteLine(Terminal.CheckResult(result, test.answer));
+    var result = NumberOfIslands.Execute(test.grid);
+    Console.WriteLine(NumberOfIslands.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
