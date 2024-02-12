@@ -19,10 +19,22 @@ using Route256.Sandbox;
 using Route256.Contest;
 using TopInterview150.GraphGeneral;
 
-foreach (var test in PlayingFieldAnalysis.GetTests())
+//using StreamWriter st = new StreamWriter("qwerty.txt");
+//var t = Convert.ToInt32(Console.ReadLine());
+//for (int i = 0; i < t; i++)
+//{
+//    var number = Console.ReadLine();
+//    var str = Console.ReadLine();
+//    var result = ThreeRightQueue.Execute(str);
+//    st.WriteLine(result ? "Yes" : "No");
+//}
+
+
+
+foreach (var test in RoundingError.GetTests())
 {
-    var result = PlayingFieldAnalysis.Execute(test.field);
-    Console.WriteLine(PlayingFieldAnalysis.CheckResult(result, test.answer));
+    var result = RoundingError.Execute(test.precent, test.prices);
+    Console.WriteLine(RoundingError.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
