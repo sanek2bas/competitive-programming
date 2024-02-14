@@ -18,23 +18,14 @@ using Multitrack;
 using Route256.Sandbox;
 using Route256.Contest;
 using TopInterview150.GraphGeneral;
+using TopInterview150.Backtracking;
 
-using StreamWriter st = new StreamWriter("qwerty.txt");
-var t = Convert.ToInt32(Console.ReadLine());
-for (int i = 0; i < t; i++)
+
+
+foreach (var test in LetterCombinationsOfAPhoneNumber.GetTests())
 {
-    var number = Console.ReadLine();
-    var str = Console.ReadLine();
-    var result = ThreeRightQueue.Execute(str);
-    st.WriteLine(result ? "Yes" : "No");
+    var result = LetterCombinationsOfAPhoneNumber.Execute(test.digits);
+    Console.WriteLine(LetterCombinationsOfAPhoneNumber.CheckResult(result, test.answer));
 }
 
-
-
-//foreach (var test in ThreeRightQueue.GetTests())
-//{
-//    var result = ThreeRightQueue.Execute(test.queue);
-//    Console.WriteLine(ThreeRightQueue.CheckResult(result, test.answer));
-//}
-
-//Console.ReadKey();
+Console.ReadKey();
