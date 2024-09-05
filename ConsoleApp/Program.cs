@@ -19,13 +19,14 @@ using Route256.Sandbox;
 using Route256.Contest;
 using TopInterview150.GraphGeneral;
 using TopInterview150.Backtracking;
+using TopInterview150.BinarySearch;
 
 
 
-foreach (var test in LetterCombinationsOfAPhoneNumber.GetTests())
+foreach (var test in FindPeakElement.GetTests())
 {
-    var result = LetterCombinationsOfAPhoneNumber.Execute(test.digits);
-    Console.WriteLine(LetterCombinationsOfAPhoneNumber.CheckResult(result, test.answer));
+    var result = FindPeakElement.Execute(test.nums);
+    Console.WriteLine(FindPeakElement.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
