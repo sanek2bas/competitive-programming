@@ -23,10 +23,10 @@ using TopInterview150.BinarySearch;
 
 
 
-foreach (var test in FindPeakElement.GetTests())
+foreach (var test in MergekSortedLists.GetTests())
 {
-    var result = FindPeakElement.Execute(test.nums);
-    Console.WriteLine(FindPeakElement.CheckResult(result, test.answer));
+    var result = MergekSortedLists.Execute(test.lists);
+    Console.WriteLine(MergekSortedLists.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
