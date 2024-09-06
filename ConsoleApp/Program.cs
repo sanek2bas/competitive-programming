@@ -23,10 +23,10 @@ using TopInterview150.BinarySearch;
 
 
 
-foreach (var test in Search2DMatrix.GetTests())
+foreach (var test in SearchInRotatedSortedArray.GetTests())
 {
-    var result = Search2DMatrix.Execute(test.matrix, test.target);
-    Console.WriteLine(Search2DMatrix.CheckResult(result, test.answer));
+    var result = SearchInRotatedSortedArray.Execute(test.nums, test.target);
+    Console.WriteLine(SearchInRotatedSortedArray.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
