@@ -23,10 +23,10 @@ using TopInterview150.BinarySearch;
 
 
 
-foreach (var test in MergeTwoSortedLists.GetTests())
+foreach (var test in Search2DMatrix.GetTests())
 {
-    var result = MergeTwoSortedLists.Execute(test.node1, test.node2);
-    Console.WriteLine(MergeTwoSortedLists.CheckResult(result, test.answer));
+    var result = Search2DMatrix.Execute(test.matrix, test.target);
+    Console.WriteLine(Search2DMatrix.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
