@@ -59,7 +59,7 @@ namespace TopInterview150.LinkedList
                     return false;
                 result = result.Next;
             }
-            return true;
+            return result == null;
         }
     }
 }

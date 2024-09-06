@@ -23,10 +23,10 @@ using TopInterview150.BinarySearch;
 
 
 
-foreach (var test in MergekSortedLists.GetTests())
+foreach (var test in MergeTwoSortedLists.GetTests())
 {
-    var result = MergekSortedLists.Execute(test.lists);
-    Console.WriteLine(MergekSortedLists.CheckResult(result, test.answer));
+    var result = MergeTwoSortedLists.Execute(test.node1, test.node2);
+    Console.WriteLine(MergeTwoSortedLists.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
