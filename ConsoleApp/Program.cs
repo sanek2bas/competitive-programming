@@ -20,13 +20,14 @@ using Route256.Contest;
 using TopInterview150.GraphGeneral;
 using TopInterview150.Backtracking;
 using TopInterview150.BinarySearch;
+using TopInterview150.GraphBFS;
 
 
 
-foreach (var test in SearchInRotatedSortedArray.GetTests())
+foreach (var test in SnakesAndLadders.GetTests())
 {
-    var result = SearchInRotatedSortedArray.Execute(test.nums, test.target);
-    Console.WriteLine(SearchInRotatedSortedArray.CheckResult(result, test.answer));
+    var result = SnakesAndLadders.Execute(test.board);
+    Console.WriteLine(SnakesAndLadders.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
