@@ -21,13 +21,14 @@ using TopInterview150.GraphGeneral;
 using TopInterview150.Backtracking;
 using TopInterview150.BinarySearch;
 using TopInterview150.GraphBFS;
+using TopInterview150.Heap;
 
 
 
-foreach (var test in SnakesAndLadders.GetTests())
+foreach (var test in KthLargestElementInArray.GetTests())
 {
-    var result = SnakesAndLadders.Execute(test.board);
-    Console.WriteLine(SnakesAndLadders.CheckResult(result, test.answer));
+    var result = KthLargestElementInArray.Execute(test.nums, test.k);
+    Console.WriteLine(KthLargestElementInArray.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
