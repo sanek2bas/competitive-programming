@@ -22,13 +22,14 @@ using TopInterview150.Backtracking;
 using TopInterview150.BinarySearch;
 using TopInterview150.GraphBFS;
 using TopInterview150.Heap;
+using TopInterview150.Trie;
 
 
 
-foreach (var test in KthLargestElementInArray.GetTests())
+foreach (var test in ImplementTrie_PrefixTree.GetTests())
 {
-    var result = KthLargestElementInArray.Execute(test.nums, test.k);
-    Console.WriteLine(KthLargestElementInArray.CheckResult(result, test.answer));
+    var result = ImplementTrie_PrefixTree.Execute(test.words);
+    Console.WriteLine(ImplementTrie_PrefixTree.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
