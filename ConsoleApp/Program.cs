@@ -23,13 +23,14 @@ using TopInterview150.BinarySearch;
 using TopInterview150.GraphBFS;
 using TopInterview150.Heap;
 using TopInterview150.Trie;
+using TopInterview150.Kadane_sAlgorithm;
 
 
 
-foreach (var test in ImplementTrie_PrefixTree.GetTests())
+foreach (var test in MaximumSubarray.GetTests())
 {
-    var result = ImplementTrie_PrefixTree.Execute(test.words);
-    Console.WriteLine(ImplementTrie_PrefixTree.CheckResult(result, test.answer));
+    var result = MaximumSubarray.Execute(test.nums);
+    Console.WriteLine(MaximumSubarray.CheckResult(result, test.answer));
 }
 
 Console.ReadKey();
