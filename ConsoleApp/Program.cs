@@ -23,11 +23,12 @@ using TopInterview150.GraphBFS;
 using TopInterview150.Heap;
 using TopInterview150.Trie;
 using TopInterview150.Kadane_sAlgorithm;
+using TopInterview150.Multidimensional_DP;
 
 
 
-foreach (var test in ReverseWordsInString.GetTests())
+foreach (var test in Triangle.GetTests())
 {
-    var result = ReverseWordsInString.Execute(test.s);
-    Console.WriteLine(ReverseWordsInString.CheckResult(result, test.answer));
+    var result = Triangle.Execute(test.triangle);
+    Console.WriteLine(Triangle.CheckResult(result, test.answer));
 }
