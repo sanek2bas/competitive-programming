@@ -26,9 +26,14 @@ using TopInterview150.Kadane_sAlgorithm;
 using TopInterview150.Multidimensional_DP;
 
 
-
-foreach (var test in Triangle.GetTests())
+internal class Program
 {
-    var result = Triangle.Execute(test.triangle);
-    Console.WriteLine(Triangle.CheckResult(result, test.answer));
+    private static async Task Main(string[] args)
+    {
+        foreach (var test in Combinations.GetTests())
+        {
+            var result = Combinations.Execute(test.n, test.k);
+            Console.WriteLine(Combinations.CheckResult(result, test.answer));
+        }
+    }
 }
