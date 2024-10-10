@@ -30,10 +30,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in Combinations.GetTests())
+        foreach (var test in ReverseLinkedListII.GetTests())
         {
-            var result = Combinations.Execute(test.n, test.k);
-            Console.WriteLine(Combinations.CheckResult(result, test.answer));
+            var result = ReverseLinkedListII.Execute(test.head, test.left, test.right);
+            Console.WriteLine(ReverseLinkedListII.CheckResult(result, test.answer));
         }
     }
 }
