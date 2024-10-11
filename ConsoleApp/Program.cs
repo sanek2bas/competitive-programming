@@ -30,10 +30,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in ReverseLinkedListII.GetTests())
+        foreach (var test in SurroundedRegions.GetTests())
         {
-            var result = ReverseLinkedListII.Execute(test.head, test.left, test.right);
-            Console.WriteLine(ReverseLinkedListII.CheckResult(result, test.answer));
+            SurroundedRegions.Execute(test.board);
+            Console.WriteLine(SurroundedRegions.CheckResult(test.board, test.answer));
         }
     }
 }
