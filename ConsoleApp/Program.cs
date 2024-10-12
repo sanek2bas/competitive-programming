@@ -30,10 +30,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in SurroundedRegions.GetTests())
+        foreach (var test in MinimumPathSum.GetTests())
         {
-            SurroundedRegions.Execute(test.board);
-            Console.WriteLine(SurroundedRegions.CheckResult(test.board, test.answer));
+            int result = MinimumPathSum.Execute(test.grid);
+            Console.WriteLine(MinimumPathSum.CheckResult(result, test.answer));
         }
     }
 }
