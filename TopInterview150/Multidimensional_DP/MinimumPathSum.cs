@@ -49,8 +49,8 @@ public class MinimumPathSum
             12);
         }
 
-        public static bool CheckResult(int result, int answer)
-        {
-            return result == answer;
-        }
+    public static bool CheckResult(int result, int answer)
+    {
+        return result == answer;
+    }
 }

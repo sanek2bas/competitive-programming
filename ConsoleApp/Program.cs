@@ -25,15 +25,14 @@ using TopInterview150.Trie;
 using TopInterview150.Kadane_sAlgorithm;
 using TopInterview150.Multidimensional_DP;
 
-
 internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in MinimumPathSum.GetTests())
+        foreach (var test in HouseRobber.GetTests())
         {
-            int result = MinimumPathSum.Execute(test.grid);
-            Console.WriteLine(MinimumPathSum.CheckResult(result, test.answer));
+            int result = HouseRobber.Execute(test.nums);
+            Console.WriteLine(HouseRobber.CheckResult(result, test.answer));
         }
     }
 }
