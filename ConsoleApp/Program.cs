@@ -29,10 +29,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in InterleavingString.GetTests())
+        foreach (var test in WordBreak.GetTests())
         {
-            var result = InterleavingString.Execute(test.s1, test.s2, test.s3);
-            Console.WriteLine(InterleavingString.CheckResult(result, test.answer));
+            var result = WordBreak.Execute(test.s, test.words);
+            Console.WriteLine(WordBreak.CheckResult(result, test.answer));
         }
     }
 }
