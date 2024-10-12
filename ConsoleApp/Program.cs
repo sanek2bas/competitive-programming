@@ -29,10 +29,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in HouseRobber.GetTests())
+        foreach (var test in UniquePathsII.GetTests())
         {
-            int result = HouseRobber.Execute(test.nums);
-            Console.WriteLine(HouseRobber.CheckResult(result, test.answer));
+            int result = UniquePathsII.Execute(test.grid);
+            Console.WriteLine(UniquePathsII.CheckResult(result, test.answer));
         }
     }
 }

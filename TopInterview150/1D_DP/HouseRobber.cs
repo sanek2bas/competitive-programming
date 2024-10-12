@@ -1,6 +1,6 @@
 namespace TopInterview150._1D_DP;
 
-public class HouseRobber
+public static class HouseRobber
 {
     /// <summary>
     /// You are a professional robber planning to rob houses along a street. 

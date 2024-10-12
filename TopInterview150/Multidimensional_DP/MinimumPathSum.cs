@@ -2,7 +2,7 @@ using System;
 
 namespace TopInterview150.Multidimensional_DP;
 
-public class MinimumPathSum
+public static class MinimumPathSum
 {
     /// <summary>
     /// Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, 
