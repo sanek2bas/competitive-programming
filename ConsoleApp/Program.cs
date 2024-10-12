@@ -29,10 +29,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in UniquePathsII.GetTests())
+        foreach (var test in InterleavingString.GetTests())
         {
-            int result = UniquePathsII.Execute(test.grid);
-            Console.WriteLine(UniquePathsII.CheckResult(result, test.answer));
+            var result = InterleavingString.Execute(test.s1, test.s2, test.s3);
+            Console.WriteLine(InterleavingString.CheckResult(result, test.answer));
         }
     }
 }
