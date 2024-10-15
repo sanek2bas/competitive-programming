@@ -1,6 +1,6 @@
 ﻿namespace Infrastructure
 {
-    public sealed class ListNode
+    public sealed  class ListNode
     {
         public int Value { get; init; }
 

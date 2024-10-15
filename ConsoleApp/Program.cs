@@ -29,10 +29,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in RotateImage.GetTests())
+        foreach (var test in CopyListWithRandomPointer.GetTests())
         {
-            RotateImage.Execute(test.matrix);
-            Console.WriteLine(RotateImage.CheckResult(test.matrix, test.answer));
+            var result = CopyListWithRandomPointer.Execute(test.head);
+            Console.WriteLine(CopyListWithRandomPointer.CheckResult(result, test.answer));
         }
     }
 }
