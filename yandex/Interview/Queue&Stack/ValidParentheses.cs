@@ -43,7 +43,6 @@
             yield return ("()", true);
             yield return ("()[]{}", true);
             yield return ("(]", false);
-
         }
     }
 }

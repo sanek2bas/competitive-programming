@@ -21,8 +21,10 @@ namespace Interview.LinkedList
 
         public static IEnumerable<(ListNode node, int[] answer)> GetTests()
         {
-            yield return (ListNode.CreateListNode(1, 2, 3, 4, 5), new int[] {5, 4, 3, 2, 1});
-            yield return (ListNode.CreateListNode(1, 2), new int[] {2, 1});
+            yield return (ListNode.CreateListNode(1, 2, 3, 4, 5), 
+                          new int[] {5, 4, 3, 2, 1});
+            yield return (ListNode.CreateListNode(1, 2), 
+                          new int[] {2, 1});
             yield return (null, Array.Empty<int>());
         }
 
