@@ -29,10 +29,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in RemoveDuplicatesFromSortedListII.GetTests())
+        foreach (var test in PartitionList.GetTests())
         {
-            var result = RemoveDuplicatesFromSortedListII.Execute(test.head);
-            Console.WriteLine(RemoveDuplicatesFromSortedListII.CheckResult(result, test.answer));
+            var result = PartitionList.Execute(test.head, test.x);
+            Console.WriteLine(PartitionList.CheckResult(result, test.answer));
         }
     }
 }
