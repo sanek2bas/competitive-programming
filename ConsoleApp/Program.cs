@@ -29,10 +29,10 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        foreach (var test in PartitionList.GetTests())
+        foreach (var test in ConstructBinaryTreeFromPreorderAndInorderTraversal.GetTests())
         {
-            var result = PartitionList.Execute(test.head, test.x);
-            Console.WriteLine(PartitionList.CheckResult(result, test.answer));
+            var result = ConstructBinaryTreeFromPreorderAndInorderTraversal.Execute(test.preorder, test.inorder);
+            Console.WriteLine(ConstructBinaryTreeFromPreorderAndInorderTraversal.CheckResult(result, test.answer));
         }
     }
 }
