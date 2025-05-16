@@ -1,4 +1,3 @@
-using System;
 using Infrastructure;
 
 namespace TopInterview150.BinaryTreeGeneral;
@@ -48,7 +47,7 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal
     {
         yield return (
             new int[] { 3, 9, 20, 15, 7 },
-            new int[] { 9, 3, 15, 20 },
+            new int[] { 9, 3, 15, 20, 7 },
             TreeNode.Map(3, 9, 20, null, null, 15, 7));
         yield return (
             new int[] { -1 },

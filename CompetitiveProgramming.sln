@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "yandex", "yandex", "{B3ED09
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ozon", "ozon", "{B6E6AE4E-200B-476A-A7F0-931274C29A40}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "leetcode", "leetcode", "{BA8E18C9-40AB-40B8-8DEF-73095D7DF291}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview", "yandex\Interview\Interview.csproj", "{B48C5DD3-CFC6-43DE-9C87-78C415B55E53}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Route256", "ozon\Route256\Route256.csproj", "{9CDB51A8-F5F0-420B-BD59-190F974A9BC1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "leetcode", "leetcode", "{BA8E18C9-40AB-40B8-8DEF-73095D7DF291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopInterview150", "leetcode\TopInterview150\TopInterview150.csproj", "{303BAD2A-A1E3-4024-B09F-CBBBEC2F672D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopInterview150", "TopInterview150\TopInterview150.csproj", "{303BAD2A-A1E3-4024-B09F-CBBBEC2F672D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{344134AF-B4BA-4A09-8291-1A7E81CAC3F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "leetcode\Infrastructure\Infrastructure.csproj", "{344134AF-B4BA-4A09-8291-1A7E81CAC3F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
