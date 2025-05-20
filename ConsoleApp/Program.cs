@@ -1,13 +1,20 @@
-﻿using TopInterview150.BinaryTreeGeneral;
+﻿using Interview.Dfs_Bfs;
+using Interview.HashTable;
+using TopInterview150.BinaryTreeGeneral;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in ConstructBinaryTreeFromInorderAndPostorderTraversal.GetTests())
+        foreach (var test in SingleNumber.GetTests())
         {
-            var result = ConstructBinaryTreeFromInorderAndPostorderTraversal.Execute(test.inorder, test.postorder);
-            Console.WriteLine(ConstructBinaryTreeFromInorderAndPostorderTraversal.CheckResult(result, test.answer));
+            var result = SingleNumber.Execute(test.numbers);
+            Console.WriteLine(SingleNumber.CheckResult(result, test.answer));
         }
+        //foreach (var test in FlattenBinaryTreeToLinkedList.GetTests())
+        //{
+        //    FlattenBinaryTreeToLinkedList.Execute(test.root);
+        //    Console.WriteLine(FlattenBinaryTreeToLinkedList.CheckResult(test.root, test.answer));
+        //}
     }
 }
