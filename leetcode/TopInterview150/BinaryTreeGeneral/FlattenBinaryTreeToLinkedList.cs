@@ -37,6 +37,7 @@ public class FlattenBinaryTreeToLinkedList
         if (root.Right != null)
             rightNodes.Push(root.Right);
         root.Right = root.Left;
+        root.Left = null;
         Build(root.Right, rightNodes);
     }
 
@@ -63,13 +64,15 @@ public class FlattenBinaryTreeToLinkedList
         {
             if (result.Value != answer[idx])
                 return false;
-            idx++;
-            if (result.Left != null ||
+            if (result.Left != null)
+                return false;
+            idx++;           
+            if (answer.Length < idx &&
                 answer[idx] != null)
                 return false;
             result = result.Right;
             idx++;
         }
-        return answer.Length == idx;
+        return answer.Length <= idx;
     }
 }
