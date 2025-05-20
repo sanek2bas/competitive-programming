@@ -1,4 +1,3 @@
-using System;
 using Infrastructure;
 
 namespace TopInterview150.BinaryTreeGeneral;
@@ -16,29 +15,19 @@ public class FlattenBinaryTreeToLinkedList
         if (root == null)
             return;
 
-        var rightNodes = new Stack<TreeNode>();
-        Build(root, rightNodes);
-    }
-
-    private static void Build(TreeNode root, Stack<TreeNode> rightNodes)
-    {
-        if (root.Left == null)
+        while (root != null)
         {
-            if (root.Right == null)
+            if (root.Left != null)
             {
-                if (rightNodes.Count == 0)
-                    return;
-                root.Right = rightNodes.Pop();
+                TreeNode rightMost = root.Left;
+                while (rightMost.Right != null)
+                    rightMost = rightMost.Right;
+                rightMost.Right = root.Right;
+                root.Right = root.Left;
+                root.Left = null;
             }
-            Build(root.Right, rightNodes);
-            return;
+            root = root.Right;
         }
-
-        if (root.Right != null)
-            rightNodes.Push(root.Right);
-        root.Right = root.Left;
-        root.Left = null;
-        Build(root.Right, rightNodes);
     }
 
     public static IEnumerable<(TreeNode root, int?[] answer)> GetTests()
