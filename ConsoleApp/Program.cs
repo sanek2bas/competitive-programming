@@ -6,10 +6,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in FlattenBinaryTreeToLinkedList.GetTests())
+        foreach (var test in PopulatinNextRightPointersInEachNode2.GetTests())
         {
-            FlattenBinaryTreeToLinkedList.Execute(test.root);
-            Console.WriteLine(FlattenBinaryTreeToLinkedList.CheckResult(test.root, test.answer));
+            PopulatinNextRightPointersInEachNode2.Execute(test.root);
+            Console.WriteLine(PopulatinNextRightPointersInEachNode2.CheckResult(test.root, test.answer));
         }
     }
 }
