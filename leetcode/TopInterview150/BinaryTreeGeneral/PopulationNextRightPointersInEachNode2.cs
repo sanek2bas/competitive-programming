@@ -3,14 +3,13 @@ using Infrastructure;
 
 namespace TopInterview150.BinaryTreeGeneral;
 
-public class PopulatinNextRightPointersInEachNode2
+public class PopulationNextRightPointersInEachNode2
 {
     /// <summary>
     /// Populate each next pointer to point to its next right node.\
     ///  If there is no next right node, the next pointer should be set to NULL.
     /// Initially, all next pointers are set to NULL.
     /// </summary>
-    Доделать
     public static TreeListNode Execute(TreeListNode root)
     {
         TreeListNode node = root;
@@ -42,7 +41,7 @@ public class PopulatinNextRightPointersInEachNode2
     public static IEnumerable<(TreeListNode root, int?[] answer)> GetTests()
     {
         yield return (
-            TreeListNode.Map(1, 2, 3, 4, 5, null, 7),
+            TreeListNode.Map(1, 2, 3, 4, 5, 6, 7),
             new int?[] { 1, null, 2, 3, null, 4, 5, 7, null });
         yield return (
             TreeListNode.Map(),

@@ -9,11 +9,12 @@ public class CloneGraph
     /// Given a reference of a node in a connected undirected graph.
     /// Return a deep copy (clone) of the graph.
     /// </summary>
+    /*
     public static Node Execute(Node node)
     {
     }
-
-доделать
+    */
+    /*
     public static IEnumerable<(Node node, Node answer)> GetTests()
     {
         yield return (
@@ -47,6 +48,8 @@ public class CloneGraph
             });
     }
 
+    */
+    /*
     public static bool CheckResult(char[][] result, char[][] answer)
     {
         if (result.Length != answer.Length)
@@ -58,4 +61,5 @@ public class CloneGraph
         }
         return true;
     }
+    */
 }

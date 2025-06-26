@@ -6,10 +6,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in PopulatinNextRightPointersInEachNode2.GetTests())
+        foreach (var test in PopulationNextRightPointersInEachNode2.GetTests())
         {
-            PopulatinNextRightPointersInEachNode2.Execute(test.root);
-            Console.WriteLine(PopulatinNextRightPointersInEachNode2.CheckResult(test.root, test.answer));
+            PopulationNextRightPointersInEachNode2.Execute(test.root);
+            Console.WriteLine(PopulationNextRightPointersInEachNode2.CheckResult(test.root, test.answer));
         }
     }
 }
