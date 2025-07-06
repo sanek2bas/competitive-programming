@@ -1,4 +1,5 @@
 ﻿using Interview.Dfs_Bfs;
+using Interview.DynamicProgramming;
 using Interview.HashTable;
 using TopInterview150.BinaryTreeGeneral;
 
@@ -6,10 +7,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in PopulationNextRightPointersInEachNode2.GetTests())
+        foreach (var test in GenerateParentheses.GetTests())
         {
-            PopulationNextRightPointersInEachNode2.Execute(test.root);
-            Console.WriteLine(PopulationNextRightPointersInEachNode2.CheckResult(test.root, test.answer));
+            var result = GenerateParentheses.Execute(test.n);
+            Console.WriteLine(GenerateParentheses.CheckResult(result, test.answer));
         }
     }
 }
