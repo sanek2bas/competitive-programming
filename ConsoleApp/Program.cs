@@ -7,10 +7,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in GenerateParentheses.GetTests())
+        foreach (var test in InterestingJourney.GetTests())
         {
-            var result = GenerateParentheses.Execute(test.n);
-            Console.WriteLine(GenerateParentheses.CheckResult(result, test.answer));
+            var result = InterestingJourney.Execute(test.cites, test.distance, test.start, test.end);
+            Console.WriteLine(InterestingJourney.CheckResult(result, test.answer));
         }
     }
 }

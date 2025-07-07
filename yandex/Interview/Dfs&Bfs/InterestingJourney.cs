@@ -1,75 +1,88 @@
-namespace Interview.Dfs_Bfs;
-
-public class InterestingJourney
+namespace Interview.Dfs_Bfs
 {
-    /// <summary>
-        /// Given an m x n 2D binary grid, grid which represents a map of '1's (land) and '0's (water), return the number of islands.
-        /// An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
-        /// You may assume all four edges of the grid are all surrounded by water.
+    public class InterestingJourney
+    {
+        /// <summary>
         /// </summary>
-        /// <param name="grid"></param>
-        /// <returns></returns>
-        public static int Execute(char[][] grid)
+        public static int Execute(IList<int[]> cities, int distance, int start, int finish)
         {
-            var result = 0;
-            int rows = grid.Length;
-            int cols = grid[0].Length;
-            var visited = new bool[rows, cols];
+            if(start == finish)
+                return 0;
 
-            for (int r = 0; r < rows; r++)
+            var startIdx = start - 1;
+            var finishIdx = finish - 1;
+
+            var visited = new HashSet<int>();
+            visited.Add(startIdx);
+            var queue = new Queue<(int idx, int count)>();
+            queue.Enqueue((startIdx, 0));
+
+            while (queue.Count > 0)
             {
-                for (int c = 0; c < cols; c++)
+                var current = queue.Dequeue();
+                if (current.idx == finishIdx)
+                    return current.count;
+
+                for(int idx = 0; idx < cities.Count; idx++)
                 {
-                    if (grid[r][c] == '0' ||
-                        visited[r, c] == true)
+                    if (visited.Contains(idx))
                         continue;
-                    result++;
-                    dfs(grid, r, c, visited);
+                    if (GetDistanceBetween(cities[current.idx], cities[idx]) > distance)
+                        continue;
+                    visited.Add(idx);
+                    queue.Enqueue((idx, current.count + 1));
                 }
             }
 
-            return result;
+            return -1;
         }
 
-        private static void dfs(char[][] grid, int row, int col, bool[,] visited)
+        private static int GetDistanceBetween(int[] a, int[] b)
         {
-            if (!isCheck(grid, row, col) ||
-                grid[row][col] == '0' ||
-                visited[row, col] == true)
-                return;
+            int x1 = a[0];
+            int x2 = b[0];
+            int y1 = a[1];
+            int y2 = b[1];
 
-            visited[row, col] = true;
-            dfs(grid, row, col - 1, visited);
-            dfs(grid, row - 1, col, visited);
-            dfs(grid, row, col + 1, visited);
-            dfs(grid, row + 1, col, visited);
+            return Math.Abs(x1 - x2) + Math.Abs(y1 - y2);
         }
 
-        private static bool isCheck(char[][] grid, int row, int col)
-        {
-            return row >= 0 && col >= 0 && row < grid.Length && col < grid[0].Length;
-        }
-
-        public static IEnumerable<(char[][] grid, int answer)> GetTests()
+        public static IEnumerable<(IList<int[]> cites, int distance, int start, int end, int answer)> GetTests()
         {
             yield return (
-                new char[][]
+                new List<int[]>
                 {
-                    new char[] {'1', '1', '1', '1', '0'},
-                    new char[] {'1', '1', '0', '1', '0'},
-                    new char[] {'1', '1', '0', '0', '0'},
-                    new char[] {'0', '0', '0', '0', '0'}
-                }, 
-                1);
+                    new int[] { 0, 0 },
+                    new int[] { 0, 2 },
+                    new int[] { 2, 2 },
+                    new int[] { 0, -2 },
+                    new int[] { 2, -2 },
+                    new int[] { 2, -1 },
+                    new int[] { 2, 1 }
+                }, 2, 1, 3, 2);
 
             yield return (
-                new char[][]
-                {
-                    new char[] {'1', '1', '0', '0', '0'},
-                    new char[] {'1', '1', '0', '0', '0'},
-                    new char[] {'0', '0', '1', '0', '0'},
-                    new char[] {'0', '0', '0', '1', '1'}
-                },
-                3);
+               new List<int[]>
+               {
+                    new int[] { 0, 0 },
+                    new int[] { 1, 0 },
+                    new int[] { 0, 1 },
+                    new int[] { 1, 1}
+               }, 2, 1, 4, 1);
+
+            yield return (
+              new List<int[]>
+              {
+                    new int[] { 0, 0 },
+                    new int[] { 2, 0 },
+                    new int[] { 0, 2 },
+                    new int[] { 2, 2}
+              }, 1, 1, 4, -1);
         }
+
+        public static bool CheckResult(int result, int answer)
+        {
+            return result == answer;
+        }
+    }
 }
