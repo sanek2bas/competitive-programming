@@ -13,7 +13,8 @@ https://habr.com/ru/company/yandex/blog/449890/
 Темы и ссылки, где можно подготовиться к алгоритмам : 
 
 prefix sum:
-    https://leetcode.com/tag/prefix-sum/  (done)
+	https://leetcode.com/problems/minimum-size-subarray-sum	(done)
+	https://leetcode.com/problems/product-of-array-except-self (done)
 
 linked lists:
     https://leetcode.com/problems/merge-k-sorted-lists/	 (done)

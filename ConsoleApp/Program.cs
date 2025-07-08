@@ -8,10 +8,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in MinimumSizeSubarraySum.GetTests())
+        foreach (var test in ProductOfArrayExceptSelf.GetTests())
         {
-            var result = MinimumSizeSubarraySum.Execute(test.target, test.numbers);
-            Console.WriteLine(MinimumSizeSubarraySum.CheckResult(result, test.answer));
+            var result = ProductOfArrayExceptSelf.Execute(test.numbers);
+            Console.WriteLine(ProductOfArrayExceptSelf.CheckResult(result, test.answer));
         }
     }
 }
