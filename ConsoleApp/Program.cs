@@ -1,16 +1,17 @@
 ﻿using Interview.Dfs_Bfs;
 using Interview.DynamicProgramming;
 using Interview.HashTable;
+using Interview.PrefixSum;
 using TopInterview150.BinaryTreeGeneral;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in InterestingJourney.GetTests())
+        foreach (var test in MinimumSizeSubarraySum.GetTests())
         {
-            var result = InterestingJourney.Execute(test.cites, test.distance, test.start, test.end);
-            Console.WriteLine(InterestingJourney.CheckResult(result, test.answer));
+            var result = MinimumSizeSubarraySum.Execute(test.target, test.numbers);
+            Console.WriteLine(MinimumSizeSubarraySum.CheckResult(result, test.answer));
         }
     }
 }

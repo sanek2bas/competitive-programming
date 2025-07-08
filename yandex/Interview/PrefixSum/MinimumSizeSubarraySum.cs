@@ -11,32 +11,42 @@
         /// <returns></returns>
         public static int Execute(int target, int[] nums)
         {
-            int currSum = 0;
-            int minLength = nums.Length + 1;
-            int numsLength = nums.Length;
-            int start = 0;
-            int end = 0;
+            int answer = int.MaxValue;
+            int left = 0;
+            int sum = 0;
 
-            while (end < numsLength)
+            for (int right = 0; right < nums.Length; right++)
             {
-                while (currSum < target && end < numsLength)
-                    currSum += nums[end++];
-
-                while (currSum >= target && start < end)
+                sum += nums[right];
+                while(sum >= target)
                 {
-                    if (end - start < minLength)
-                        minLength = end - start;
-                    currSum -= nums[start++];
+                    answer = Math.Min(answer, right - left + 1);
+                    sum -= nums[left++];
                 }
             }
-            return minLength == nums.Length + 1 ? 0 : minLength; 
+
+            return answer == int.MaxValue ? 0 : answer;
         }
 
         public static IEnumerable<(int target, int[] numbers, int answer)> GetTests()
         {
-            yield return (7, new int[] { 2, 3, 1, 2, 4, 3 }, 2);
-            yield return (4, new int[] { 1, 4, 4 }, 1);
-            yield return (11, new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 0);
+            yield return (
+                7, 
+                new int[] { 2, 3, 1, 2, 4, 3 }, 
+                2);
+            yield return (
+                4, 
+                new int[] { 1, 4, 4 }, 
+                1);
+            yield return (
+                11, 
+                new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 
+                0);
+        }
+
+        public static bool CheckResult(int result, int answer)
+        {
+            return result == answer;
         }
     }
 }
