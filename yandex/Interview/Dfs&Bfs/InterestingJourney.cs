@@ -14,27 +14,29 @@ namespace Interview.Dfs_Bfs
 
             var visited = new HashSet<int>();
             visited.Add(startIdx);
-            var queue = new Queue<(int idx, int count)>();
-            queue.Enqueue((startIdx, 0));
+            var queue = new Queue<int>();
+            queue.Enqueue(startIdx);
+            var count = new int[cities.Count];
 
             while (queue.Count > 0)
             {
-                var current = queue.Dequeue();
-                if (current.idx == finishIdx)
-                    return current.count;
+                var currentIdx = queue.Dequeue();
+                if (currentIdx == finishIdx)
+                    break;
 
                 for(int idx = 0; idx < cities.Count; idx++)
                 {
                     if (visited.Contains(idx))
                         continue;
-                    if (GetDistanceBetween(cities[current.idx], cities[idx]) > distance)
+                    if (GetDistanceBetween(cities[currentIdx], cities[idx]) > distance)
                         continue;
                     visited.Add(idx);
-                    queue.Enqueue((idx, current.count + 1));
+                    count[idx] = count[currentIdx] + 1;
+                    queue.Enqueue(idx);
                 }
             }
 
-            return -1;
+            return count[finishIdx] == 0 ? -1 : count[finishIdx];
         }
 
         private static int GetDistanceBetween(int[] a, int[] b)
