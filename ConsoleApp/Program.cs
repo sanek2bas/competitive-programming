@@ -1,4 +1,5 @@
-﻿using Interview.Dfs_Bfs;
+﻿using Interview.BinarySearch;
+using Interview.Dfs_Bfs;
 using Interview.DynamicProgramming;
 using Interview.HashTable;
 using Interview.PrefixSum;
@@ -8,10 +9,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in ProductOfArrayExceptSelf.GetTests())
+        foreach (var test in BinarySearch.GetTests())
         {
-            var result = ProductOfArrayExceptSelf.Execute(test.numbers);
-            Console.WriteLine(ProductOfArrayExceptSelf.CheckResult(result, test.answer));
+            var result = BinarySearch.Execute(test.numbers, test.target);
+            Console.WriteLine(BinarySearch.CheckResult(result, test.answer));
         }
     }
 }
