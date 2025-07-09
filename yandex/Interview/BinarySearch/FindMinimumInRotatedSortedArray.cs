@@ -17,17 +17,16 @@
             int left = 0;
             int right = numbers.Length - 1;
 
+            if (numbers[left] <= numbers[right])
+                return numbers[left];
+
             while (left < right)
             {
                 int mid = (left + right) / 2;
                 if (numbers[0] <= numbers[mid])
-                {
                     left = mid + 1;
-                }
                 else
-                {
                     right = mid;
-                }
             }
 
             return numbers[left];
