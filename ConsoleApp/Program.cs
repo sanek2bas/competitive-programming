@@ -1,4 +1,5 @@
 ﻿using Interview.BinarySearch;
+using Interview.Design;
 using Interview.Dfs_Bfs;
 using Interview.DynamicProgramming;
 using Interview.HashTable;
@@ -9,10 +10,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in FindMinimumInRotatedSortedArray.GetTests())
+        foreach (var test in LruCache.GetTests())
         {
-            var result = FindMinimumInRotatedSortedArray.Execute(test.numbers);
-            Console.WriteLine(FindMinimumInRotatedSortedArray.CheckResult(result, test.answer));
+            var result = LruCache.Execute(test.capacity, test.commands, test.data);
+            Console.WriteLine(LruCache.CheckResult(result, test.answer));
         }
     }
 }

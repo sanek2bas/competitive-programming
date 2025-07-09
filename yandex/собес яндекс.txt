@@ -73,6 +73,10 @@ greedy problems:
     https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/ 
     https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 
+dedign:
+	https://leetcode.com/problems/lru-cache/
+	https://leetcode.com/problems/lfu-cache/
+
 Алгоритмы, которые чаще всего бывают в задачках:
 – сортировки (например, bubble sort или quicksort)
 – разворота одно/двусвязного списка
