@@ -9,10 +9,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in BinarySearch.GetTests())
+        foreach (var test in FindMinimumInRotatedSortedArray.GetTests())
         {
-            var result = BinarySearch.Execute(test.numbers, test.target);
-            Console.WriteLine(BinarySearch.CheckResult(result, test.answer));
+            var result = FindMinimumInRotatedSortedArray.Execute(test.numbers);
+            Console.WriteLine(FindMinimumInRotatedSortedArray.CheckResult(result, test.answer));
         }
     }
 }
