@@ -79,8 +79,8 @@ namespace Interview.Design
             {
                 if (!dic.TryGetValue(key, out Node node))
                     return -1;
-                Remove(node);
-                AddFirst(node);
+                //Remove(node);
+                //AddFirst(node);
                 return node.Value;
             }
 
