@@ -27,7 +27,6 @@ namespace Interview.Design
                 {
                     case "put":
                         cache.Put(data[i][0], data[i][1]);
-                        result[i] = null;
                         break;
                     case "get":
                         result[i] = cache.Get(data[i][0]);
@@ -67,20 +66,25 @@ namespace Interview.Design
         {
             private readonly int capacity;
             private readonly Dictionary<int, Node> dic;
-            private Node linkedList;
+            private Node head;
+            private Node tail;
 
             public LRUCache(int capacity)
             {
                 this.capacity = capacity;
                 dic = new Dictionary<int, Node>();
+                head = new Node(0, 0);
+                tail = new Node(0, 0);
+                head.Next = tail;
+                tail.Prev = head;
             }
 
             public int Get(int key)
             {
                 if (!dic.TryGetValue(key, out Node node))
                     return -1;
-                //Remove(node);
-                //AddFirst(node);
+                RemoveNode(node);
+                AddToHead(node);
                 return node.Value;
             }
 
@@ -90,55 +94,45 @@ namespace Interview.Design
                 if (dic.TryGetValue(key, out node))
                 {
                     node.Value = value;
-                    Remove(node);
+                    RemoveNode(node);
+                    AddToHead(node);
                 }
                 else
                 {
                     if (dic.Count == capacity)
                     {
-                        var remNode = RemoveFirst();
+                        var remNode = RemoveFromTail();
                         dic.Remove(remNode.Value);
                     }
                     else
                     {
                         node = new Node(key, value);
                         dic.Add(key, node);
+                        AddToHead(node);
                     }
-                }
-                AddFirst(node);
+                }                
             }
 
-            private void AddFirst(Node node)
+            private void AddToHead(Node node)
             {
-                var tmp = linkedList;
-                linkedList = node;
-                linkedList.Next = tmp;
-                if (tmp != null)
-                    tmp.Prev = linkedList;
-
+                node.Prev = head;
+                node.Next = head.Next;
+                head.Next.Prev = node;
+                head.Next = node;
             }
 
-            private void Remove(Node node)
+            private void RemoveNode(Node node)
             {
-                var left = node.Prev;
-                var right = node.Next;
-                if (left != null)
-                    left.Next = right;
-                if (right != null)
-                    right.Prev = left;
-                node.Prev = null;
-                node.Next = null;
+                node.Prev.Next = node.Next;
+                node.Next.Prev = node.Prev;
+                dic.Remove(node.Key);
             }
 
-            private Node RemoveFirst()
+            private Node RemoveFromTail()
             {
-                var tmp = linkedList.Next;
-                var node = linkedList;
-                linkedList = tmp;
-                linkedList.Prev = null;
-                node.Next = null;
-                node.Prev = null;
-                return node;                
+                var removeNode = tail.Prev;
+                RemoveNode(removeNode);
+                return removeNode;
             }
 
             private class Node
@@ -151,7 +145,7 @@ namespace Interview.Design
                 public Node(int key, int value)
                 {
                     Key = key;
-                    Value = value;
+                    Value = value; 
                 }
             }
         }
