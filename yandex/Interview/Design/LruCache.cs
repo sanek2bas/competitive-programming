@@ -1,4 +1,7 @@
-﻿namespace Interview.Design
+﻿using System.ComponentModel;
+using System.Reflection;
+
+namespace Interview.Design
 {
     public static class LruCache
     {
@@ -63,39 +66,93 @@
         private class LRUCache
         {
             private readonly int capacity;
-            private readonly Queue<int> queue;
-            private readonly Dictionary<int, int> dic;
+            private readonly Dictionary<int, Node> dic;
+            private Node linkedList;
 
             public LRUCache(int capacity)
             {
                 this.capacity = capacity;
-                dic = new Dictionary<int, int>();
-                queue = new Queue<int>();
+                dic = new Dictionary<int, Node>();
             }
 
             public int Get(int key)
             {
-                if (dic.ContainsKey(key))
-                    return dic[key];
-                return -1;
+                if (!dic.TryGetValue(key, out Node node))
+                    return -1;
+                Remove(node);
+                AddFirst(node);
+                return node.Value;
             }
 
             public void Put(int key, int value)
             {
-                if (dic.ContainsKey(key))
+                Node node = null;
+                if (dic.TryGetValue(key, out node))
                 {
-                    dic[key] = value;
-                    return;
+                    node.Value = value;
+                    Remove(node);
                 }
-
-                if (queue.Count == capacity)
+                else
                 {
-                    var removeKey = queue.Dequeue();
-                    dic.Remove(removeKey);
+                    if (dic.Count == capacity)
+                    {
+                        var remNode = RemoveFirst();
+                        dic.Remove(remNode.Value);
+                    }
+                    else
+                    {
+                        node = new Node(key, value);
+                        dic.Add(key, node);
+                    }
                 }
+                AddFirst(node);
+            }
 
-                dic.Add(key, value);
-                queue.Enqueue(key);
+            private void AddFirst(Node node)
+            {
+                var tmp = linkedList;
+                linkedList = node;
+                linkedList.Next = tmp;
+                if (tmp != null)
+                    tmp.Prev = linkedList;
+
+            }
+
+            private void Remove(Node node)
+            {
+                var left = node.Prev;
+                var right = node.Next;
+                if (left != null)
+                    left.Next = right;
+                if (right != null)
+                    right.Prev = left;
+                node.Prev = null;
+                node.Next = null;
+            }
+
+            private Node RemoveFirst()
+            {
+                var tmp = linkedList.Next;
+                var node = linkedList;
+                linkedList = tmp;
+                linkedList.Prev = null;
+                node.Next = null;
+                node.Prev = null;
+                return node;                
+            }
+
+            private class Node
+            {
+                public int Key { get; init; }
+                public int Value { get; set; }
+                public Node Prev { get; set; }
+                public Node Next { get; set; }
+
+                public Node(int key, int value)
+                {
+                    Key = key;
+                    Value = value;
+                }
             }
         }
     }
