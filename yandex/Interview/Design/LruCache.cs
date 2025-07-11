@@ -104,12 +104,9 @@ namespace Interview.Design
                         var remNode = RemoveFromTail();
                         dic.Remove(remNode.Value);
                     }
-                    else
-                    {
-                        node = new Node(key, value);
-                        dic.Add(key, node);
-                        AddToHead(node);
-                    }
+                    node = new Node(key, value);
+                    dic.Add(key, node);
+                    AddToHead(node);
                 }                
             }
 
@@ -125,7 +122,6 @@ namespace Interview.Design
             {
                 node.Prev.Next = node.Next;
                 node.Next.Prev = node.Prev;
-                dic.Remove(node.Key);
             }
 
             private Node RemoveFromTail()
