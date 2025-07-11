@@ -74,7 +74,7 @@ greedy problems:
     https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 
 dedign:
-	https://leetcode.com/problems/lru-cache/
+	https://leetcode.com/problems/lru-cache/ (done)
 	https://leetcode.com/problems/lfu-cache/
 
 Алгоритмы, которые чаще всего бывают в задачках:

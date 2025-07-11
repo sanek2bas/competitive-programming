@@ -42,7 +42,7 @@ namespace Interview.Design
             yield return (
                 2,
                 new string[] { "put", "put", "get", "put", "get", "put", "get", "get", "get" },
-                new List<int[]> 
+                new List<int[]>
                 {
                     new int[] { 1, 1 },
                     new int[] { 2, 2 },
@@ -55,6 +55,22 @@ namespace Interview.Design
                     new int[] { 4 }
                 },
                 new int?[] { null, null, 1, null, -1, null, -1, 3, 4 });
+            yield return (
+                2,
+                new string[] { "put", "put","get","put", "get", "put", "get", "get", "get" },
+                new List<int[]> 
+                {
+                    new int[] { 1, 0 },
+                    new int[] { 2, 2 },
+                    new int[] { 1 },
+                    new int[] { 3, 3 },
+                    new int[] { 2 },
+                    new int[] { 4, 4 },
+                    new int[] { 1 },
+                    new int[] { 3 },
+                    new int[] { 4 }
+                },
+                new int?[] { null, null, 0, null, -1, null, -1, 3, 4 });
         }
 
         public static bool CheckResult(int?[] result, int?[] answer)
@@ -102,7 +118,7 @@ namespace Interview.Design
                     if (dic.Count == capacity)
                     {
                         var remNode = RemoveFromTail();
-                        dic.Remove(remNode.Value);
+                        dic.Remove(remNode.Key);
                     }
                     node = new Node(key, value);
                     dic.Add(key, node);
