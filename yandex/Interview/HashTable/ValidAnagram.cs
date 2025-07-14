@@ -1,16 +1,10 @@
-using System;
-using Infrastructure;
-
-namespace TopInterview150.BinaryTreeGeneral;
-
-public class PopulationNextRightPointersInEachNode2
+public class ValidAnagram
 {
     /// <summary>
-    /// Populate each next pointer to point to its next right node.\
-    /// If there is no next right node, the next pointer should be set to NULL.
-    /// Initially, all next pointers are set to NULL.
+    /// Given two strings s and t, return true if t is an anagram of s, 
+    /// and false otherwise.
     /// </summary>
-    public static TreeListNode Execute(TreeListNode root)
+    public static void Execute(string s, string r)
     {
         TreeListNode node = root;
 
@@ -49,18 +43,4 @@ public class PopulationNextRightPointersInEachNode2
     }
 
     public static bool CheckResult(TreeListNode result, int?[] answer)
-    {
-        if (result == null)
-            return answer.Length == 0;
-
-        int idx = 0;
-        while (result != null)
-        {
-            if (result.Value != answer[idx])
-                return false;
-            idx++;
-        }
-
-        return idx >= answer.Length;
-    }
 }
