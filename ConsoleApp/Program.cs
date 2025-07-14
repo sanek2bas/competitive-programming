@@ -10,10 +10,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in LruCache.GetTests())
+        foreach (var test in ValidAnagram.GetTests())
         {
-            var result = LruCache.Execute(test.capacity, test.commands, test.data);
-            Console.WriteLine(LruCache.CheckResult(result, test.answer));
+            var result = ValidAnagram.Execute(test.s, test.t);
+            Console.WriteLine(ValidAnagram.CheckResult(result, test.answer));
         }
     }
 }

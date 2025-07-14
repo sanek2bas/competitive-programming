@@ -35,7 +35,7 @@ hash table:
     https://leetcode.com/problems/two-sum/        (done)
     https://leetcode.com/problems/4sum/ 
     https://leetcode.com/problems/group-anagrams/   (done)
-    https://leetcode.com/problems/valid-anagram/ 
+    https://leetcode.com/problems/valid-anagram/ 	(done)
     https://leetcode.com/problems/find-all-anagrams-in-a-string/ 
 
 queue/stack:

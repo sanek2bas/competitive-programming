@@ -1,46 +1,40 @@
-public class ValidAnagram
+namespace Interview.HashTable
 {
-    /// <summary>
-    /// Given two strings s and t, return true if t is an anagram of s, 
-    /// and false otherwise.
-    /// </summary>
-    public static void Execute(string s, string r)
+    public class ValidAnagram
     {
-        TreeListNode node = root;
-
-        while (node != null)
+        /// <summary>
+        /// Given two strings s and t, return true if t is an anagram of s, 
+        /// and false otherwise.
+        /// </summary>
+        public static bool Execute(string s, string r)
         {
-            TreeListNode dummy = new TreeListNode();
+            var alphabet = new char[26];
 
-            for (TreeListNode needle = dummy; node != null; node = node.Next)
+            if (s.Length != r.Length)
+                return false;
+
+            foreach (char c in s.ToLower())
+                alphabet[c - 'a']++;
+
+            foreach (char c in r.ToLower())
             {
-                if (node.Left != null)
-                {
-                    needle.Next = node.Left;
-                    needle = needle.Next;
-                }
-                if (node.Right != null)
-                {
-                    needle.Next = node.Right;
-                    needle = needle.Next;
-                }
+                if (alphabet[c - 'a'] == 0)
+                    return false;
+                alphabet[c - 'a']--;
             }
 
-            node = dummy.Next;
+            return true;
         }
 
-        return root;
-    }
+        public static IEnumerable<(string s, string t, bool answer)> GetTests()
+        {
+            yield return ("anagram", "nagaram", true);
+            yield return ("rat", "cat", false);
+        }
 
-    public static IEnumerable<(TreeListNode root, int?[] answer)> GetTests()
-    {
-        yield return (
-            TreeListNode.Map(1, 2, 3, 4, 5, 6, 7),
-            new int?[] { 1, null, 2, 3, null, 4, 5, 7, null });
-        yield return (
-            TreeListNode.Map(),
-            new int?[] { });
+        public static bool CheckResult(bool result, bool answer)
+        {
+            return result == answer;
+        }
     }
-
-    public static bool CheckResult(TreeListNode result, int?[] answer)
 }
