@@ -10,10 +10,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        foreach (var test in ValidAnagram.GetTests())
+        foreach (var test in FindAllAnagramsInString.GetTests())
         {
-            var result = ValidAnagram.Execute(test.s, test.t);
-            Console.WriteLine(ValidAnagram.CheckResult(result, test.answer));
+            var result = FindAllAnagramsInString.Execute(test.s, test.p);
+            Console.WriteLine(FindAllAnagramsInString.CheckResult(result, test.answer));
         }
     }
 }
