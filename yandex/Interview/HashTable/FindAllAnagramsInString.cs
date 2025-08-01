@@ -23,7 +23,7 @@ namespace Interview.HashTable
 
                 var right_letter_index = getIndex(right_letter);
                 p_chars[right_letter_index]--;
-                if (p_chars[right_letter_index] >= 1)
+                if (p_chars[right_letter_index] >= 0)
                     count--;
 
                 if (count == 0)
@@ -35,7 +35,7 @@ namespace Interview.HashTable
                     left++;
                     var left_letter_index = getIndex(left_letter);
                     p_chars[left_letter_index]++;
-                    if (p_chars[left_letter_index] >= 0)
+                    if (p_chars[left_letter_index] > 0)
                         count++;
                 }
             }
