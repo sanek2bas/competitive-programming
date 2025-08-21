@@ -5,11 +5,10 @@ namespace Stack;
 public class BasicCalculator_Test
 {
     [Test]
-    [Arguments("1 + 1", 2)]
-    [Arguments(" 2-1 + 2 ", 3)]
-    [Arguments("(1+(4+5+2)-3)+(6+8)", 23)]
-    [Arguments("-(3-(4+5))", 6)]
-    public void BasicCalculator(string str, int answer)
+    [Arguments("()", true)]
+    [Arguments("()[]{}", true)]
+    [Arguments("(]", false)]
+    public void BasicCalculator(string str, bool answer)
     {
         var solution = new BasicCalculator();
         var result = solution.Execute(str);
