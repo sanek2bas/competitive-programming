@@ -1,17 +1,24 @@
-﻿namespace TopInterview150.BinarySearch
+﻿namespace Top.Interview._150.Binary_Search
 {
-    public static class SearchInRotatedSortedArray
+    public class SearchInRotatedSortedArray
     {
         /// <summary>
+        /// #33
+        /// https://leetcode.com/problems/search-in-rotated-sorted-array/description/
         /// There is an integer array nums sorted in ascending order (with distinct values).
-        /// Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k(1 <= k<nums.length)
-        /// such that the resulting array is [nums[k], nums[k + 1], ..., nums[n - 1], nums[0], nums[1], ..., nums[k - 1]] (0-indexed). 
-        /// For example, [0, 1, 2, 4, 5, 6, 7] might be rotated at pivot index 3 and become[4, 5, 6, 7, 0, 1, 2].
-        /// Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums,
+        /// Prior to being passed to your function, 
+        /// nums is possibly rotated at an unknown pivot index k(1 <= k<nums.length)
+        /// such that the resulting array is 
+        /// [nums[k], nums[k + 1], ..., nums[n - 1], nums[0], nums[1], ..., nums[k - 1]] 
+        /// (0-indexed). 
+        /// For example, [0, 1, 2, 4, 5, 6, 7] might be rotated at pivot index 3 
+        /// and become[4, 5, 6, 7, 0, 1, 2].
+        /// Given the array nums after the possible rotation and an integer target, 
+        /// return the index of target if it is in nums,
         /// or -1 if it is not in nums.
         /// You must write an algorithm with O(log n) runtime complexity.
         /// </summary>
-        public static int Execute(int[] nums, int target)
+        public int Execute(int[] nums, int target)
         {
             int left = 0;
             int right = nums.Length - 1;
@@ -39,18 +46,6 @@
             }
 
             return -1;
-        }
-
-        public static IEnumerable<(int[] nums, int target, int answer)> GetTests()
-        {
-            yield return (new int[] { 4, 5, 6, 7, 0, 1, 2 }, 0, 4);
-            yield return (new int[] { 4, 5, 6, 7, 0, 1, 2 }, 3, -1);
-            yield return (new int[] { 1 }, 0, -1);
-        }
-
-        public static bool CheckResult(int result, int answer)
-        {
-            return result == answer;
         }
     }
 }
