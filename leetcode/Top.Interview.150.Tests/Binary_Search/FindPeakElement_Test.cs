@@ -1,15 +1,18 @@
-namespace Top.Interview._150;
+using Top.Interview._150.Binary_Search;
 
-public class FindPeakElement_Test
+namespace Top.Interview._150.Tests
 {
-    [Test]
-    [Arguments(new int[] { 1, 2, 3, 1 }, 2)]
-    [Arguments(new int[] { 1, 2, 1, 3, 5, 6, 4 }, 5)]
-    public void FindPeakElement(int[] nums, int answer)
+    public class FindPeakElement_Test
     {
-        var solution = new FindPeakElement();
-        var result = solution.Execute(nums);
-        Assert.That(result).IsEqualTo(answer);
-    }
+        [Test]
+        [Arguments(new int[] { 1, 2, 3, 1 }, 2)]
+        [Arguments(new int[] { 1, 2, 1, 3, 5, 6, 4 }, 5)]
+        public void FindPeakElement(int[] nums, int answer)
+        {
+            var solution = new FindPeakElement();
+            var result = solution.Execute(nums);
+            Assert.Equals(result, answer);
+        }
 
+    }
 }

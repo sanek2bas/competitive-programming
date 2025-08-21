@@ -4,11 +4,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="TUnit" Version="0.56.44" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Top.Interview.150\Top.Interview.150.csproj" />
   </ItemGroup>
 
 </Project>
