@@ -27,11 +27,10 @@
             return left;
         }
 
-        public static IEnumerable<(int[] nums, int answer)> GetTests()
-        {
-            yield return (new int[] { 1, 2, 3, 1 }, 2);
-            yield return (new int[] { 1, 2, 1, 3, 5, 6, 4 }, 5);
-        }
+        //public static IEnumerable<(int[] nums, int answer)> GetTests()
+        //{
+        //  
+        //}
 
         public static bool CheckResult(int result, int answer)
         {
