@@ -3,7 +3,7 @@
 public class SearchInRotatedSortedArray
 {
     /// <summary>
-    /// №33
+    /// # 33
     /// https://leetcode.com/problems/search-in-rotated-sorted-array/description/
     /// There is an integer array nums sorted in ascending order (with distinct values).
     /// Prior to being passed to your function, 

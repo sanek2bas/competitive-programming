@@ -3,7 +3,7 @@ namespace Top.Interview._150.Stack;
 public class ValidParentheses
 {
     /// <summary>
-    /// №20
+    /// # 20
     /// https://leetcode.com/problems/valid-parentheses/description/
     /// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
     ///  determine if the input string is valid.
