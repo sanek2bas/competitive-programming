@@ -1,4 +1,7 @@
 ﻿using Top.Interview._150.Binary_Search;
+using TUnit.Assertions;
+using TUnit.Assertions.Extensions;
+using TUnit.Core;
 
 namespace Binary_Search;
 
