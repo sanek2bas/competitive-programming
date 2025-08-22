@@ -6,11 +6,11 @@ public class ValidSudoku_Test
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public void ValidSudoku(char[][] board, bool answer)
+    public async Task ValidSudoku(char[][] board, bool answer)
     {
         var solution = new ValidSudoku();
         var result = solution.Execute(board);
-        Assert.That(result).IsEqualTo(answer);
+        await Assert.That(result).IsEqualTo(answer);
     }
 
     public IEnumerable<(char[][] board, bool answer)> DataSource()
@@ -42,6 +42,6 @@ public class ValidSudoku_Test
                new char[] { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
                new char[] { '.', '.', '.', '.', '8', '.', '.', '7', '9' }
            },
-           true);
+           false);
     }
 }

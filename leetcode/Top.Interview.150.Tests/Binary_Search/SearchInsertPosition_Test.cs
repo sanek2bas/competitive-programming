@@ -8,10 +8,10 @@ public class SearchInsertPosition_Test
     [Arguments(new int[] { 1, 3, 5, 6 }, 5, 2)]
     [Arguments(new int[] { 1, 3, 5, 6 }, 2, 1)]
     [Arguments(new int[] { 1, 3, 5, 6 }, 7, 4)]
-    public void SearchInsertPosition(int[] nums, int target, int answer)
+    public async Task SearchInsertPosition(int[] nums, int target, int answer)
     {
         var solution = new SearchInsertPosition();
         var result = solution.Execute(nums, target);
-        Equals(result, answer);
+        await Assert.That(result).IsEqualTo(answer);
     }
 }

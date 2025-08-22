@@ -6,11 +6,11 @@ public class SpiralMatrix_Test
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public void SpiralMatrix(int[][] matrix, IList<int> answer)
+    public async Task SpiralMatrix(int[][] matrix, IList<int> answer)
     {
         var solution = new SpiralMatrix();
         var result = solution.Execute(matrix);
-        Assert.Equals(result, answer);
+        await Assert.That(result).IsEqualTo(answer);
     }
 
     public IEnumerable<(int[][] matrix, IList<int> answer)> DataSource()

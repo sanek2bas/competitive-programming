@@ -6,11 +6,11 @@ public class Search2DMatrix_Test
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public void Search2DMatrix(int[][] matrix, int target, bool answer)
+    public async Task Search2DMatrix(int[][] matrix, int target, bool answer)
     {
         var solution = new Search2DMatrix();
         var result = solution.Execute(matrix, target);
-        Equals(result, answer);
+        await Assert.That(result).IsEqualTo(answer);
     }
 
     public IEnumerable<(int[][] matrix, int traget, bool answer)> DataSource()
@@ -18,18 +18,18 @@ public class Search2DMatrix_Test
         yield return (
            new int[3][]
            {
-                    new int[] { 1, 3, 5, 7 },
-                    new int[] { 10, 11, 16, 20 },
-                    new int[] { 23, 30, 34, 60 }
+               new int[] { 1, 3, 5, 7 },
+               new int[] { 10, 11, 16, 20 },
+               new int[] { 23, 30, 34, 60 }
            },
            3,
            true);
         yield return (
             new int[3][]
             {
-                    new int[] { 1, 3, 5, 7 },
-                    new int[] { 10, 11, 16, 20 },
-                    new int[] { 23, 30, 34, 60 }
+                new int[] { 1, 3, 5, 7 },
+                new int[] { 10, 11, 16, 20 },
+                new int[] { 23, 30, 34, 60 }
             },
             13,
             false);
