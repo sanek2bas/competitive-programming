@@ -13,7 +13,7 @@ public class SummaryRanges_Test
     {
         var solution = new SummaryRanges();
         var result = solution.Execute(nums);
-        await Assert.That(result).IsEqualTo(answer);
+        await Assert.That(result).IsEquivalentTo(answer);
     }
     public IEnumerable<(int[] nums, IList<string> answer)> DataSource()
     {

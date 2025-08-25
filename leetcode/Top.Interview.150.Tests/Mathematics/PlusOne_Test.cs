@@ -13,7 +13,7 @@ public class PlusOne_Test
     {
         var solution = new PlusOne();
         var result = solution.Execute(digits);
-        await Assert.That(result).IsEqualTo(answer);
+        await Assert.That(result).IsEquivalentTo(answer);
     }
 
     public IEnumerable<(int[] digits, int[] answer)> DataSource()

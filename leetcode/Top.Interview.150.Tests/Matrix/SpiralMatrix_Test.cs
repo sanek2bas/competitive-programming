@@ -13,7 +13,7 @@ public class SpiralMatrix_Test
     {
         var solution = new SpiralMatrix();
         var result = solution.Execute(matrix);
-        await Assert.That(result).IsEqualTo(answer);
+        await Assert.That(result).IsEquivalentTo(answer);
     }
 
     public IEnumerable<(int[][] matrix, IList<int> answer)> DataSource()
