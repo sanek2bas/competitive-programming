@@ -1,4 +1,6 @@
-﻿namespace Top.Interview._150.Tests;
+﻿using TUnit.Core;
+
+namespace Top.Interview._150.Tests;
 
 [ClassDataSource<DataClass>]
 [ClassConstructor<DependencyInjectionClassConstructor>]

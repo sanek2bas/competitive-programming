@@ -1,4 +1,6 @@
-﻿namespace Top.Interview._150.Tests;
+﻿using TUnit.Core;
+
+namespace Top.Interview._150.Tests;
 
 [Arguments("Hello")]
 [Arguments("World")]
