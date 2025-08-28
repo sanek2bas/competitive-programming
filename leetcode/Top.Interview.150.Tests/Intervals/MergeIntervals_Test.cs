@@ -2,6 +2,7 @@
 using TUnit.Assertions;
 using TUnit.Assertions.Extensions;
 using TUnit.Core;
+
 namespace Intervals;
 
 public class MergeIntervals_Test
