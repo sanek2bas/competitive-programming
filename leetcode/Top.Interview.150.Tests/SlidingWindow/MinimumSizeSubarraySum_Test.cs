@@ -15,6 +15,6 @@ public class MinimumSizeSubarraySum_Test
     {
         var solution = new MinimumSizeSubarraySum();
         var result = solution.Execute(target, nums);
-        await Assert.That(result).IsEquivalentTo(answer);
+        await Assert.That(result).IsEqualTo(answer);
     }
 }
