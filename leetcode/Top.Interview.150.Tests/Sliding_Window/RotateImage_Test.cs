@@ -1,4 +1,4 @@
-﻿using Top.Interview._150.SlidingWindow;
+﻿using Top.Interview._150.Sliding_Window;
 using TUnit.Assertions;
 using TUnit.Assertions.Extensions;
 using TUnit.Core;

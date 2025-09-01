@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Top.Interview._150.SlidingWindow;
+﻿namespace Top.Interview._150.Sliding_Window;
 
 public class RotateImage
 {

@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.SlidingWindow;
+﻿namespace Top.Interview._150.Sliding_Window;
 
 public class MinimumSizeSubarraySum
 {

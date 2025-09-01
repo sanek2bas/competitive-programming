@@ -7,4 +7,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="1D_DP\" />
+    <Folder Include="Array_&amp;_String\" />
+    <Folder Include="Backtracking\" />
+    <Folder Include="Binary_Tree_General\" />
+    <Folder Include="Bit_Manipulation\" />
+    <Folder Include="Divide_&amp;_Conquer\" />
+    <Folder Include="Graph_General\" />
+    <Folder Include="Hashmap\" />
+    <Folder Include="Kadane%27s_Algorithm\" />
+    <Folder Include="Linked_List\" />
+    <Folder Include="Multidimensional_DP\" />
+  </ItemGroup>
+
 </Project>
