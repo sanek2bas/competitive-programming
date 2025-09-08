@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="1D_DP\" />
     <Folder Include="Array_&amp;_String\" />
-    <Folder Include="Backtracking\" />
     <Folder Include="Binary_Tree_General\" />
     <Folder Include="Bit_Manipulation\" />
     <Folder Include="Divide_&amp;_Conquer\" />
