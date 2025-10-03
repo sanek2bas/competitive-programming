@@ -1,9 +1,10 @@
-using Top.Interview._150.Binary_Search_Tree;
+using Top.Interview._150.Binary_Tree;
+using Top.Interview._150.Binary_Tree;
 using TUnit.Assertions;
 using TUnit.Assertions.Extensions;
 using TUnit.Core;
 
-namespace Binary_Search_Tree;
+namespace Binary_Tree;
 
 public class MinimumAbsoluteDifference_Test
 {

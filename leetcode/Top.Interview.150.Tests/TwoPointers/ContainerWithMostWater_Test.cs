@@ -1,7 +1,4 @@
 using Top.Interview._150.TwoPointers;
-using TUnit.Assertions;
-using TUnit.Assertions.Extensions;
-using TUnit.Core;
 
 namespace TwoPointers;
 

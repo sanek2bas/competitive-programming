@@ -1,4 +1,4 @@
-namespace Top.Interview._150.Backtacking;
+namespace Top.Interview._150.Backtracking;
 
 public class Permutation
 {

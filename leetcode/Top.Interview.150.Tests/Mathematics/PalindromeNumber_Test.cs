@@ -1,7 +1,4 @@
 ﻿using Top.Interview._150.Mathematics;
-using TUnit.Assertions;
-using TUnit.Assertions.Extensions;
-using TUnit.Core;
 
 namespace Mathematics;
 
