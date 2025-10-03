@@ -1,23 +1,28 @@
 using Top.Interview._150.Backtracking;
 
-using Backtracking;
+namespace Backtracking;
 
 public class LetterCombinationsOfPhoneNumber_Test
 {
     [Test]
-    [Arguments(
-        "23",
-        new string[] { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" })]
-    [Arguments(
-        "",
-        new string[] { })]
-    [Arguments(
-        "2",
-        new string[] { "a", "b", "c"})]
+    [MethodDataSource(nameof(DataSource))]
     public async Task LetterCombinationsOfPhoneNumber(string digits, IList<string> answer)
     {
         var solution = new LetterCombinationsOfPhoneNumber();
         var result = solution.Execute(digits);
         await Assert.That(result).IsEquivalentTo(answer);
+    }
+
+    public IEnumerable<(string digits, IList<string> answer)> DataSource()
+    {
+        yield return (
+            "23",
+            new string[] { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" });
+        yield return (
+            "",
+            new string[] { });
+        yield return (
+            "2",
+            new string[] { "a", "b", "c" });
     }
 }
