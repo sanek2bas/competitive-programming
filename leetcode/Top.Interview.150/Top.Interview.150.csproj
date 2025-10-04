@@ -11,7 +11,6 @@
     <Folder Include="1D_DP\" />
     <Folder Include="Bit_Manipulation\" />
     <Folder Include="Divide_&amp;_Conquer\" />
-    <Folder Include="Graph_General\" />
     <Folder Include="Kadane%27s_Algorithm\" />
     <Folder Include="Linked_List\" />
     <Folder Include="Multidimensional_DP\" />
