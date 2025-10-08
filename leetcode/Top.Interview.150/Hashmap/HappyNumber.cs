@@ -1,3 +1,5 @@
+namespace Top.Interview._150.Hashmap;
+
 public class HappyNumber
 {
     /// <summary>

@@ -1,4 +1,4 @@
-namespace Top.Interview._150.Binary_Search_Tree;
+namespace Top.Interview._150.Binary_Tree;
 
 public class MinimumAbsoluteDifference
 {
