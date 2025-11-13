@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="1D_DP\" />
     <Folder Include="Divide_&amp;_Conquer\" />
     <Folder Include="Kadane%27s_Algorithm\" />
     <Folder Include="Multidimensional_DP\" />
