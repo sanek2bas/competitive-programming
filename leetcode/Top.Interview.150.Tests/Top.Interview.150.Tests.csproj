@@ -22,6 +22,7 @@
     <Folder Include="Kadane%27s_Algorithm\" />
     <Folder Include="Linked_List\" />
     <Folder Include="Multidimensional_DP\" />
+    <Folder Include="Prefix_Sum\" />
   </ItemGroup>
 
 </Project>
