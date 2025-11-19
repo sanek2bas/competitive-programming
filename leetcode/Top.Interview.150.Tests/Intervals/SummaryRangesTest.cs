@@ -2,7 +2,7 @@
 
 namespace Intervals;
 
-public class SummaryRanges_Test
+public class SummaryRangesTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

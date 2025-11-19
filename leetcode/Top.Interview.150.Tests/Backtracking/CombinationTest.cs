@@ -2,7 +2,7 @@
 
 namespace Backtracking;
 
-public class Combination_Test
+public class CombinationTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

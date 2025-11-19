@@ -2,7 +2,7 @@ using Top.Interview._150.Heap;
 
 namespace Heap;
 
-public class KthLargestElementInArray_Test
+public class KthLargestElementInArrayTest
 {
     [Test]
     [Arguments(new int[] { 3, 2, 1, 5, 6, 4 }, 2, 5)]

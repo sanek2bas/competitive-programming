@@ -2,7 +2,7 @@ using Top.Interview._150.Trie;
 
 namespace Trie;
 
-public class ImplementTriePrefixTree_Test
+public class ImplementTriePrefixTreeTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

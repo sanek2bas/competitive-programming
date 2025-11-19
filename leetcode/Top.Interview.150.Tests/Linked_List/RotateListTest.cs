@@ -2,7 +2,7 @@ using Top.Interview._150.Linked_List;
 
 namespace Linked_List;
 
-public class RotateList_Test
+public class RotateListTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

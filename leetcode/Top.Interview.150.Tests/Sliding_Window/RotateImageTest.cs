@@ -2,7 +2,7 @@
 
 namespace SlidingWindow;
 
-public class RotateImage_Test
+public class RotateImageTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

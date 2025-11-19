@@ -2,7 +2,7 @@
 
 namespace Matrix;
 
-public class ValidSudoku_Test
+public class ValidSudokuTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

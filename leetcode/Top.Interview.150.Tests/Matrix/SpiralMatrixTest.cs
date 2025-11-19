@@ -2,7 +2,7 @@
 
 namespace Matrix;
 
-public class SpiralMatrix_Test
+public class SpiralMatrixTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

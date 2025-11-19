@@ -2,7 +2,7 @@
 
 namespace Hashmap;
 
-public class ValidAnagram_Test
+public class ValidAnagramTest
 {
     [Test]
     [Arguments("anagram", "nagaram", true)]

@@ -2,7 +2,7 @@ using Top.Interview._150.Array___String;
 
 namespace Array___String;
 
-public class GasStation_Test
+public class GasStationTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

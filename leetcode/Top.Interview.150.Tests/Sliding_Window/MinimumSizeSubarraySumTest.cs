@@ -2,7 +2,7 @@
 
 namespace SlidingWindow;
 
-public class MinimumSizeSubarraySum_Test
+public class MinimumSizeSubarraySumTest
 {
     [Test]
     [Arguments(7, new int[] { 2, 3, 1, 2, 4, 3 }, 2)]

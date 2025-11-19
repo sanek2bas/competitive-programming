@@ -5,7 +5,7 @@ using TUnit.Core;
 
 namespace Binary_Search;
 
-public class Search2DMatrix_Test
+public class Search2DMatrixTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

@@ -2,7 +2,7 @@
 
 namespace Array___String;
 
-public class IntegerToRoman_Test
+public class IntegerToRomanTest
 {
     [Test]
     [Arguments(3, "III")]

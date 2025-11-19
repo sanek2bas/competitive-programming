@@ -2,7 +2,7 @@ using Top.Interview._150.TwoPointers;
 
 namespace TwoPointers;
 
-public class IsSubsequence_Test
+public class IsSubsequenceTest
 {
     [Test]
     [Arguments("abc", "ahbgdc", true)]

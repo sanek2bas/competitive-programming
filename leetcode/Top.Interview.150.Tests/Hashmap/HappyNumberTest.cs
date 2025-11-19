@@ -2,7 +2,7 @@ using Top.Interview._150.Hashmap;
 
 namespace Hashmap;
 
-public class HappyNumber_Test
+public class HappyNumberTest
 {
     [Test]
     [Arguments(19, true)]

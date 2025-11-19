@@ -2,7 +2,7 @@
 
 namespace Binary_Tree;
 
-public class SameTree_Test
+public class SameTreeTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

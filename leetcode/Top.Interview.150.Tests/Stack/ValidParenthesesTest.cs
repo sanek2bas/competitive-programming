@@ -2,7 +2,7 @@ using Top.Interview._150.Stack;
 
 namespace Stack;
 
-public class ValidParentheses_Test
+public class ValidParenthesesTest
 {
     [Test]
     [Arguments("()", true)]

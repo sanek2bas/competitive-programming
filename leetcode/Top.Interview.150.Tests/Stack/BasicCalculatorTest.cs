@@ -2,7 +2,7 @@ using Top.Interview._150.Stack;
 
 namespace Stack;
 
-public class BasicCalculator_Test
+public class BasicCalculatorTest
 {
     [Test]
     [Arguments("1 + 1", 2)]

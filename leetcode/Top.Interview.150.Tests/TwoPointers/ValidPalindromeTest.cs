@@ -2,7 +2,7 @@ using Top.Interview._150.TwoPointers;
 
 namespace TwoPointers;
 
-public class ValidPalindrome_Test
+public class ValidPalindromeTest
 {
     [Test]
     [Arguments("A man, a plan, a canal: Panama", true)]

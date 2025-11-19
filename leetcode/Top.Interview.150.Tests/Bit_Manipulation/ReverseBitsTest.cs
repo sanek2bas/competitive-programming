@@ -2,7 +2,7 @@ using Top.Interview._150.Bit_Manipulation;
 
 namespace Bit_Manipulation;
 
-public class ReverseBits_Test
+public class ReverseBitsTest
 {
     [Test]
     [Arguments(43261596, 964176192)]

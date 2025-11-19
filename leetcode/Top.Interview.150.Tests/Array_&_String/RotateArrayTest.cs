@@ -2,7 +2,7 @@
 
 namespace Array___String;
 
-internal class RotateArray_Test
+internal class RotateArrayTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

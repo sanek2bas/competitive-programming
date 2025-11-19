@@ -5,7 +5,7 @@ using TUnit.Core;
 
 namespace Binary_Search;
 
-public class FindPeakElement_Test
+public class FindPeakElementTest
 {
     [Test]
     [Arguments(new int[] { 1, 2, 3, 1 }, 2)]

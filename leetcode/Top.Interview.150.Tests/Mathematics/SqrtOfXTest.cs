@@ -2,7 +2,7 @@
 
 namespace Mathematics;
 
-public class SqrtOfX_Test
+public class SqrtOfXTest
 {
     [Test]
     [Arguments(4, 2)]

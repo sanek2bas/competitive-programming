@@ -2,7 +2,7 @@ using Top.Interview._150.TwoPointers;
 
 namespace TwoPointers;
 
-public class ContainerWithMostWater_Test
+public class ContainerWithMostWaterTest
 {
     [Test]
     [Arguments(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }, 49)]

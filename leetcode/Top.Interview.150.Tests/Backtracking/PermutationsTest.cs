@@ -2,7 +2,7 @@ using Top.Interview._150.Backtracking;
 
 namespace Backtracking;
 
-public class Permutation_Test
+public class PermutationTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

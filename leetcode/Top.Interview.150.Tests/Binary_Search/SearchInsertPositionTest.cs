@@ -5,7 +5,7 @@ using TUnit.Core;
 
 namespace Binary_Search;
 
-public class SearchInsertPosition_Test
+public class SearchInsertPositionTest
 {
     [Test]
     [Arguments(new int[] { 1, 3, 5, 6 }, 5, 2)]

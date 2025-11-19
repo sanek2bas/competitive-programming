@@ -2,7 +2,7 @@
 
 namespace Mathematics;
 
-public class PlusOne_Test
+public class PlusOneTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

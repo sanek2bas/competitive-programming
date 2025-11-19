@@ -2,7 +2,7 @@ using Top.Interview._150.Backtracking;
 
 namespace Backtracking;
 
-public class LetterCombinationsOfPhoneNumber_Test
+public class LetterCombinationsOfPhoneNumberTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

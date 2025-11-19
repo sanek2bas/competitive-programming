@@ -2,7 +2,7 @@
 
 namespace Mathematics;
 
-public class PalindromeNumber_Test
+public class PalindromeNumberTest
 {
     [Test]
     [Arguments(121, true)]

@@ -2,7 +2,7 @@ using Top.Interview._150.Graph_BFS;
 
 namespace Graph_BFS;
 
-public class SnakesAndLadders_Test
+public class SnakesAndLaddersTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

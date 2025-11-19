@@ -2,7 +2,7 @@
 
 namespace Intervals;
 
-public class MergeIntervals_Test
+public class MergeIntervalsTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
