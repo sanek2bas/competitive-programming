@@ -20,13 +20,12 @@ public class RotateArray
     private void Reverse(int[] nums, int left, int right)
     {
         while (left < right)
-            Swap(nums, left++, right--);
-    }
-
-    private void Swap(int[] nums, int i, int j)
-    {
-        var temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
+        {
+            var temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
     }
 }
