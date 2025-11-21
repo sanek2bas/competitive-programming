@@ -1,4 +1,4 @@
-﻿The Modified Binary Search pattern adapts binary search to solve a wider range of problems, 
+﻿The Binary Search pattern adapts binary search to solve a wider range of problems, 
 such as finding elements in rotated sorted arrays.
 
 Use this pattern for problems involving sorted or rotated arrays where you need to find a specific element.

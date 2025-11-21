@@ -1,4 +1,4 @@
-﻿The Monotonic Stack pattern uses a stack to maintain a sequence of elements 
+﻿The Stack pattern uses a stack to maintain a sequence of elements 
 in a specific order (increasing or decreasing).
 
 Use this pattern for problems that require finding the next greater or smaller element.

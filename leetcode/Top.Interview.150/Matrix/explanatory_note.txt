@@ -1,4 +1,4 @@
-﻿Matrix Traversal involves traversing elements in a matrix 
+﻿Matrix involves traversing elements in a matrix 
 using different techniques (DFS, BFS, etc.).
 
 Use this pattern for problems involving traversing 2D grids 

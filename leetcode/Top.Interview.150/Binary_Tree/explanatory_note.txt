@@ -1,4 +1,4 @@
-﻿Binary Tree Traversal involves visiting all the nodes in a binary tree in a specific order.
+﻿Binary Tree involves visiting all the nodes in a binary tree in a specific order.
 
 PreOrder: root -> left -> right
 
