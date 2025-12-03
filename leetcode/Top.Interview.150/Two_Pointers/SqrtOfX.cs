@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.Mathematics;
+﻿namespace Top.Interview._150.TwoPointers;
 
 public class SqrtOfX
 {

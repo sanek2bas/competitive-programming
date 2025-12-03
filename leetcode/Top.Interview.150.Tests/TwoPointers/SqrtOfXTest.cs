@@ -1,6 +1,6 @@
-﻿using Top.Interview._150.Mathematics;
+﻿using Top.Interview._150.TwoPointers;
 
-namespace Mathematics;
+namespace TwoPointers;
 
 public class SqrtOfXTest
 {
