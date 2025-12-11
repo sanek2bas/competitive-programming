@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.Hashmap;
+﻿namespace Top.Interview._150.HashMap;
 
 public class ValidAnagram
 {
