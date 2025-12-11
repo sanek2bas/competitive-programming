@@ -1,6 +1,6 @@
-﻿using Top.Interview._150.Array___String;
+﻿using Top.Interview._150.Mathematics;
 
-namespace Array___String;
+namespace Mathematics;
 
 public class IntegerToRomanTest
 {
