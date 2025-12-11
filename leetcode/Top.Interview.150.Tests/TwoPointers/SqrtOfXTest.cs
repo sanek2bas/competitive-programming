@@ -8,7 +8,7 @@ public class SqrtOfXTest
     [Arguments(4, 2)]
     [Arguments(8, 2)]
     [Arguments(2147483647, 46340)]
-    public async Task SqrtOfX(int x, int answer)
+    public async Task Solution(int x, int answer)
     {
         var solution = new SqrtOfX();
         var result = solution.Execute(x);

@@ -8,7 +8,7 @@ public class PalindromeNumberTest
     [Arguments(121, true)]
     [Arguments(-121, false)]
     [Arguments(10, false)]
-    public async Task PalindromeNumber(int x, bool answer)
+    public async Task Solution(int x, bool answer)
     {
         var solution = new PalindromeNumber();
         var result = solution.Execute(x);

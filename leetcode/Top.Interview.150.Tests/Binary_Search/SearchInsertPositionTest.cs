@@ -11,7 +11,7 @@ public class SearchInsertPositionTest
     [Arguments(new int[] { 1, 3, 5, 6 }, 5, 2)]
     [Arguments(new int[] { 1, 3, 5, 6 }, 2, 1)]
     [Arguments(new int[] { 1, 3, 5, 6 }, 7, 4)]
-    public async Task SearchInsertPosition(int[] nums, int target, int answer)
+    public async Task Solution(int[] nums, int target, int answer)
     {
         var solution = new SearchInsertPosition();
         var result = solution.Execute(nums, target);

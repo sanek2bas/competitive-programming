@@ -10,7 +10,7 @@ public class FindPeakElementTest
     [Test]
     [Arguments(new int[] { 1, 2, 3, 1 }, 2)]
     [Arguments(new int[] { 1, 2, 1, 3, 5, 6, 4 }, 5)]
-    public async Task FindPeakElement(int[] nums, int answer)
+    public async Task Solution(int[] nums, int answer)
     {
         var solution = new FindPeakElement();
         var result = solution.Execute(nums);

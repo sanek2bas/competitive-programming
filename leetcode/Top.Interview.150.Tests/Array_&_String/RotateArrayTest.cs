@@ -6,7 +6,7 @@ internal class RotateArrayTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task RotateArray(int[] nums, int k, int[] answer)
+    public async Task Solution(int[] nums, int k, int[] answer)
     {
         var solution = new RotateArray();
         solution.Execute(nums, k);

@@ -6,7 +6,7 @@ public class MaximumSubarrayTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task MaximumSubarray(int[] nums, int answer)
+    public async Task Solution(int[] nums, int answer)
     {
         var solution = new MaximumSubarray();
         var result = solution.Execute(nums);        

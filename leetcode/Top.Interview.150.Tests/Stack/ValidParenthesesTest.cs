@@ -8,7 +8,7 @@ public class ValidParenthesesTest
     [Arguments("()", true)]
     [Arguments("()[]{}", true)]
     [Arguments("(]", false)]
-    public async Task ValidParentheses(string str, bool answer)
+    public async Task Solution(string str, bool answer)
     {
         var solution = new ValidParentheses();
         var result = solution.Execute(str);

@@ -7,7 +7,7 @@ public class IsSubsequenceTest
     [Test]
     [Arguments("abc", "ahbgdc", true)]
     [Arguments("axc", "ahbgdc", false)]
-    public async Task IsSubsequence(string s, string t, bool answer)
+    public async Task Solution(string s, string t, bool answer)
     {
         var solution = new IsSubsequence();
         var result = solution.Execute(s, t);

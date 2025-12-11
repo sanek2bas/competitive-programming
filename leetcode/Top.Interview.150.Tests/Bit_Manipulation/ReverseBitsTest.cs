@@ -7,7 +7,7 @@ public class ReverseBitsTest
     [Test]
     [Arguments(43261596, 964176192)]
     [Arguments(4294967293, 3221225471)]
-    public async Task ReverseBits(uint n, uint answer)
+    public async Task Solution(uint n, uint answer)
     {
         var solution = new ReverseBits();
         var result = solution.Execute(n);

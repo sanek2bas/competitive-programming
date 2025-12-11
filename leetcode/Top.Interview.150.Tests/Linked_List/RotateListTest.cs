@@ -6,7 +6,7 @@ public class RotateListTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task RotateList(ListNode head, int k, int[] answer)
+    public async Task Solution(ListNode head, int k, int[] answer)
     {
         var solution = new RotateList();
         var result = solution.Execute(head, k);

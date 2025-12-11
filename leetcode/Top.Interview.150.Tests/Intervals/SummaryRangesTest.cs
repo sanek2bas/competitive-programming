@@ -6,7 +6,7 @@ public class SummaryRangesTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task SummaryRanges(int[] nums, IList<string> answer)
+    public async Task Solution(int[] nums, IList<string> answer)
     {
         var solution = new SummaryRanges();
         var result = solution.Execute(nums);

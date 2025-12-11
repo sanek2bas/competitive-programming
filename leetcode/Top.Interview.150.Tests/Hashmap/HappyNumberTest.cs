@@ -7,7 +7,7 @@ public class HappyNumberTest
     [Test]
     [Arguments(19, true)]
     [Arguments(2, false)]
-    public async Task HappyNumber(int n, bool answer)
+    public async Task Solution(int n, bool answer)
     {
         var solution = new HappyNumber();
         var result = solution.Execute(n);

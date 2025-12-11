@@ -8,7 +8,7 @@ public class IntegerToRomanTest
     [Arguments(3, "III")]
     [Arguments(58, "LVIII")]
     [Arguments(1994, "MCMXCIV")]
-    public async Task IntegerToRoman(int num, string answer)
+    public async Task Solution(int num, string answer)
     {
         var solution = new IntegerToRoman();
         var result = solution.Execute(num);

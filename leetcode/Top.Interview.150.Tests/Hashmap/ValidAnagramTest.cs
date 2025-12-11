@@ -7,7 +7,7 @@ public class ValidAnagramTest
     [Test]
     [Arguments("anagram", "nagaram", true)]
     [Arguments("rat", "car", false)]
-    public async Task ValidAnagram(string s, string t, bool answer)
+    public async Task Solution(string s, string t, bool answer)
     {
         var solution = new ValidAnagram();
         var result = solution.Execute(s, t);

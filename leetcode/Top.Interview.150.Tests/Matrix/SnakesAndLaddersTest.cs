@@ -6,7 +6,7 @@ public class SnakesAndLaddersTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task SnakesAndLadders(int[][] board, int answer)
+    public async Task Solution(int[][] board, int answer)
     {
         var solution = new SnakesAndLadders();
         var result = solution.Execute(board);

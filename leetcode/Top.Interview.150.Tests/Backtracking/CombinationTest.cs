@@ -6,7 +6,7 @@ public class CombinationTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Combination(int n, int k, IList<IList<int>> answer)
+    public async Task Solution(int n, int k, IList<IList<int>> answer)
     {
         var solution = new Combination();
         var result = solution.Execute(n, k);

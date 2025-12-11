@@ -6,7 +6,7 @@ public class RotateImageTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task RotateImage(int[][] matrix, int[][] answer)
+    public async Task Solution(int[][] matrix, int[][] answer)
     {
         var solution = new RotateImage();
         solution.Execute(matrix);

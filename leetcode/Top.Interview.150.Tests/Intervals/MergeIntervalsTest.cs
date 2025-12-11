@@ -6,7 +6,7 @@ public class MergeIntervalsTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task MergeIntervals(int[][] intervals, int[][] answer)
+    public async Task Solution(int[][] intervals, int[][] answer)
     {
         var solution = new MergeIntervals();
         var result = solution.Execute(intervals);

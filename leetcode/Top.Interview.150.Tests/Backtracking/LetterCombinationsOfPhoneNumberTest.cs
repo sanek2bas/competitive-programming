@@ -6,7 +6,7 @@ public class LetterCombinationsOfPhoneNumberTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task LetterCombinationsOfPhoneNumber(string digits, IList<string> answer)
+    public async Task Solution(string digits, IList<string> answer)
     {
         var solution = new LetterCombinationsOfPhoneNumber();
         var result = solution.Execute(digits);

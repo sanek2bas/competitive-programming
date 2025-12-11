@@ -9,7 +9,7 @@ public class Search2DMatrixTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Search2DMatrix(int[][] matrix, int target, bool answer)
+    public async Task Solution(int[][] matrix, int target, bool answer)
     {
         var solution = new Search2DMatrix();
         var result = solution.Execute(matrix, target);

@@ -6,7 +6,7 @@ public class PlusOneTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task PlusOne(int[] digits, int[] answer)
+    public async Task Solution(int[] digits, int[] answer)
     {
         var solution = new PlusOne();
         var result = solution.Execute(digits);

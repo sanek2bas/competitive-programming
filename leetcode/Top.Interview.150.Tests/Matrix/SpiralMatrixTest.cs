@@ -6,7 +6,7 @@ public class SpiralMatrixTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task SpiralMatrix(int[][] matrix, IList<int> answer)
+    public async Task Solution(int[][] matrix, IList<int> answer)
     {
         var solution = new SpiralMatrix();
         var result = solution.Execute(matrix);

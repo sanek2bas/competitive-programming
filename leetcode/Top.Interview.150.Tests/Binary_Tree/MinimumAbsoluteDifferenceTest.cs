@@ -9,7 +9,7 @@ public class MinimumAbsoluteDifferenceTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task MinimumAbsoluteDifference(TreeNode? root, int answer)
+    public async Task Solution(TreeNode? root, int answer)
     {
         var solution = new MinimumAbsoluteDifference();
         var result = solution.Execute(root);

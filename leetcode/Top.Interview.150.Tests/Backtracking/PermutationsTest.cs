@@ -6,7 +6,7 @@ public class PermutationTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Permutation(int[] nums, IList<IList<int>> answer)
+    public async Task Solution(int[] nums, IList<IList<int>> answer)
     {
         var solution = new Permutation();
         var result = solution.Execute(nums);

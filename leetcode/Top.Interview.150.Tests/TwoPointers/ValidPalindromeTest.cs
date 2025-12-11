@@ -8,7 +8,7 @@ public class ValidPalindromeTest
     [Arguments("A man, a plan, a canal: Panama", true)]
     [Arguments("race a car", false)]
     [Arguments(" ", true)]
-    public async Task ValidPalindrome(string s, bool answer)
+    public async Task Solution(string s, bool answer)
     {
         var solution = new ValidPalindrome();
         var result = solution.Execute(s);

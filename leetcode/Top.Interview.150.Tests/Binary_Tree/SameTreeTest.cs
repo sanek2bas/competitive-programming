@@ -6,7 +6,7 @@ public class SameTreeTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task SameTree(TreeNode p, TreeNode q, bool answer)
+    public async Task Solution(TreeNode p, TreeNode q, bool answer)
     {
         var solution = new SameTree();
         var result = solution.Execute(p, q);

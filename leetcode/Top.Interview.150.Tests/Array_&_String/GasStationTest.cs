@@ -6,7 +6,7 @@ public class GasStationTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task GasStation(int[] gas, int[] cost, int answer)
+    public async Task Solution(int[] gas, int[] cost, int answer)
     {
         var solution = new GasStation();
         var result = solution.Execute(gas, cost);

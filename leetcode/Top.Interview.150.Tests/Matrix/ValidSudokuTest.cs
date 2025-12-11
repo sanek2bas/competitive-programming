@@ -6,7 +6,7 @@ public class ValidSudokuTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task ValidSudoku(char[][] board, bool answer)
+    public async Task Solution(char[][] board, bool answer)
     {
         var solution = new ValidSudoku();
         var result = solution.Execute(board);

@@ -6,7 +6,7 @@ public class ImplementTriePrefixTreeTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task ImplementTriePrefixTree(IList<(TrieCommands, string)> words, IList<bool?> answer)
+    public async Task Solution(IList<(TrieCommands, string)> words, IList<bool?> answer)
     {
         var solution = new ImplementTriePrefixTree();
         IList<bool?> result = solution.Execute(words);
