@@ -1,6 +1,6 @@
-﻿using Top.Interview._150.Tests.Array___String;
+﻿using Top.Interview._150.Tests.TwoPointers;
 
-namespace Array___String;
+namespace TwoPointers;
 
 internal class RotateArrayTest
 {

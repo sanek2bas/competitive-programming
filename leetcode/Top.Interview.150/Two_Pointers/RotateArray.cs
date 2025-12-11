@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.Tests.Array___String;
+﻿namespace Top.Interview._150.Tests.TwoPointers;
 
 public class RotateArray
 {

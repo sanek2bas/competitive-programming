@@ -1,6 +1,6 @@
-using Top.Interview._150.Array___String;
+using Top.Interview._150.Greedy_Algorithm;
 
-namespace Array___String;
+namespace Greedy_Algorithm;
 
 public class GasStationTest
 {

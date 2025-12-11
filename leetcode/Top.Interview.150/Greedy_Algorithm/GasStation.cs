@@ -1,4 +1,4 @@
-namespace Top.Interview._150.Array___String;
+namespace Top.Interview._150.Greedy_Algorithm;
 
 public class GasStation
 {
