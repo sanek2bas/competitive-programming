@@ -1,14 +1,17 @@
-﻿namespace TopInterview150.Hashmap
+﻿namespace Top.Interview._150.HashMap
 {
-    public static class GroupAnagrams
+    public class GroupAnagrams
     {
         /// <summary>
+        /// # 49
+        /// https://leetcode.com/problems/group-anagrams/
         /// Given an array of strings strs, group the anagrams together. 
         /// You can return the answer in any order.
-        /// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, 
+        /// An Anagram is a word or phrase formed by rearranging 
+        /// the letters of a different word or phrase, 
         /// typically using all the original letters exactly once.
         /// </summary>
-        public static IList<IList<string>> Execute(string[] strs)
+        public IList<IList<string>> Execute(string[] strs)
         {
             var dic = new Dictionary<string, IList<string>>();
 
