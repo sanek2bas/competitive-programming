@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace TopInterview150.Array___String;
+namespace TopInterview150.TwoPointers;
 
 public class AddBinary
 {

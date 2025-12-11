@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using TopInterview150.Array___String;
+using TopInterview150.TwoPointers;
 
-namespace Array___String;
+namespace TwoPointers;
 
 public class AddBinaryTest
 {
