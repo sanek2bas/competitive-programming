@@ -1,6 +1,6 @@
-using Top.Interview._150.TwoPointers;
+using Top.Interview._150.Two_Pointers;
 
-namespace TwoPointers;
+namespace Two_Pointers;
 
 public class IsSubsequenceTest
 {

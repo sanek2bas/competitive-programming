@@ -1,8 +1,8 @@
-﻿using Top.Interview._150.Tests.TwoPointers;
+﻿using Top.Interview._150.Tests.Two_Pointers;
 
-namespace TwoPointers;
+namespace Two_Pointers;
 
-internal class RotateArrayTest
+public class RotateArrayTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]

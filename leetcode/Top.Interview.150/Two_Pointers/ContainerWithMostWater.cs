@@ -1,4 +1,4 @@
-namespace Top.Interview._150.TwoPointers;
+namespace Top.Interview._150.Two_Pointers;
 
 public class ContainerWithMostWater
 {
