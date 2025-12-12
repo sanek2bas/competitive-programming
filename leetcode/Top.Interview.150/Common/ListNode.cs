@@ -1,16 +1,11 @@
-namespace Top.Interview._150.Linked_List;
+namespace Top.Interview._150.Common;
 
-public sealed class ListNode
+public sealed class ListNode(int value = -1)
 {
-    public int Value { get; init; }
+    public int Value { get; init; } = value;
     public ListNode? Next { get; set; }
 
-    public ListNode(int value = -1)
-    {
-        Value = value;
-    }
-
-    public static ListNode Map(params int[] numbers)
+    public static ListNode? Map(params int[] numbers)
     {
         var startNode = new ListNode();
         var nextNode = startNode;
@@ -22,18 +17,18 @@ public sealed class ListNode
         return startNode.Next;
     }
 
-    public static ListNode Map(int[] numbers, int pos)
+    public static ListNode? Map(int[] numbers, int pos)
     {
         var root = Map(numbers);
         var lastNode = root;
-        while (lastNode.Next != null)
+        while (lastNode?.Next != null)
             lastNode = lastNode.Next;
 
         if (pos >= 0)
         {
-            ListNode posNode = root;
+            ListNode? posNode = root;
             for (int i = 1; i <= pos; i++)
-                posNode = posNode.Next;
+                posNode = posNode?.Next;
             lastNode.Next = posNode;
         }
 
@@ -49,6 +44,6 @@ public sealed class ListNode
             numbers.Add(node.Value);
             node = node.Next;
         }
-        return numbers.ToArray();
+        return [.. numbers];
     }
 }
