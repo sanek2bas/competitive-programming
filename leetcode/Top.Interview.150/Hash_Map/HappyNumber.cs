@@ -1,4 +1,4 @@
-namespace Top.Interview._150.HashMap;
+namespace Top.Interview._150.Hash_Map;
 
 public class HappyNumber
 {
