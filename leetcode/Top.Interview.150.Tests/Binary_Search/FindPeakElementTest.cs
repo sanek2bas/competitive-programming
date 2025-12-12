@@ -10,7 +10,9 @@ public class FindPeakElementTest
     public async Task Solution(int[] nums, int answer)
     {
         var solution = new FindPeakElement();
+        
         var result = solution.Execute(nums);
+
         await Assert.That(result).IsEqualTo(answer);
     }
 }

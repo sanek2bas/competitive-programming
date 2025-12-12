@@ -11,7 +11,9 @@ public class ValidParenthesesTest
     public async Task Solution(string str, bool answer)
     {
         var solution = new ValidParentheses();
+        
         var result = solution.Execute(str);
+
         await Assert.That(result).IsEqualTo(answer);
     }
 }

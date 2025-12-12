@@ -9,7 +9,9 @@ public class MinimumAbsoluteDifferenceTest
     public async Task Solution(TreeNode? root, int answer)
     {
         var solution = new MinimumAbsoluteDifference();
+
         var result = solution.Execute(root);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

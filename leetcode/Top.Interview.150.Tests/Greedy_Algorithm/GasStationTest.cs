@@ -9,7 +9,9 @@ public class GasStationTest
     public async Task Solution(int[] gas, int[] cost, int answer)
     {
         var solution = new GasStation();
+
         var result = solution.Execute(gas, cost);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

@@ -9,7 +9,9 @@ public class SingleNumberTest
     public async Task Solution(int[] nums, int answer)
     {
         var solution = new SingleNumber();
+
         var result = solution.Execute(nums);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

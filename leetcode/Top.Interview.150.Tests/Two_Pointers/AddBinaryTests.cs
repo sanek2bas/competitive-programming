@@ -10,7 +10,9 @@ public class AddBinaryTest
     public async Task Solution(string a, string b, string answer)
     {
         var solution = new AddBinary();
+
         var result = solution.Execute(a, b);
+        
         await Assert.That(result).IsEqualTo(answer);
     }    
 }

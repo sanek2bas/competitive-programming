@@ -9,7 +9,9 @@ public class CombinationTest
     public async Task Solution(int n, int k, IList<IList<int>> answer)
     {
         var solution = new Combination();
+
         var result = solution.Execute(n, k);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
 

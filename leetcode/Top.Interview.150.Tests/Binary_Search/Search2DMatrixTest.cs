@@ -12,7 +12,9 @@ public class Search2DMatrixTest
     public async Task Solution(int[][] matrix, int target, bool answer)
     {
         var solution = new Search2DMatrix();
+
         var result = solution.Execute(matrix, target);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

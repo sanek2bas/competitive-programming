@@ -9,7 +9,9 @@ public class SummaryRangesTest
     public async Task Solution(int[] nums, IList<string> answer)
     {
         var solution = new SummaryRanges();
+        
         var result = solution.Execute(nums);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
     public IEnumerable<(int[] nums, IList<string> answer)> DataSource()

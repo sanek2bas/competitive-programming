@@ -11,7 +11,9 @@ public class NumberOf1BitsTest
     public async Task Solution(uint n, int answer)
     {
         var solution = new NumberOf1Bits();
+
         var result = solution.Execute(n);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

@@ -11,7 +11,9 @@ public class PalindromeNumberTest
     public async Task Solution(int x, bool answer)
     {
         var solution = new PalindromeNumber();
+
         var result = solution.Execute(x);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

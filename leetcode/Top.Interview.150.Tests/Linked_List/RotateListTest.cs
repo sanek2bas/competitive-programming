@@ -9,7 +9,9 @@ public class RotateListTest
     public async Task Solution(ListNode head, int k, int[] answer)
     {
         var solution = new RotateList();
+
         var result = solution.Execute(head, k);
+        
         await Assert.That(ListNode.ToArray(result)).IsEquivalentTo(answer);
     }
 

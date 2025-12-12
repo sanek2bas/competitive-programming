@@ -10,7 +10,9 @@ public class IsSubsequenceTest
     public async Task Solution(string s, string t, bool answer)
     {
         var solution = new IsSubsequence();
+
         var result = solution.Execute(s, t);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

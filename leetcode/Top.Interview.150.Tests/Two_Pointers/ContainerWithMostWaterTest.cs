@@ -10,7 +10,9 @@ public class ContainerWithMostWaterTest
     public async Task Solution(int[] height, int answer)
     {
         var solution = new ContainerWithMostWater();
+
         var result = solution.Execute(height);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

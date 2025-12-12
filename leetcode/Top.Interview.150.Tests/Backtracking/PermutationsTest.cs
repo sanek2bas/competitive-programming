@@ -9,7 +9,9 @@ public class PermutationTest
     public async Task Solution(int[] nums, IList<IList<int>> answer)
     {
         var solution = new Permutation();
+
         var result = solution.Execute(nums);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
 

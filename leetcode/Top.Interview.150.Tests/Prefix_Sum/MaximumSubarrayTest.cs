@@ -9,7 +9,9 @@ public class MaximumSubarrayTest
     public async Task Solution(int[] nums, int answer)
     {
         var solution = new MaximumSubarray();
-        var result = solution.Execute(nums);        
+
+        var result = solution.Execute(nums);    
+            
         await Assert.That(result).IsEqualTo(answer);
     }
 

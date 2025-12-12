@@ -9,7 +9,9 @@ public class ValidSudokuTest
     public async Task Solution(char[][] board, bool answer)
     {
         var solution = new ValidSudoku();
+
         var result = solution.Execute(board);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

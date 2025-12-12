@@ -11,7 +11,9 @@ public class SearchInsertPositionTest
     public async Task Solution(int[] nums, int target, int answer)
     {
         var solution = new SearchInsertPosition();
+
         var result = solution.Execute(nums, target);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

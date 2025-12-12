@@ -11,7 +11,9 @@ public class MinimumSizeSubarraySumTest
     public async Task Solution(int target, int[] nums, int answer)
     {
         var solution = new MinimumSizeSubarraySum();
+        
         var result = solution.Execute(target, nums);
+
         await Assert.That(result).IsEqualTo(answer);
     }
 }

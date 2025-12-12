@@ -10,7 +10,9 @@ public class KthLargestElementInArrayTest
     public async Task Solution(int[] nums, int k, int answer)
     {
         var solution = new KthLargestElementInArray();
+
         var result = solution.Execute(nums, k);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

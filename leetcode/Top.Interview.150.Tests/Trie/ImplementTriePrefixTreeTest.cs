@@ -9,7 +9,9 @@ public class ImplementTriePrefixTreeTest
     public async Task Solution(IList<(TrieCommands, string)> words, IList<bool?> answer)
     {
         var solution = new ImplementTriePrefixTree();
+
         IList<bool?> result = solution.Execute(words);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
 

@@ -9,7 +9,9 @@ public class PlusOneTest
     public async Task Solution(int[] digits, int[] answer)
     {
         var solution = new PlusOne();
+
         var result = solution.Execute(digits);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
 

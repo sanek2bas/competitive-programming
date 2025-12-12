@@ -10,7 +10,9 @@ public class ReverseBitsTest
     public async Task Solution(uint n, uint answer)
     {
         var solution = new ReverseBits();
+
         var result = solution.Execute(n);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

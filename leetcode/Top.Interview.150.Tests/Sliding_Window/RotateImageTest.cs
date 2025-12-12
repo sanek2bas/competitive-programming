@@ -9,7 +9,9 @@ public class RotateImageTest
     public async Task Solution(int[][] matrix, int[][] answer)
     {
         var solution = new RotateImage();
+        
         solution.Execute(matrix);
+
         await Assert.That(matrix).IsEquivalentTo(answer);
     }
 

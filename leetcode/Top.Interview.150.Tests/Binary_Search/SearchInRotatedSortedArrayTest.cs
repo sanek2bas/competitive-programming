@@ -11,7 +11,9 @@ public class SearchInRotatedSortedArrayTest
     public async Task Solution(int[] nums, int target, int answer)
     {
         var solution = new SearchInRotatedSortedArray();
+
         var result = solution.Execute(nums, target);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

@@ -9,7 +9,9 @@ public class SpiralMatrixTest
     public async Task Solution(int[][] matrix, IList<int> answer)
     {
         var solution = new SpiralMatrix();
+
         var result = solution.Execute(matrix);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
 

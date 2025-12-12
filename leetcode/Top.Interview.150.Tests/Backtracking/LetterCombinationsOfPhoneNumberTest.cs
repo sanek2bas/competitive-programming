@@ -9,7 +9,9 @@ public class LetterCombinationsOfPhoneNumberTest
     public async Task Solution(string digits, IList<string> answer)
     {
         var solution = new LetterCombinationsOfPhoneNumber();
+
         var result = solution.Execute(digits);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
 

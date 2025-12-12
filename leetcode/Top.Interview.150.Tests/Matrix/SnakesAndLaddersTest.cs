@@ -9,7 +9,9 @@ public class SnakesAndLaddersTest
     public async Task Solution(int[][] board, int answer)
     {
         var solution = new SnakesAndLadders();
+
         var result = solution.Execute(board);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

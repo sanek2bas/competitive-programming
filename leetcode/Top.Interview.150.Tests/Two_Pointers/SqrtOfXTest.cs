@@ -11,7 +11,9 @@ public class SqrtOfXTest
     public async Task Solution(int x, int answer)
     {
         var solution = new SqrtOfX();
+
         var result = solution.Execute(x);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

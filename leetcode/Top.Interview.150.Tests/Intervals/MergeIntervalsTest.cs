@@ -9,7 +9,9 @@ public class MergeIntervalsTest
     public async Task Solution(int[][] intervals, int[][] answer)
     {
         var solution = new MergeIntervals();
+
         var result = solution.Execute(intervals);
+        
         await Assert.That(result).IsEquivalentTo(answer);
     }
     

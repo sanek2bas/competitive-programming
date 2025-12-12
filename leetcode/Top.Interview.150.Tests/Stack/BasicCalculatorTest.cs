@@ -12,7 +12,9 @@ public class BasicCalculatorTest
     public async Task Solution(string str, int answer)
     {
         var solution = new BasicCalculator();
+
         var result = solution.Execute(str);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }

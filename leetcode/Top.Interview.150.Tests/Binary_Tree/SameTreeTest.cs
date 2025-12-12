@@ -9,7 +9,9 @@ public class SameTreeTest
     public async Task Solution(TreeNode p, TreeNode q, bool answer)
     {
         var solution = new SameTree();
+
         var result = solution.Execute(p, q);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 

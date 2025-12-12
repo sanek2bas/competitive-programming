@@ -11,7 +11,9 @@ public class ValidPalindromeTest
     public async Task Solution(string s, bool answer)
     {
         var solution = new ValidPalindrome();
+        
         var result = solution.Execute(s);
+
         await Assert.That(result).IsEqualTo(answer);
     }
 }

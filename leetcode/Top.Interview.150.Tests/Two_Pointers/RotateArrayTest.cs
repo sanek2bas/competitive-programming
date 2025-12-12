@@ -9,7 +9,9 @@ public class RotateArrayTest
     public async Task Solution(int[] nums, int k, int[] answer)
     {
         var solution = new RotateArray();
+        
         solution.Execute(nums, k);
+
         await Assert.That(nums).IsEquivalentTo(answer);
     }
 
