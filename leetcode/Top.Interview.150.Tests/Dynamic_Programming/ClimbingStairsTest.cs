@@ -10,7 +10,9 @@ public class ClimbingStairsTest
     public async Task Solution(int n, int answer)
     {
         var solution = new ClimbingStairs();
+
         var result = solution.Execute(n);
+        
         await Assert.That(result).IsEqualTo(answer);
     }
 }
