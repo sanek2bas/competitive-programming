@@ -4,6 +4,8 @@ namespace Common;
 
 public class ListNodeTests
 {
+    #region Constructor Tests
+
     [Test]
     public async Task Constructor_WithDefaultValue_CreatesNodeWithDefaultValue()
     {
@@ -21,6 +23,10 @@ public class ListNodeTests
         await Assert.That(node.Value).IsEqualTo(555);
         await Assert.That(node.Next).IsNull();
     }
+
+    #endregion
+
+    #region Map(params int[] numbers) Tests
 
     [Test]
     public async Task Map_WithEmptyArray_ReturnsNull()
@@ -57,6 +63,8 @@ public class ListNodeTests
         }
         await Assert.That(current).IsNull();
     }
+
+    #endregion
 
     // [Test]
     // public void Map_WithPosZero_CreatesCycleToFirstNode()
