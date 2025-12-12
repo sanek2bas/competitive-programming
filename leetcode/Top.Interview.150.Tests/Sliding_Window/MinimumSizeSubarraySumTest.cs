@@ -1,6 +1,6 @@
 ﻿using Top.Interview._150.Sliding_Window;
 
-namespace SlidingWindow;
+namespace Sliding_Window;
 
 public class MinimumSizeSubarraySumTest
 {
