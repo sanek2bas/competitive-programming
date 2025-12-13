@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Top.Interview._150.Common;
 
 namespace Common;
@@ -26,20 +27,20 @@ public class ListNodeTests
 
     #endregion
 
-    #region Map(params int[] numbers) Tests
+    #region Create Tests
 
     [Test]
-    public async Task Map_WithEmptyArray_ReturnsNull()
+    public async Task CreateLinkedList_WithEmptyArray_ReturnsNull()
     {
-        var result = ListNode.Map();
+        var result = ListNode.Create();
 
         await Assert.That(result).IsNull();
     }
 
     [Test]
-    public async Task Map_WithSingleElement_CreatesSingleNode()
+    public async Task CreateLinkedList_WithSingleElement()
     {
-        var result = ListNode.Map(5);
+        var result = ListNode.Create(5);
         
         await Assert.That(result).IsNotNull();
         await Assert.That(result.Value).IsEqualTo(5);
@@ -47,11 +48,11 @@ public class ListNodeTests
     }
 
     [Test]
-    public async Task Map_WithMultipleElements_CreatesLinkedList()
+    public async Task CreateLinkedList_WithMultipleElements()
     {
         var start = 0;
         var count = 10;
-        var result = ListNode.Map(
+        var result = ListNode.Create(
             [.. Enumerable.Range(start, count)]); 
         
         var current = result;
@@ -66,222 +67,75 @@ public class ListNodeTests
 
     #endregion
 
-    // [Test]
-    // public void Map_WithPosZero_CreatesCycleToFirstNode()
-    // {
-    //     var start = 0;
-    //     var count = 10;
-    //     var result = ListNode.Map(
-    //         [.. Enumerable.Range(start, count)], 0); 
+    #region Creates With Cycle Tests
+
+    [Test]
+    public async Task CreateLinkedList_WithCycle_ToFirstNode()
+    {
+        var start = 1;
+        var count = 5;
+        var firstIdx = 0;
+        var result = ListNode.CreateWithCycle(
+            [.. Enumerable.Range(start, count)], firstIdx); 
         
-    //     // Assert
-    //         // Find the last node
-    //         var lastNode = result;
-    //         while (lastNode.Next != null)
-    //             lastNode = lastNode.Next;
-            
-    //         // Last node should point to the first node
-    //         Assert.Same(result, lastNode.Next);
-    // }
+        var lastNode = result;
+        for(int i = 1; i < count; i++)
+            lastNode = lastNode.Next;
+        
+        await Assert.That(lastNode).IsNotNull();
+        await Assert.That(result)
+            .IsSameReferenceAs(lastNode.Next);
+    }
 
-    //  [Test]
-    //     public void Map_WithPosInMiddle_CreatesCycleToMiddleNode()
-    //     {
-    //         // Arrange
-    //         var numbers = new[] { 1, 2, 3, 4, 5 };
-            
-    //         // Act
-    //         var result = ListNode.Map(numbers, 2); // Should point to node with value 3 (0-based index)
-            
-    //         // Assert
-    //         var targetNode = result;
-    //         for (int i = 0; i < 2; i++)
-    //             targetNode = targetNode.Next;
-            
-    //         var lastNode = result;
-    //         while (lastNode.Next != null)
-    //             lastNode = lastNode.Next;
-            
-    //         Assert.Same(targetNode, lastNode.Next);
-    //     }
+    [Test]
+    public async Task CreateLinkedList_WithCycle_ByEmptyArrayAndPos()
+    {
+        var emptyArray = new int[0];
+        
+        var result = ListNode.CreateWithCycle(emptyArray, 0);
+        
+        await Assert.That(result).IsNull();
+    }
 
-    //  [Fact]
-    //     public void Map_WithPosAtEnd_CreatesCycleToLastNode()
-    //     {
-    //         // Arrange
-    //         var numbers = new[] { 1, 2, 3, 4, 5 };
-            
-    //         // Act
-    //         var result = ListNode.Map(numbers, 4); // Should point to last node
-            
-    //         // Assert
-    //         var targetNode = result;
-    //         while (targetNode.Next != null)
-    //             targetNode = targetNode.Next;
-            
-    //         var lastNode = result;
-    //         while (lastNode.Next != null)
-    //             lastNode = lastNode.Next;
-            
-    //         Assert.Same(targetNode, lastNode.Next);
-    //     }
+    #endregion
 
-    // [Fact]
-    //     public void Map_WithEmptyArrayAndPos_ReturnsNull()
-    //     {
-    //         // Arrange
-    //         var emptyArray = new int[0];
-            
-    //         // Act
-    //         var result = ListNode.Map(emptyArray, 0);
-            
-    //         // Assert
-    //         Assert.Null(result);
-    //     }
+    #region Convert LinkedList To Array Tests
+    
+    [Test]
+    public async Task ConvertToArray_WithNull_ReturnsEmptyArray()
+    {
+        ListNode root = null;
+        
+        var result = ListNode.ConvertToArray(root);
+        
+        await Assert.That(result).IsEmpty();
+    }
 
-    // #region ToArray Tests
-    //     [Fact]
-    //     public void ToArray_WithNull_ReturnsEmptyArray()
-    //     {
-    //         // Arrange
-    //         ListNode root = null;
-            
-    //         // Act
-    //         var result = ListNode.ToArray(root);
-            
-    //         // Assert
-    //         Assert.Empty(result);
-    //     }
+    [Test]
+    public async Task ConvertToArray_WithSingleNode_ReturnsSingleElementArray()
+    {
+        var val = 42;
+        var root = new ListNode(val);
 
-    //     [Fact]
-    //     public void ToArray_WithSingleNode_ReturnsSingleElementArray()
-    //     {
-    //         // Arrange
-    //         var root = new ListNode(42);
-            
-    //         // Act
-    //         var result = ListNode.ToArray(root);
-            
-    //         // Assert
-    //         Assert.Single(result);
-    //         Assert.Equal(42, result[0]);
-    //     }
+        var result = ListNode.ConvertToArray(root);
+        
+        await Assert.That(result).HasCount(1);
+        await Assert.That(result[0]).IsEqualTo(val);
+    }
 
-    //     [Fact]
-    //     public void ToArray_WithMultipleNodes_ReturnsCorrectArray()
-    //     {
-    //         // Arrange
-    //         var root = ListNode.Map(1, 2, 3, 4, 5);
-            
-    //         // Act
-    //         var result = ListNode.ToArray(root);
-            
-    //         // Assert
-    //         Assert.Equal(new[] { 1, 2, 3, 4, 5 }, result);
-    //     }
-
-    //     [Fact]
-    //     public void ToArray_WithCyclicList_ThrowsStackOverflow()
-    //     {
-    //         // Note: This test expects an infinite loop/stack overflow
-    //         // In practice, you might want to add cycle detection to ToArray method
-    //         // Arrange
-    //         var numbers = new[] { 1, 2, 3 };
-    //         var root = ListNode.Map(numbers, 1); // Creates a cycle
-            
-    //         // Act & Assert
-    //         // This will cause infinite loop - we should handle it differently
-    //         // For now, we'll skip this test or expect it to run indefinitely
-    //         // var result = ListNode.ToArray(root); // This will never complete
-    //     }
-    // #endregion
-
-       
-        #region Integration Tests
-        // [Fact]
-        // public void MapAndToArray_RoundTrip_PreservesValues()
-        // {
-        //     // Arrange
-        //     var originalArray = new[] { 10, 20, 30, 40, 50 };
-            
-        //     // Act
-        //     var list = ListNode.Map(originalArray);
-        //     var resultArray = ListNode.ToArray(list);
-            
-        //     // Assert
-        //     Assert.Equal(originalArray, resultArray);
-        // }
-
-        // [Fact]
-        // public void Map_WithArrayAndNegativePos_CreatesNonCyclicList()
-        // {
-        //     // Arrange
-        //     var numbers = new[] { 1, 2, 3 };
-            
-        //     // Act
-        //     var result = ListNode.Map(numbers, -1);
-            
-        //     // Assert
-        //     var array = ListNode.ToArray(result);
-        //     Assert.Equal(new[] { 1, 2, 3 }, array);
-        // }
-        #endregion
-       
-
-
-
-#region Edge Cases
-        // [Fact]
-        // public void Map_WithLargeArray_HandlesManyElements()
-        // {
-        //     // Arrange
-        //     var largeArray = new int[1000];
-        //     for (int i = 0; i < 1000; i++)
-        //         largeArray[i] = i;
-            
-        //     // Act
-        //     var result = ListNode.Map(largeArray);
-            
-        //     // Assert
-        //     var current = result;
-        //     for (int i = 0; i < 1000; i++)
-        //     {
-        //         Assert.NotNull(current);
-        //         Assert.Equal(i, current.Value);
-        //         current = current.Next;
-        //     }
-        //     Assert.Null(current);
-        // }
-
-        // [Fact]
-        // public void Map_WithSameValueArray_HandlesDuplicateValues()
-        // {
-        //     // Arrange & Act
-        //     var result = ListNode.Map(5, 5, 5, 5);
-            
-        //     // Assert
-        //     var current = result;
-        //     for (int i = 0; i < 4; i++)
-        //     {
-        //         Assert.NotNull(current);
-        //         Assert.Equal(5, current.Value);
-        //         current = current.Next;
-        //     }
-        //     Assert.Null(current);
-        // }
-
-        // [Fact]
-        // public void ToArray_WithMaximumValues_HandlesAllValues()
-        // {
-        //     // Arrange
-        //     var root = ListNode.Map(int.MinValue, 0, int.MaxValue);
-            
-        //     // Act
-        //     var result = ListNode.ToArray(root);
-            
-        //     // Assert
-        //     Assert.Equal(new[] { int.MinValue, 0, int.MaxValue }, result);
-        // }
-        #endregion
-
+    [Test]
+    public async Task ConvertToArray_WithMultipleNodes_ReturnsCorrectArray()
+    {
+        var start = 1;
+        var count = 5;
+        
+        var originalArray = Enumerable.Range(start, count).ToArray();
+        var root = ListNode.Create(originalArray);
+        
+        var resultArray = ListNode.ConvertToArray(root);
+        
+        await Assert.That(resultArray).IsEquivalentTo(originalArray);
+    }
+    
+    #endregion
 }

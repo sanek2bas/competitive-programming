@@ -13,17 +13,17 @@ public class RotateListTest
 
         var result = solution.Execute(head, k);
         
-        await Assert.That(ListNode.ToArray(result)).IsEquivalentTo(answer);
+        await Assert.That(ListNode.ConvertToArray(result)).IsEquivalentTo(answer);
     }
 
-    public IEnumerable<(ListNode head, int k, int[] answer)> DataSource()
+    public IEnumerable<(ListNode? head, int k, int[] answer)> DataSource()
     {
-         yield return (
-            ListNode.Map(1, 2, 3, 4, 5),
+        yield return (
+           ListNode.Create(1, 2, 3, 4, 5),
             2,
             new int[] { 4, 5, 1, 2, 3 });
         yield return (
-            ListNode.Map(0, 1, 2), 
+            ListNode.Create(0, 1, 2), 
             4,
             new int[] {2, 0, 1});
     }

@@ -1,11 +1,16 @@
 namespace Top.Interview._150.Common;
 
-public sealed class ListNode(int value = -1)
+public sealed class ListNode
 {
-    public int Value { get; init; } = value;
+    public int Value { get; init; }
     public ListNode? Next { get; set; }
 
-    public static ListNode? Map(params int[] numbers)
+    public ListNode(int value = -1)
+    {
+        Value = value;
+    }
+
+    public static ListNode? Create(params int[] numbers)
     {
         var startNode = new ListNode();
         var nextNode = startNode;
@@ -17,9 +22,11 @@ public sealed class ListNode(int value = -1)
         return startNode.Next;
     }
 
-    public static ListNode? Map(int[] numbers, int pos)
+    public static ListNode? CreateWithCycle(int[] numbers, int pos)
     {
-        var root = Map(numbers);
+        var root = Create(numbers);
+        if(root == null)
+            return null;
         var lastNode = root;
         while (lastNode?.Next != null)
             lastNode = lastNode.Next;
@@ -35,7 +42,7 @@ public sealed class ListNode(int value = -1)
         return root;
     }
 
-    public static int[] ToArray(ListNode root)
+    public static int[] ConvertToArray(ListNode root)
     {
         var node = root;
         var numbers = new List<int>();
