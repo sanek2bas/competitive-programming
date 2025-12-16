@@ -10,16 +10,16 @@ public class ListNodeTests
     [Test]
     public async Task Constructor_WithDefaultValue_CreatesNodeWithDefaultValue()
     {
-        var node = new ListNode();
+        var node = new ListNode<int>(0);
         
-        await Assert.That(node.Value).IsEqualTo(-1);
+        await Assert.That(node.Value).IsEqualTo(0);
         await Assert.That(node.Next).IsNull();
     }
 
     [Test]
     public async Task Constructor_WithValue_CreatesNodeWithSpecifiedValue()
     {
-        var node = new ListNode(555);
+        var node = new ListNode<int>(555);
         
         await Assert.That(node.Value).IsEqualTo(555);
         await Assert.That(node.Next).IsNull();
@@ -32,7 +32,7 @@ public class ListNodeTests
     [Test]
     public async Task CreateLinkedList_WithEmptyArray_ReturnsNull()
     {
-        var result = ListNode.Create();
+        var result = ListNode<int>.Create();
 
         await Assert.That(result).IsNull();
     }
@@ -40,7 +40,7 @@ public class ListNodeTests
     [Test]
     public async Task CreateLinkedList_WithSingleElement()
     {
-        var result = ListNode.Create(5);
+        var result = ListNode<int>.Create(5);
         
         await Assert.That(result).IsNotNull();
         await Assert.That(result.Value).IsEqualTo(5);
@@ -52,7 +52,7 @@ public class ListNodeTests
     {
         var start = 0;
         var count = 10;
-        var result = ListNode.Create(
+        var result = ListNode<int>.Create(
             [.. Enumerable.Range(start, count)]); 
         
         var current = result;
@@ -75,7 +75,7 @@ public class ListNodeTests
         var start = 1;
         var count = 5;
         var firstIdx = 0;
-        var result = ListNode.CreateWithCycle(
+        var result = ListNode<int>.CreateWithCycle(
             [.. Enumerable.Range(start, count)], firstIdx); 
         
         var lastNode = result;
@@ -92,7 +92,7 @@ public class ListNodeTests
     {
         var emptyArray = new int[0];
         
-        var result = ListNode.CreateWithCycle(emptyArray, 0);
+        var result = ListNode<int>.CreateWithCycle(emptyArray, 0);
         
         await Assert.That(result).IsNull();
     }
@@ -104,9 +104,9 @@ public class ListNodeTests
     [Test]
     public async Task ConvertToArray_WithNull_ReturnsEmptyArray()
     {
-        ListNode root = null;
+        ListNode<int> root = null;
         
-        var result = ListNode.ConvertToArray(root);
+        var result = ListNode<int>.ConvertToArray(root);
         
         await Assert.That(result).IsEmpty();
     }
@@ -115,9 +115,9 @@ public class ListNodeTests
     public async Task ConvertToArray_WithSingleNode_ReturnsSingleElementArray()
     {
         var val = 42;
-        var root = new ListNode(val);
+        var root = new ListNode<int>(val);
 
-        var result = ListNode.ConvertToArray(root);
+        var result = ListNode<int>.ConvertToArray(root);
         
         await Assert.That(result).HasCount(1);
         await Assert.That(result[0]).IsEqualTo(val);
@@ -130,9 +130,9 @@ public class ListNodeTests
         var count = 5;
         
         var originalArray = Enumerable.Range(start, count).ToArray();
-        var root = ListNode.Create(originalArray);
+        var root = ListNode<int>.Create(originalArray);
         
-        var resultArray = ListNode.ConvertToArray(root);
+        var resultArray = ListNode<int>.ConvertToArray(root);
         
         await Assert.That(resultArray).IsEquivalentTo(originalArray);
     }

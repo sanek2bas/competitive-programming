@@ -7,23 +7,23 @@ public class RotateListTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(ListNode head, int k, int[] answer)
+    public async Task Solution(ListNode<int> head, int k, int[] answer)
     {
         var solution = new RotateList();
 
         var result = solution.Execute(head, k);
         
-        await Assert.That(ListNode.ConvertToArray(result)).IsEquivalentTo(answer);
+        await Assert.That(ListNode<int>.ConvertToArray(result)).IsEquivalentTo(answer);
     }
 
-    public IEnumerable<(ListNode? head, int k, int[] answer)> DataSource()
+    public IEnumerable<(ListNode<int>? head, int k, int[] answer)> DataSource()
     {
         yield return (
-           ListNode.Create(1, 2, 3, 4, 5),
+           ListNode<int>.Create(1, 2, 3, 4, 5),
             2,
             new int[] { 4, 5, 1, 2, 3 });
         yield return (
-            ListNode.Create(0, 1, 2), 
+            ListNode<int>.Create(0, 1, 2), 
             4,
             new int[] {2, 0, 1});
     }
