@@ -10,8 +10,9 @@ public class ListNodeTests
     [Test]
     public async Task Constructor_WithDefaultValue_CreatesNodeWithDefaultValue()
     {
-        var node = new ListNode<int>(0);
+        var node = ListNode<int>.Create(0);
         
+        await Assert.That(node).IsNotNull();
         await Assert.That(node.Value).IsEqualTo(0);
         await Assert.That(node.Next).IsNull();
     }
@@ -19,8 +20,9 @@ public class ListNodeTests
     [Test]
     public async Task Constructor_WithValue_CreatesNodeWithSpecifiedValue()
     {
-        var node = new ListNode<int>(555);
+        var node = ListNode<int>.Create(555);
         
+        await Assert.That(node).IsNotNull();
         await Assert.That(node.Value).IsEqualTo(555);
         await Assert.That(node.Next).IsNull();
     }
@@ -115,7 +117,7 @@ public class ListNodeTests
     public async Task ConvertToArray_WithSingleNode_ReturnsSingleElementArray()
     {
         var val = 42;
-        var root = new ListNode<int>(val);
+        var root = ListNode<int>.Create(val);
 
         var result = ListNode<int>.ConvertToArray(root);
         

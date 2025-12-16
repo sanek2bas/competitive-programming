@@ -6,7 +6,7 @@ public class ListNode<T>
 
     public ListNode<T>? Next { get; set; }
 
-    public ListNode(T value)
+    private ListNode(T value)
     {
         Value = value;
     }
