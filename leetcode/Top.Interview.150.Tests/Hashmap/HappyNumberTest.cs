@@ -1,6 +1,6 @@
-using Top.Interview._150.Hash_Map;
+using Top.Interview._150.Hashmap;
 
-namespace Hash_Map;
+namespace Hashmap;
 
 public class HappyNumberTest
 {
