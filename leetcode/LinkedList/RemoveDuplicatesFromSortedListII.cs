@@ -5,32 +5,7 @@ namespace TopInterview150.LinkedList;
 
 public class RemoveDuplicatesFromSortedListII
 {
-    /// <summary>
-    /// Given the head of a sorted linked list, 
-    /// delete all nodes that have duplicate numbers, 
-    /// leaving only distinct numbers from the original list. 
-    /// Return the linked list sorted as well.
-    /// </summary>
-    public static ListNode Execute(ListNode head)
-    {
-        ListNode dummy = new ListNode();
-        dummy.Next = head;
-        ListNode prev = dummy;
-        
-        while (head != null)
-        {
-            while (head.Next != null &&
-                   head.Value == head.Next.Value)
-                head = head.Next;
-            if (prev.Next == head)
-                prev = prev.Next;
-            else
-                prev.Next = head.Next;
-            head = head.Next;
-        }
-
-        return dummy.Next;
-    }
+    
 
     public static IEnumerable<(ListNode head, int[] answer)> GetTests()
     {
