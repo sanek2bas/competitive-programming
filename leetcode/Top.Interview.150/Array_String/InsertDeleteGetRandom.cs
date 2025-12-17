@@ -19,8 +19,8 @@ public class InsertDeleteGetRandom
     /// probability of being returned. You must implement the functions 
     /// of the class such that each function works in average O(1) time complexity.
     /// </summary>
-    public string[] Execute(Func<RandomizedSet, string[]> function)
+    public string[] Execute(Func<RandomizedSet<int>, string[]> function)
     {
-        return function.Invoke(new RandomizedSet());
+        return function.Invoke(new RandomizedSet<int>());
     }
 }

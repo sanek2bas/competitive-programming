@@ -1,19 +1,19 @@
 namespace Top.Interview._150.Common;
 
-public class RandomizedSet
+public class RandomizedSet<T>
 {
-    private List<int> values;
-    private Dictionary<int, int> valueToIndex;
+    private List<T> values;
+    private Dictionary<T, int> valueToIndex;
     private Random rdm;
 
     public RandomizedSet()
     {
-        values = new List<int>();
-        valueToIndex = new Dictionary<int, int>();
+        values = new List<T>();
+        valueToIndex = new Dictionary<T, int>();
         rdm = new Random();
     }
 
-    public bool Insert(int val)
+    public bool Insert(T val)
     {
         if (valueToIndex.ContainsKey(val))
             return false;
@@ -22,7 +22,7 @@ public class RandomizedSet
         return true;
     }
 
-    public bool Remove(int val)
+    public bool Remove(T val)
     {
         if (!valueToIndex.TryGetValue(val, out int idx))
             return false;
@@ -34,7 +34,7 @@ public class RandomizedSet
         return true;
     }
 
-    public int GetRandom()
+    public T GetRandom()
     {
         return values[rdm.Next(values.Count)];
     }

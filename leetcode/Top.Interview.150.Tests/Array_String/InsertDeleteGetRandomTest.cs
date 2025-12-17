@@ -7,7 +7,7 @@ public class InsertDeleteGetRandomTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(Func<RandomizedSet, string[]> function, string[] answer)
+    public async Task Solution(Func<RandomizedSet<int>, string[]> function, string[] answer)
     {
         var solution = new InsertDeleteGetRandom();
 
@@ -16,7 +16,7 @@ public class InsertDeleteGetRandomTest
         await Assert.That(result).IsEquivalentTo(answer);
     }
 
-    public IEnumerable<(Func<RandomizedSet, string[]> function, string[] answer)> DataSource()
+    public IEnumerable<(Func<RandomizedSet<int>, string[]> function, string[] answer)> DataSource()
     {
          yield return (
             set =>
