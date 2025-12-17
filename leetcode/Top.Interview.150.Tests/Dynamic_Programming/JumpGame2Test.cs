@@ -1,6 +1,7 @@
 using Top.Interview._150.Dynamic_Programming;
 
 namespace Dynamic_Programming;
+
 public class JumpGame2Test
 {
     [Test]
