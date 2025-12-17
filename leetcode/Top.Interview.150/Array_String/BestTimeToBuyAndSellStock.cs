@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.Dynamic_Programming;
+﻿namespace Top.Interview._150.Array_String;
 
 public class BestTimeToBuyAndSellStock
 {
