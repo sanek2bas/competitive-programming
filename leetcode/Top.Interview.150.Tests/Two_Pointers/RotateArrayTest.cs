@@ -15,7 +15,7 @@ public class RotateArrayTest
         await Assert.That(nums).IsEquivalentTo(answer);
     }
 
-    public static IEnumerable<(int[] nums, int k, int[] answer)> DataSource()
+    public IEnumerable<(int[] nums, int k, int[] answer)> DataSource()
     {
         yield return (new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3,
                       new int[] { 5, 6, 7, 1, 2, 3, 4 });
