@@ -1,6 +1,6 @@
-using Top.Interview._150.Dynamic_Programming;
+using Top.Interview._150.Array_String;
 
-namespace Dynamic_Programming;
+namespace Array_String;
 
 public class JumpGame2Test
 {
