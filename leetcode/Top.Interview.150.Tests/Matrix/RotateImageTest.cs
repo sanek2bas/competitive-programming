@@ -1,6 +1,6 @@
-﻿using Top.Interview._150.Sliding_Window;
+﻿using Top.Interview._150.Matrix;
 
-namespace Sliding_Window;
+namespace Matrix;
 
 public class RotateImageTest
 {

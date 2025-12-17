@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.Sliding_Window;
+﻿namespace Top.Interview._150.Matrix;
 
 public class RotateImage
 {
