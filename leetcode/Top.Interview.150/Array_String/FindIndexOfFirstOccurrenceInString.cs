@@ -1,4 +1,4 @@
-﻿using Top.Interview._150.Two_Pointers;
+﻿using Top.Interview._150.Array_String;
 
 public class FindIndexOfFirstOccurrenceInString
 {
