@@ -1,6 +1,6 @@
 ﻿namespace Top.Interview._150.Dynamic_Programming;
 
-public class BestTimeToBuyAndShellStock
+public class BestTimeToBuyAndSellStock
 {
     /// <summary>
     /// # 121
