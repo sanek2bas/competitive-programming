@@ -2,7 +2,7 @@ using Top.Interview._150.Common;
 
 namespace Common;
 
-public class TreeNodeTest
+public class TreeNodeTests
 {        
     [Test]
     public async Task Create_SingleNode_WithIntValue()
