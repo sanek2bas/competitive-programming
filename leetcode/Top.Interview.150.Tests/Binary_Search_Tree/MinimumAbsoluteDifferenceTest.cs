@@ -1,6 +1,7 @@
-using Top.Interview._150.Binary_Tree;
+using Top.Interview._150.Binary_Search_Tree;
+using Top.Interview._150.Common;
 
-namespace Binary_Tree;
+namespace Binary_Search_Tree;
 
 public class MinimumAbsoluteDifferenceTest
 {
@@ -18,13 +19,18 @@ public class MinimumAbsoluteDifferenceTest
     public IEnumerable<(TreeNode? root, int answer)> DataSource()
     {
         yield return (
-            TreeNode.Map(4, 2, 6, 1, 3),
+            CreateTreeNode(4, 2, 6, 1, 3),
             1);
         yield return (
-            TreeNode.Map(41, 0, 48, null, null, 12, 49),
+            CreateTreeNode(41, 0, 48, null, null, 12, 49),
             1);
         yield return (
-            TreeNode.Map(3, 1, 4, null, 2),
+            CreateTreeNode(3, 1, 4, null, 2),
             1);
+    }
+
+    private TreeNode CreateTreeNode(params int?[] values)
+    {
+        return TreeNode.Create(values);
     }
 }
