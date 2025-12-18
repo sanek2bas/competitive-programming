@@ -1,49 +1,49 @@
 namespace Top.Interview._150.Common;
 
-public class TreeListNode<T>
+public class TreeListNode
 {
-    public T Value { get; init; }
+    public int Value { get; init; }
 
-    public TreeListNode<T>? Next { get; set; }
+    public TreeListNode Next { get; set; }
 
-    public TreeListNode<T>? Left { get; set; }
+    public TreeListNode Left { get; set; }
 
-    public TreeListNode<T>? Right { get; set; }
+    public TreeListNode Right { get; set; }
 
-    private TreeListNode(T value)
+    private TreeListNode(int value)
     {
         Value = value;
     }
 
-    public static TreeListNode<T>? Create(params T[] values)
+    public static TreeListNode Create(params int?[] numbers)
     {
-        if (values == null ||
-            values.Length == 0 ||
-            values[0] == null)
+        if (numbers == null 
+            || numbers.Length == 0 
+            || numbers[0] == null)
             return null;
 
-        var rootNode = new TreeListNode<T>(values[0]);
+        var rootNode = new TreeListNode(numbers[0].Value);
 
-        var queue = new Queue<TreeListNode<T>>();
+        var queue = new Queue<TreeListNode>();
         queue.Enqueue(rootNode);
         int i = 1;
-        while (i < values.Length)
+        while (i < numbers.Length)
         {
-            var value = values[i];
+            var number = numbers[i];
             var node = queue.Dequeue();
-            if (value != null)
+            if (number != null)
             {
-                var leftNode = new TreeListNode<T>(value);
+                var leftNode = new TreeListNode(number.Value);
                 queue.Enqueue(leftNode);
                 node.Left = leftNode;
             }
             i++;
-            if (i >= values.Length)
+            if (i >= numbers.Length)
                 break;
-            value = values[i];
-            if (value != null)
+            number = numbers[i];
+            if (number != null)
             {
-                var rightNode = new TreeListNode<T>(value);
+                var rightNode = new TreeListNode(number.Value);
                 queue.Enqueue(rightNode);
                 node.Right = rightNode;
             }
