@@ -53,37 +53,35 @@ public class TreeNode
         return rootNode;
     }
 
-    public static int?[] ToArray(TreeNode root)
+    public int?[] ToArray()
     {
         var answer = new List<int?>();
-        if (root != null)
+        var root = this;
+        answer.Add(root.Value);
+        var queue = new Queue<TreeNode>();
+        queue.Enqueue(root);
+        while (queue.Count > 0)
         {
-            answer.Add(root.Value);
-            var queue = new Queue<TreeNode>();
-            queue.Enqueue(root);
-            while (queue.Count > 0)
+            var node = queue.Dequeue();
+            if (node.Left == null && node.Right == null)
+                continue;
+            if (node.Left != null)
             {
-                var node = queue.Dequeue();
-                if (node.Left == null && node.Right == null)
-                    continue;
-                if (node.Left != null)
-                {
-                    answer.Add(node.Left.Value);
-                    queue.Enqueue(node.Left);
-                }
-                else
-                {
-                    answer.Add(default);
-                }
-                if (node.Right != null)
-                {
-                    answer.Add(node.Right.Value);
-                    queue.Enqueue(node.Right);
-                }
-                else
-                {
-                    answer.Add(default);
-                }
+                answer.Add(node.Left.Value);
+                queue.Enqueue(node.Left);
+            }
+            else
+            {
+                answer.Add(default);
+            }
+            if (node.Right != null)
+            {
+                answer.Add(node.Right.Value);
+                queue.Enqueue(node.Right);
+            }
+            else
+            {
+                answer.Add(default);
             }
         }
         return answer.ToArray();

@@ -121,7 +121,7 @@ public class TreeNodeTests
         int?[] originalArray = [ 1, 2, 3, null, 5, 6, 7, 8, 9 ];
         
         var tree = CreateTreeNode(originalArray);
-        var resultArray = ConvertNodeToArray(tree);
+        var resultArray = tree.ToArray();
         
         await Assert.That(resultArray).IsEquivalentTo(originalArray);
     }
@@ -129,10 +129,5 @@ public class TreeNodeTests
     private TreeNode CreateTreeNode(params int?[] numbers)
     {
         return TreeNode.Create(numbers);
-    }
-
-    private int?[] ConvertNodeToArray(TreeNode node)
-    {
-        return TreeNode.ToArray(node);
     }
 }
