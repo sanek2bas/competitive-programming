@@ -1,4 +1,4 @@
-namespace Top.Interview._150.Matrix_Traversal;
+namespace Top.Interview._150.Graph_BFS;
 
 public class SnakesAndLadders
 {

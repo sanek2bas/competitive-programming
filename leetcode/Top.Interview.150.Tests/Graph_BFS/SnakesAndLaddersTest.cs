@@ -1,6 +1,6 @@
-using Top.Interview._150.Matrix_Traversal;
+using Top.Interview._150.Graph_BFS;
 
-namespace Matrix;
+namespace Graph_BFS;
 
 public class SnakesAndLaddersTest
 {
