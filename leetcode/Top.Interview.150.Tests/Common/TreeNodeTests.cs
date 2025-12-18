@@ -8,19 +8,7 @@ public class TreeNodeTests
     public async Task Create_SingleNode_WithIntValue()
     {
         int value = 42;
-        var node = TreeNode<int>.Create(value);
-        
-        await Assert.That(node).IsNotNull();
-        await Assert.That(node.Value).IsEqualTo(value);
-        await Assert.That(node.Left).IsNull();
-        await Assert.That(node.Right).IsNull();
-    }
-        
-    [Test]
-    public async Task Create_SingleNode_WithStringValue()
-    {
-        string value = "test";
-        var node = TreeNode<string>.Create(value);
+        var node = CreateTreeNode(value);
         
         await Assert.That(node).IsNotNull();
         await Assert.That(node.Value).IsEqualTo(value);
@@ -33,7 +21,7 @@ public class TreeNodeTests
     {
         int?[] values = null;
         
-        var result = TreeNode<int?>.Create(values);
+        var result = CreateTreeNode(values);
         
         await Assert.That(result).IsNull();
     }
@@ -43,7 +31,7 @@ public class TreeNodeTests
     {
         int?[] values = Array.Empty<int?>();
         
-        var result = TreeNode<int?>.Create(values);
+        var result = CreateTreeNode(values);
         
         await Assert.That(result).IsNull();
     }
@@ -53,7 +41,7 @@ public class TreeNodeTests
     {
         int?[] values = [null, 1, 2];
         
-        var result = TreeNode<int?>.Create(values);
+        var result = CreateTreeNode(values);
         
         await Assert.That(result).IsNull();
     }
@@ -63,7 +51,7 @@ public class TreeNodeTests
     {
         int?[] values = [1, 2, 3];
 
-        var root = TreeNode<int?>.Create(values);
+        var root = CreateTreeNode(values);
         
         await Assert.That(root).IsNotNull();
         await Assert.That(root.Value).IsEqualTo(1);
@@ -85,7 +73,7 @@ public class TreeNodeTests
     {
         int?[] values = [1, null, 3, 4, 5];
 
-        var root = TreeNode<int?>.Create(values);
+        var root = CreateTreeNode(values);
         
         await Assert.That(root).IsNotNull();
         await Assert.That(root.Value).IsEqualTo(1);
@@ -107,7 +95,7 @@ public class TreeNodeTests
     {
         int?[] values = [ 1, 2, 3, null, 5, 6, 7, 8, 9 ];
         
-        var root = TreeNode<int?>.Create(values);
+        var root = CreateTreeNode(values);
         
         await Assert.That(root).IsNotNull();
         await Assert.That(root.Value).IsEqualTo(1);
@@ -132,9 +120,19 @@ public class TreeNodeTests
     {
         int?[] originalArray = [ 1, 2, 3, null, 5, 6, 7, 8, 9 ];
         
-        var tree = TreeNode<int?>.Create(originalArray);
-        var resultArray = TreeNode<int?>.ToArray(tree);
+        var tree = CreateTreeNode(originalArray);
+        var resultArray = ConvertNodeToArray(tree);
         
         await Assert.That(resultArray).IsEquivalentTo(originalArray);
+    }
+
+    private TreeNode CreateTreeNode(params int?[] numbers)
+    {
+        return TreeNode.Create(numbers);
+    }
+
+    private int?[] ConvertNodeToArray(TreeNode node)
+    {
+        return TreeNode.ToArray(node);
     }
 }

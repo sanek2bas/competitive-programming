@@ -7,7 +7,7 @@ public class MaximumDepthOfBinaryTreeTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(TreeNode<int?> root, int answer)
+    public async Task Solution(TreeNode root, int answer)
     {
         var solution = new MaximumDepthOfBinaryTree();
 
@@ -16,13 +16,18 @@ public class MaximumDepthOfBinaryTreeTest
         await Assert.That(result).IsEqualTo(answer);
     }
 
-    public IEnumerable<(TreeNode<int?>? root, int answer)> DataSource()
+    public IEnumerable<(TreeNode root, int answer)> DataSource()
     {
          yield return (
-            TreeNode<int?>.Create(3, 9, 20, null, null, 15, 7),
+            CreateTreeNode(3, 9, 20, null, null, 15, 7),
             3);
         yield return (
-            TreeNode<int?>.Create(1, null, 2),
+            CreateTreeNode(1, null, 2),
             2);
+    }
+
+    private TreeNode CreateTreeNode(params int?[] numbers)
+    {
+        return TreeNode.Create(numbers);
     }
 }

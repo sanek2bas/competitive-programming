@@ -1,48 +1,50 @@
+using System.Diagnostics;
+
 namespace Top.Interview._150.Common;
 
-public class TreeNode<T>
+public class TreeNode
 {
-    public T Value { get; init; }
+    public int Value { get; init; }
 
-    public TreeNode<T> Left { get; set; }
+    public TreeNode Left { get; set; }
 
-    public TreeNode<T> Right { get; set; }
+    public TreeNode Right { get; set; }
 
-    private TreeNode(T value)
+    private TreeNode(int value)
     {
         Value = value;
     }
 
-    public static TreeNode<T>? Create(params T[] values)
+    public static TreeNode Create(params int?[] numbers)
     {
-        if (values == null
-            || values.Length == 0
-            || values[0] == null)
+        if (numbers == null
+            || numbers.Length == 0
+            || numbers[0] == null)
             return null;
 
-        var rootNode = new TreeNode<T>(values[0]);
+        var rootNode = new TreeNode(numbers[0].Value);
 
-        var queue = new Queue<TreeNode<T>>();
+        var queue = new Queue<TreeNode>();
         queue.Enqueue(rootNode);
         int i = 1;
 
-        while (i < values.Length)
+        while (i < numbers.Length)
         {
-            var value = values[i];
+            var number = numbers[i];
             var node = queue.Dequeue();
-            if (value != null)
+            if (number != null)
             {
-                var leftNode = new TreeNode<T>(value);
+                var leftNode = new TreeNode(number.Value);
                 queue.Enqueue(leftNode);
                 node.Left = leftNode;
             }
             i++;
-            if (i >= values.Length)
+            if (i >= numbers.Length)
                 break;
-            value = values[i];
-            if (value != null)
+            number = numbers[i];
+            if (number != null)
             {
-                var rightNode = new TreeNode<T>(value);
+                var rightNode = new TreeNode(number.Value);
                 queue.Enqueue(rightNode);
                 node.Right = rightNode;
             }
@@ -51,13 +53,13 @@ public class TreeNode<T>
         return rootNode;
     }
 
-    public static T[] ToArray(TreeNode<T> root)
+    public static int?[] ToArray(TreeNode root)
     {
-        var answer = new List<T?>();
+        var answer = new List<int?>();
         if (root != null)
         {
             answer.Add(root.Value);
-            var queue = new Queue<TreeNode<T>>();
+            var queue = new Queue<TreeNode>();
             queue.Enqueue(root);
             while (queue.Count > 0)
             {
