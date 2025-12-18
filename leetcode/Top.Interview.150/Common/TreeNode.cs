@@ -4,25 +4,25 @@ public class TreeNode<T>
 {
     public T Value { get; init; }
 
-    public TreeNode<T?> Left { get; set; }
+    public TreeNode<T> Left { get; set; }
 
-    public TreeNode<T?> Right { get; set; }
+    public TreeNode<T> Right { get; set; }
 
     private TreeNode(T value)
     {
         Value = value;
     }
 
-    public static TreeNode<T?>? Create(params T?[] values)
+    public static TreeNode<T>? Create(params T[] values)
     {
         if (values == null
             || values.Length == 0
             || values[0] == null)
             return null;
 
-        var rootNode = new TreeNode<T?>(values[0]);
+        var rootNode = new TreeNode<T>(values[0]);
 
-        var queue = new Queue<TreeNode<T?>>();
+        var queue = new Queue<TreeNode<T>>();
         queue.Enqueue(rootNode);
         int i = 1;
 
@@ -32,7 +32,7 @@ public class TreeNode<T>
             var node = queue.Dequeue();
             if (value != null)
             {
-                var leftNode = new TreeNode<T?>(value);
+                var leftNode = new TreeNode<T>(value);
                 queue.Enqueue(leftNode);
                 node.Left = leftNode;
             }
@@ -42,7 +42,7 @@ public class TreeNode<T>
             value = values[i];
             if (value != null)
             {
-                var rightNode = new TreeNode<T?>(value);
+                var rightNode = new TreeNode<T>(value);
                 queue.Enqueue(rightNode);
                 node.Right = rightNode;
             }
@@ -51,13 +51,13 @@ public class TreeNode<T>
         return rootNode;
     }
 
-    public static T?[] ToArray(TreeNode<T?> root)
+    public static T[] ToArray(TreeNode<T> root)
     {
         var answer = new List<T?>();
         if (root != null)
         {
             answer.Add(root.Value);
-            var queue = new Queue<TreeNode<T?>>();
+            var queue = new Queue<TreeNode<T>>();
             queue.Enqueue(root);
             while (queue.Count > 0)
             {
