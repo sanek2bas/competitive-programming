@@ -1,4 +1,4 @@
-namespace Top.Interview._150.Binary_Tree;
+namespace Top.Interview._150.Common;
 
 public class TreeNode<T>
 {
@@ -13,7 +13,7 @@ public class TreeNode<T>
         Value = value;
     }
 
-    public static TreeNode<T?>? Map(params T?[] values)
+    public static TreeNode<T?>? Create(params T?[] values)
     {
         if (values == null
             || values.Length == 0

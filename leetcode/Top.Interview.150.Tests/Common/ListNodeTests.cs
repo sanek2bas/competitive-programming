@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Top.Interview._150.Common;
 
 namespace Common;
