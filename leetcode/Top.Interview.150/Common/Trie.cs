@@ -1,6 +1,6 @@
-namespace Top.Interview._150.Trie;
+namespace Top.Interview._150.Common;
 
-public sealed class Trie
+public class Trie
 {
     private readonly TrieNode root;
 
@@ -50,4 +50,22 @@ public sealed class Trie
     {
         return letter - 'a';
     }
+}
+
+public class TrieNode
+{
+    public TrieNode[] Children { get; init; }
+    public bool IsWord { get; set; }
+
+    public TrieNode()
+    {
+        Children = new TrieNode[26];
+    }
+}
+
+public enum TrieCommands
+{
+    Insert,
+    Search,
+    StartsWith
 }

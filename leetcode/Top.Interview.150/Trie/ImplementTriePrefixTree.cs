@@ -1,3 +1,5 @@
+using Top.Interview._150.Common;
+
 namespace Top.Interview._150.Trie;
 
 public class ImplementTriePrefixTree
@@ -13,7 +15,7 @@ public class ImplementTriePrefixTree
     public IList<bool?> Execute(IList<(TrieCommands, string)> words)
     {
         var result = new List<bool?>();
-        var trie = new Trie();
+        var trie = new Common.Trie();
         foreach (var word in words)
         {
             switch (word.Item1)
