@@ -1,15 +1,18 @@
-using Infrastructure;
+using Top.Interview._150.Common;
 
-namespace TopInterview150.BinaryTreeGeneral;
+namespace Top.Interview._150.Binary_Tree_General;
 
 public class ConstructBinaryTreeFromPreorderAndInorderTraversal
 {
     /// <summary>
-    /// Given two integer arrays preorder and inorder where preorder is the 
-    /// preorder traversal of a binary tree and inorder is the inorder traversal
-    ///  of the same tree, construct and return the binary tree.
+    /// # 105
+    /// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
+    /// Given two integer arrays preorder and inorder where preorder 
+    /// is the preorder traversal of a binary tree and inorder 
+    /// is the inorder traversal of the same tree, construct 
+    /// and return the binary tree.
     /// </summary>
-    public static TreeNode Execute(int[] preorder, int[] inorder)
+    public TreeNode Execute(int[] preorder, int[] inorder)
     {
         var inorderToIndex = new Dictionary<int, int>();
 
@@ -21,7 +24,7 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal
                      inorderToIndex);
     }
 
-    private static TreeNode Build(int[] preorder, int preStart, int preEnd,
+    private TreeNode Build(int[] preorder, int preStart, int preEnd,
                                   int[] inorder, int inStart, int inEnd,
                                   Dictionary<int, int> inorderToIndex)
     {
@@ -32,7 +35,7 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal
         int rootInIndex = inorderToIndex[rootVal];
         int leftSize = rootInIndex - inStart;
 
-        var root = new TreeNode(rootVal);
+        var root = CreateTreeNode(rootVal);
         root.Left = Build(preorder, preStart + 1, preStart + leftSize, 
                           inorder, inStart, rootInIndex - 1, 
                           inorderToIndex);
@@ -43,20 +46,8 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal
         return root;
     }
 
-    public static IEnumerable<(int[] preorder, int[] inorder, TreeNode answer)> GetTests()
+    private TreeNode CreateTreeNode(int num)
     {
-        yield return (
-            new int[] { 3, 9, 20, 15, 7 },
-            new int[] { 9, 3, 15, 20, 7 },
-            TreeNode.Map(3, 9, 20, null, null, 15, 7));
-        yield return (
-            new int[] { -1 },
-            new int[] { -1 },
-            TreeNode.Map(-1));
-    }
-
-    public static bool CheckResult(TreeNode result, TreeNode answer)
-    {
-        return SameTree.Execute(result, answer);
+        return TreeNode.Create(num);
     }
 }
