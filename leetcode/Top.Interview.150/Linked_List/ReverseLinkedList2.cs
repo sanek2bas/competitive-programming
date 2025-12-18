@@ -12,21 +12,21 @@ public class ReverseLinkedList2
     /// More formally, if you are on index i on the current row, 
     /// you may move to either index i or index i + 1 on the next row.
     /// </summary>
-    public ListNode<int>? Execute(ListNode<int> head, int left, int right)
+    public ListNode Execute(ListNode head, int left, int right)
     {
         if (head == null ||
             left == right)
             return head;
 
-        ListNode<int>? start = ListNode<int>.Create(-1);
+        ListNode start = ListNode.Create(-1);
         start.Next = head;
-        ListNode<int> prev = start;
+        ListNode prev = start;
 
         for (int i = 1; i < left; i++)
             prev = prev.Next;
 
-        ListNode<int> current = prev.Next;
-        ListNode<int> next = null;
+        ListNode current = prev.Next;
+        ListNode next = null;
 
         for (int i = left; i < right; i++)
         {

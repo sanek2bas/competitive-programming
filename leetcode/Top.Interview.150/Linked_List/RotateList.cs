@@ -10,7 +10,7 @@ public class RotateList
     /// Given the head of a linked list, 
     /// rotate the list to the right by k places.
     /// </summary>
-    public ListNode<int> Execute(ListNode<int> head, int k)
+    public ListNode Execute(ListNode head, int k)
     {
         if (head == null
             || head.Next == null
@@ -18,7 +18,7 @@ public class RotateList
             return head;
 
         int length = 1;
-        ListNode<int> tail = head;
+        ListNode tail = head;
         for (; tail.Next != null; tail = tail.Next)
             ++length;
 
@@ -28,7 +28,7 @@ public class RotateList
         for (int i = 0; i < t; i++)
             tail = tail.Next;
 
-        ListNode<int> newHead = tail.Next;
+        ListNode newHead = tail.Next;
         tail.Next = null;
 
         return newHead;

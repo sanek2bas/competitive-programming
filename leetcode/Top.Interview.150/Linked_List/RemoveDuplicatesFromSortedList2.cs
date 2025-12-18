@@ -12,11 +12,11 @@ public class RemoveDuplicatesFromSortedList2
     /// leaving only distinct numbers from the original list. 
     /// Return the linked list sorted as well.
     /// </summary>
-    public ListNode<int> Execute(ListNode<int> head)
+    public ListNode Execute(ListNode head)
     {
-        ListNode<int>? dummy = ListNode<int>.Create(-1);
+        ListNode dummy = ListNode.Create(-1);
         dummy.Next = head;
-        ListNode<int>? prev = dummy;
+        ListNode prev = dummy;
         
         while (head != null)
         {

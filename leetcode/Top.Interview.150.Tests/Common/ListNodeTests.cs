@@ -4,12 +4,10 @@ namespace Common;
 
 public class ListNodeTests
 {
-    #region Constructor Tests
-
     [Test]
     public async Task Constructor_WithDefaultValue_CreatesNodeWithDefaultValue()
     {
-        var node = ListNode<int>.Create(0);
+        var node = CreateListNode(0);
         
         await Assert.That(node).IsNotNull();
         await Assert.That(node.Value).IsEqualTo(0);
@@ -19,21 +17,17 @@ public class ListNodeTests
     [Test]
     public async Task Constructor_WithValue_CreatesNodeWithSpecifiedValue()
     {
-        var node = ListNode<int>.Create(555);
+        var node = CreateListNode(555);
         
         await Assert.That(node).IsNotNull();
         await Assert.That(node.Value).IsEqualTo(555);
         await Assert.That(node.Next).IsNull();
     }
 
-    #endregion
-
-    #region Create Tests
-
     [Test]
     public async Task CreateLinkedList_WithEmptyArray_ReturnsNull()
     {
-        var result = ListNode<int>.Create();
+        var result = CreateListNode();
 
         await Assert.That(result).IsNull();
     }
@@ -41,7 +35,7 @@ public class ListNodeTests
     [Test]
     public async Task CreateLinkedList_WithSingleElement()
     {
-        var result = ListNode<int>.Create(5);
+        var result = CreateListNode(5);
         
         await Assert.That(result).IsNotNull();
         await Assert.That(result.Value).IsEqualTo(5);
@@ -53,7 +47,7 @@ public class ListNodeTests
     {
         var start = 0;
         var count = 10;
-        var result = ListNode<int>.Create(
+        var result = CreateListNode(
             [.. Enumerable.Range(start, count)]); 
         
         var current = result;
@@ -66,17 +60,13 @@ public class ListNodeTests
         await Assert.That(current).IsNull();
     }
 
-    #endregion
-
-    #region Creates With Cycle Tests
-
     [Test]
     public async Task CreateLinkedList_WithCycle_ToFirstNode()
     {
         var start = 1;
         var count = 5;
         var firstIdx = 0;
-        var result = ListNode<int>.CreateWithCycle(
+        var result = CreateListNodeWithCycle(
             [.. Enumerable.Range(start, count)], firstIdx); 
         
         var lastNode = result;
@@ -93,32 +83,18 @@ public class ListNodeTests
     {
         var emptyArray = new int[0];
         
-        var result = ListNode<int>.CreateWithCycle(emptyArray, 0);
+        var result = CreateListNodeWithCycle(emptyArray, 0);
         
         await Assert.That(result).IsNull();
-    }
-
-    #endregion
-
-    #region Convert LinkedList To Array Tests
-    
-    [Test]
-    public async Task ConvertToArray_WithNull_ReturnsEmptyArray()
-    {
-        ListNode<int> root = null;
-        
-        var result = ListNode<int>.ConvertToArray(root);
-        
-        await Assert.That(result).IsEmpty();
     }
 
     [Test]
     public async Task ConvertToArray_WithSingleNode_ReturnsSingleElementArray()
     {
         var val = 42;
-        var root = ListNode<int>.Create(val);
+        var root = CreateListNode(val);
 
-        var result = ListNode<int>.ConvertToArray(root);
+        var result = root.ToArray();
         
         await Assert.That(result).HasCount(1);
         await Assert.That(result[0]).IsEqualTo(val);
@@ -131,12 +107,20 @@ public class ListNodeTests
         var count = 5;
         
         var originalArray = Enumerable.Range(start, count).ToArray();
-        var root = ListNode<int>.Create(originalArray);
+        var root = CreateListNode(originalArray);
         
-        var resultArray = ListNode<int>.ConvertToArray(root);
+        var resultArray = root.ToArray();
         
         await Assert.That(resultArray).IsEquivalentTo(originalArray);
     }
-    
-    #endregion
+
+    private ListNode CreateListNode(params int[] numbers)
+    {
+        return ListNode.Create(numbers);
+    }
+
+    private ListNode CreateListNodeWithCycle(int[] numbers, int position)
+    {
+        return ListNode.CreateWithCycle(numbers, position);
+    }
 }

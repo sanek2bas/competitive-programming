@@ -12,7 +12,7 @@ public class MergeTwoSortedLists
     /// by splicing together the nodes of the first two lists.
     /// Return the head of the merged linked list.
     /// </summary>
-    public ListNode<int>? Execute(ListNode<int> list1, ListNode<int> list2)
+    public ListNode Execute(ListNode list1, ListNode list2)
     {
         if (list1 == null 
             || list2 == null)
@@ -20,7 +20,7 @@ public class MergeTwoSortedLists
 
         if (list1.Value > list2.Value)
         {
-            ListNode<int> temp = list1;
+            ListNode temp = list1;
             list1 = list2;
             list2 = temp;
         }

@@ -7,24 +7,29 @@ public class MergeTwoSortedListsTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(ListNode<int> node1, ListNode<int> node2, int[] answer)
+    public async Task Solution(ListNode node1, ListNode node2, int[] answer)
     {
         var solution = new MergeTwoSortedLists();
 
         var result = solution.Execute(node1, node2);
 
-        await Assert.That(ListNode<int>.ConvertToArray(result)).IsEquivalentTo(answer);
+        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
     }
 
-    public IEnumerable<(ListNode<int>? node1, ListNode<int>? node2, int[] answer)> DataSource()
+    public IEnumerable<(ListNode node1, ListNode node2, int[] answer)> DataSource()
     {
         yield return (
-            ListNode<int>.Create(1, 2, 4),
-            ListNode<int>.Create(1, 3, 4),
+            CreateListNode(1, 2, 4),
+            CreateListNode(1, 3, 4),
             new int[] { 1, 1, 2, 3, 4, 4 });
         yield return (
-            ListNode<int>.Create(),
-            ListNode<int>.Create(0),
+            CreateListNode(),
+            CreateListNode(0),
             new int[] { 0 });
+    }
+
+    private ListNode CreateListNode(params int[] numbers)
+    {
+        return ListNode.Create(numbers);
     }
 }

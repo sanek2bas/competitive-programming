@@ -13,12 +13,12 @@ public class PartitionList
     /// You should preserve the original relative order of 
     /// the nodes in each of the two partitions.
     /// </summary>
-    public ListNode<int> Execute(ListNode<int> head, int x)
+    public ListNode Execute(ListNode head, int x)
     {
-        var beforeHead = ListNode<int>.Create(-1);
-        var afterHead = ListNode<int>.Create(-1);
-        ListNode<int> before = beforeHead;
-        ListNode<int> after = afterHead;
+        var beforeHead = ListNode.Create(-1);
+        var afterHead = ListNode.Create(-1);
+        ListNode before = beforeHead;
+        ListNode after = afterHead;
 
         for (; head != null; head = head.Next)
         {

@@ -15,9 +15,9 @@ public class AddTwoNumbers
     /// You may assume the two numbers do not contain any leading zero, 
     /// except the number 0 itself.
     /// </summary>
-    public ListNode<int> Execute(ListNode<int> l1, ListNode<int> l2)
+    public ListNode Execute(ListNode l1, ListNode l2)
     {
-        var startNode = ListNode<int>.Create(-1);
+        var startNode = ListNode.Create(-1);
         var curretNode = startNode;
         int carry = 0;
         while(l1 != null || l2 != null || carry > 0)
@@ -34,7 +34,7 @@ public class AddTwoNumbers
                 l2 = l2.Next;
             }
 
-            curretNode.Next = ListNode<int>.Create(carry % 10);
+            curretNode.Next = ListNode.Create(carry % 10);
             carry /= 10;
             curretNode = curretNode.Next;
         }

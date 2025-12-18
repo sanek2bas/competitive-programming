@@ -7,22 +7,27 @@ public class RemoveDuplicatesFromSortedList2Test
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(ListNode<int> head, int[] answer)
+    public async Task Solution(ListNode head, int[] answer)
     {
         var solution = new RemoveDuplicatesFromSortedList2();
 
         var result = solution.Execute(head);
 
-        await Assert.That(ListNode<int>.ConvertToArray(result)).IsEquivalentTo(answer);
+        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
     }
 
-    public IEnumerable<(ListNode<int>? result, int[] answer)> DataSource()
+    public IEnumerable<(ListNode result, int[] answer)> DataSource()
     {
         yield return (
-            ListNode<int>.Create(1, 2, 3, 3, 4, 4, 5), 
+            CreateListNode(1, 2, 3, 3, 4, 4, 5), 
             new int[] { 1, 2, 5 });
         yield return (
-            ListNode<int>.Create(1, 1, 1, 2, 3),
+            CreateListNode(1, 1, 1, 2, 3),
             new int[] { 2, 3});
+    }
+
+    private ListNode CreateListNode(params int[] numbers)
+    {
+        return ListNode.Create(numbers);
     }
 }

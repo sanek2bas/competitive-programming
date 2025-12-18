@@ -16,7 +16,7 @@ public class LinkedListCycle
     ///  not passed as a parameter. Return true if there is a cycle
     ///  in the linked list.Otherwise, return false.
     /// </summary>
-    public bool Execute(ListNode<int> head)
+    public bool Execute(ListNode head)
     {
         var slow = head;
         var fast = head;
@@ -30,11 +30,11 @@ public class LinkedListCycle
         return false;
     }
 
-    public static IEnumerable<(ListNode<int>? node, bool answer)> GetTests()
+    public static IEnumerable<(ListNode node, bool answer)> GetTests()
     {
-        yield return (ListNode<int>.CreateWithCycle([3, 2, 0, -4], 1), true);
-        yield return (ListNode<int>.CreateWithCycle([1, 2], 0), true);
-        yield return (ListNode<int>.CreateWithCycle([1], -1), false);
+        yield return (ListNode.CreateWithCycle([3, 2, 0, -4], 1), true);
+        yield return (ListNode.CreateWithCycle([1, 2], 0), true);
+        yield return (ListNode.CreateWithCycle([1], -1), false);
     }
 
     public static bool CheckResult(bool result, bool answer)
