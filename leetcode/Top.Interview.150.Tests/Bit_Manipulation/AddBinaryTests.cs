@@ -1,6 +1,6 @@
-﻿using TopInterview150.Two_Pointers;
+﻿using TopInterview150.Bit_Manipulation;
 
-namespace Two_Pointers;
+namespace Bit_Manipulation;
 
 public class AddBinaryTest
 {
