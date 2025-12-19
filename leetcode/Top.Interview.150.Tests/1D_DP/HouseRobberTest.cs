@@ -1,6 +1,6 @@
-using Top.Interview._150.Dynamic_Programming;
+using Top.Interview._150._1D_DP;
 
-namespace Dynamic_Programming;
+namespace _1D_DP;
 
 public class HouseRobberTest
 {

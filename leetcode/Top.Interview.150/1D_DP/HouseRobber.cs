@@ -1,4 +1,4 @@
-namespace Top.Interview._150.Dynamic_Programming;
+namespace Top.Interview._150._1D_DP;
 
 public class HouseRobber
 {
