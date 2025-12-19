@@ -1,6 +1,6 @@
-﻿using Top.Interview._150.Prefix_Sum;
+﻿using Top.Interview._150.Kadane_Algorithm;
 
-namespace Prefix_Sum;
+namespace Kadane_Algorithm;
 
 public class MaximumSubarrayTest
 {

@@ -1,4 +1,4 @@
-﻿namespace Top.Interview._150.Prefix_Sum;
+﻿namespace Top.Interview._150.Kadane_Algorithm;
 
 public class MaximumSubarray
 {
