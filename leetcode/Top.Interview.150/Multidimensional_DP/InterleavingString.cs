@@ -1,20 +1,23 @@
-using System;
+namespace Top.Interview._150.Multidimensional_DP;
 
-namespace TopInterview150.Multidimensional_DP;
-
-public static class InterleavingString
+public class InterleavingString
 {
     /// <summary>
-    /// Given strings s1, s2, and s3, find whether s3 is formed by an interleaving of s1 and s2.
-    /// An interleaving of two strings s and t is a configuration where s and t are divided 
+    /// # 97
+    /// https://leetcode.com/problems/interleaving-string/description/
+    /// Given strings s1, s2, and s3, find whether s3 is formed by 
+    /// an interleaving of s1 and s2.
+    /// An interleaving of two strings s and t is a configuration 
+    /// where s and t are divided 
     /// into n and m substrings respectively, such that:
     /// s = s1 + s2 + ... + sn
     /// t = t1 + t2 + ... + tm
     /// |n - m| <= 1
-    /// The interleaving is s1 + t1 + s2 + t2 + s3 + t3 + ... or t1 + s1 + t2 + s2 + t3 + s3 + ...
+    /// The interleaving is s1 + t1 + s2 + t2 + s3 + t3 + ... 
+    /// or t1 + s1 + t2 + s2 + t3 + s3 + ...
     /// Note: a + b is the concatenation of strings a and b.
     /// </summary>
-    public static bool Execute(string s1, string s2, string s3)
+    public bool Execute(string s1, string s2, string s3)
     {
         int s1Length = s1.Length;
         int s2Length = s2.Length;
@@ -41,16 +44,4 @@ public static class InterleavingString
 
         return dp[s2Length];
     }
-
-    public static IEnumerable<(string s1, string s2, string s3, bool answer)> GetTests()
-    {
-        yield return ("aabcc", "dbbca", "aadbbcbcac", true);
-        yield return ("aabcc", "dbbca", "aadbbbaccc", false);
-        yield return ("", "", "", true);
-    }
-
-        public static bool CheckResult(bool result, bool answer)
-        {
-            return result == answer;
-        }
 }
