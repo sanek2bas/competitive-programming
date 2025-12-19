@@ -1,6 +1,6 @@
 namespace Top.Interview._150.Backtracking;
 
-public class Permutation
+public class Permutations
 {
     /// <summary>
     /// # 46

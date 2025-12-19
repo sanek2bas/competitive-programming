@@ -2,13 +2,13 @@ using Top.Interview._150.Backtracking;
 
 namespace Backtracking;
 
-public class PermutationTest
+public class PermutationsTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
     public async Task Solution(int[] nums, IList<IList<int>> answer)
     {
-        var solution = new Permutation();
+        var solution = new Permutations();
 
         var result = solution.Execute(nums);
         

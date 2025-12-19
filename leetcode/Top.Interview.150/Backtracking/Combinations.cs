@@ -1,6 +1,6 @@
 ﻿namespace Top.Interview._150.Backtracking;
 
-public class Combination
+public class Combinations
 {
     /// <summary>
     /// # 77

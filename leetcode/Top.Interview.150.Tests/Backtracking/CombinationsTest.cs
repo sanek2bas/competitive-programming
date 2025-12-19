@@ -2,13 +2,13 @@
 
 namespace Backtracking;
 
-public class CombinationTest
+public class CombinationsTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
     public async Task Solution(int n, int k, IList<IList<int>> answer)
     {
-        var solution = new Combination();
+        var solution = new Combinations();
 
         var result = solution.Execute(n, k);
         
