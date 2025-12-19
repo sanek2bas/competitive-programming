@@ -1,6 +1,6 @@
-using Top.Interview._150.Top_K_Elements;
+using Top.Interview._150.Heap;
 
-namespace Top_K_Elements;
+namespace Heap;
 
 public class KthLargestElementInArrayTest
 {
