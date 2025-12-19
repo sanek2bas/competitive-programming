@@ -1,3 +1,5 @@
+namespace Top.Interview._150.Binary_Search;
+
 public class FindMinimumInRotatedSortedArray
 {
     /// <summary>
