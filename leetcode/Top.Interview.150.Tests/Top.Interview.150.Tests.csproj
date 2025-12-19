@@ -15,14 +15,4 @@
     <ProjectReference Include="..\Top.Interview.150\Top.Interview.150.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="1D_DP\" />
-    <Folder Include="Bit_Manipulation\" />
-    <Folder Include="Divide_&amp;_Conquer\" />
-    <Folder Include="Kadane%27s_Algorithm\" />
-    <Folder Include="Linked_List\" />
-    <Folder Include="Multidimensional_DP\" />
-    <Folder Include="Prefix_Sum\" />
-  </ItemGroup>
-
 </Project>
