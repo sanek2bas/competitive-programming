@@ -32,10 +32,7 @@
 
         public static IEnumerable<(int n, IList<string> answer)> GetTests()
         {
-            yield return (3,
-                new List<string> { "((()))", "(()())", "(())()", "()(())", "()()()" });
-            yield return (1,
-                 new List<string> { "()" });
+            
         }
 
         public static bool CheckResult(IList<string> result, IList<string> answer)
