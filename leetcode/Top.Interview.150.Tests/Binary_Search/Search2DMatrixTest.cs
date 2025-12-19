@@ -23,18 +23,18 @@ public class Search2DMatrixTest
         yield return (
            new int[3][]
            {
-               new int[] { 1, 3, 5, 7 },
-               new int[] { 10, 11, 16, 20 },
-               new int[] { 23, 30, 34, 60 }
+               [1, 3, 5, 7],
+               [10, 11, 16, 20],
+               [23, 30, 34, 60]
            },
            3,
            true);
         yield return (
             new int[3][]
             {
-                new int[] { 1, 3, 5, 7 },
-                new int[] { 10, 11, 16, 20 },
-                new int[] { 23, 30, 34, 60 }
+                [1, 3, 5, 7],
+                [10, 11, 16, 20],
+                [23, 30, 34, 60]
             },
             13,
             false);
