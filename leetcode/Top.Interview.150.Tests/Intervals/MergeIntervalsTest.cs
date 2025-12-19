@@ -15,7 +15,7 @@ public class MergeIntervalsTest
         await Assert.That(result).IsEquivalentTo(answer);
     }
     
-    public IEnumerable<(int[][] intervals, int[][] answer)> DataSource()
+    public IEnumerable<(int[][], int[][])> DataSource()
     {
         yield return (
             new int[][]
