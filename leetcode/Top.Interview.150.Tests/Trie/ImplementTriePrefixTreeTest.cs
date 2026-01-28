@@ -18,16 +18,16 @@ public class ImplementTriePrefixTreeTest
 
     public IEnumerable<(IList<(TrieCommands, string)> words, IList<bool?> answer)> DataSource()
     {
-          yield return (
-            new (TrieCommands, string)[]
-                {
-                    (TrieCommands.Insert, "apple"),
-                    (TrieCommands.Search, "apple"),
-                    (TrieCommands.Search, "app"),
-                    (TrieCommands.StartsWith, "app"),
-                    (TrieCommands.Insert, "app"),
-                    (TrieCommands.Search, "app")
-                },
-            new bool?[] { null, true, false, true, null, true });
+        yield return (
+        new (TrieCommands, string)[]
+            {
+                (TrieCommands.Insert, "apple"),
+                (TrieCommands.Search, "apple"),
+                (TrieCommands.Search, "app"),
+                (TrieCommands.StartsWith, "app"),
+                (TrieCommands.Insert, "app"),
+                (TrieCommands.Search, "app")
+            },
+        new bool?[] { null, true, false, true, null, true });
     }
 }
