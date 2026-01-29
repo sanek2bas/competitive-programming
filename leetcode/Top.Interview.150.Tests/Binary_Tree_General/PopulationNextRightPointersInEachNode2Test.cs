@@ -1,5 +1,4 @@
 using Top.Interview._150.Common;
-using Top.Interview._150.Binary_Tree_General;
 
 namespace Binary_Tree_General;
 
@@ -37,10 +36,23 @@ public class PopulationNextRightPointersInEachNode2Test
             return answer.Length == 0;
 
         int idx = 0;
-        while (result != null)
+        var queue = new Queue<TreeListNode>();
+        queue.Enqueue(result);
+        while (queue.Count > 0)
         {
-            if (result.Value != answer[idx])
+            var node = queue.Dequeue();
+            if (node.Value != answer[idx])
                 return false;
+            if (node.Next == null)
+            {
+                idx++;
+                if (answer[idx] != null)
+                    return false;
+            }
+            if (node.Left != null)
+                queue.Enqueue(node.Left);
+            if (node.Right != null)
+                queue.Enqueue(node.Right);
             idx++;
         }
 
