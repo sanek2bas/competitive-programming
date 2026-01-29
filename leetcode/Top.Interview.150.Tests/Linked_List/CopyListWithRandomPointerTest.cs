@@ -13,7 +13,7 @@ public class CopyListWithRandomPointerTest
 
         var result = solution.Execute(head);
 
-        await Assert.That(CheckResult(head, answer)).IsTrue();
+        await Assert.That(CheckResult(result, answer)).IsTrue();
     }
 
     public IEnumerable<(ListNodeWithRandom head, ListNodeWithRandom answer)> DataSource()
