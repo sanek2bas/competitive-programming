@@ -8,8 +8,6 @@ public class GenerateParentheses
     /// Given n pairs of parentheses, write a function to 
     /// generate all combinations of well-formed parentheses.
     /// </summary>
-    /// <param name="n"></param>
-    /// <returns></returns>
     public IList<string> Execute(int n)
     {
         var result = new List<string>();
