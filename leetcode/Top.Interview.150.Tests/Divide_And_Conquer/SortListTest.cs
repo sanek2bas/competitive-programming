@@ -3,38 +3,33 @@ using Top.Interview._150.Divide_And_Conquer;
 
 namespace Divide_And_Conquer;
 
-public class MergekSortedListsTest
+public class SortListTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(ListNode[] lists, int[] answer)
+    public async Task Solution(ListNode head, int[] answer)
     {
-        var solution = new MergekSortedLists();
+        var solution = new SortList();
 
-        var result = solution.Execute(lists);
+        var result = solution.Execute(head);
         
         await Assert.That(CheckResult(result, answer)).IsTrue();
     }
 
-    public IEnumerable<(ListNode[] lists, int[] answer)> DataSource()
+    public IEnumerable<(ListNode head, int[] answer)> DataSource()
     {
         yield return (
-            new ListNode[]
-            {
-                CreateTreeNode(1, 4, 5),
-                CreateTreeNode(1, 3, 4),
-                CreateTreeNode(2, 6)
-            },
-            new int[] { 1, 1, 2, 3, 4, 4, 5, 6 });
+            CreateTreeNode(4, 2, 1, 3),
+            new int[] { 1, 2, 3, 4 });
         yield return (
-            new ListNode[0],
-            new int[0]);
+            CreateTreeNode(-1, 5, 3, 4, 0),
+            new int[] { -1, 0, 3, 4, 5 });
         yield return (
-            new ListNode[] { CreateTreeNode() },
-            new int[0]);
+            CreateTreeNode(),
+            new int[] {});
     }
 
-    private bool CheckResult(ListNode result, int[] answer)
+     private bool CheckResult(ListNode result, int[] answer)
     {
         for (int i = 0; i < answer.Length; i++)
         {
