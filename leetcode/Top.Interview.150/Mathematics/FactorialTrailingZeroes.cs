@@ -1,5 +1,3 @@
-using System.IO.Pipelines;
-
 namespace Top.Interview._150.Mathematics;
 
 public class FactorialTrailingZeroes
