@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:18.1-alpine
+    container_name: psgr
+    environment:
+      - POSRGRES_USER=admin
+      - POSRGRES_PASSWORD=1234
+      - POSTRGRES_DB=sales.person
+    networks:
+      - dbnet
