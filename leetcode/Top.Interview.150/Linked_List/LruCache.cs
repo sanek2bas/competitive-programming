@@ -16,25 +16,25 @@ namespace Top.Interview._150.Linked_List;
 public class LruCashe
 {
     private readonly int capacity;
-    private readonly Dictionary<LinkedListNode<int>, int> reverseDic;
-    private readonly Dictionary<int, LinkedListNode<int>> dic;
-    private readonly LinkedList<LinkedListNode<int>> list;
+    private readonly Dictionary<int, int> values;
+    private readonly LinkedList<int> list;
+    private readonly Dictionary<int, LinkedListNode<int>> map;
 
     public LruCashe(int capacity)
     {
         this.capacity = capacity;
-        reverseDic = new Dictionary<LinkedListNode<int>, int>();
-        dic = new Dictionary<int, LinkedListNode<int>>();
-        list = new LinkedList<LinkedListNode<int>>();
+        map = new Dictionary<int, LinkedListNode<int>>();
+        values = new Dictionary<int, int>();
+        list = new LinkedList<int>();
     }
 
     public int Get(int key)
     {
-        if (dic.TryGetValue(key, out var node))
+        if (map.TryGetValue(key, out LinkedListNode<int> node))
         {
             list.Remove(node);
             list.AddFirst(node);
-            return node.Value;
+            return values[key];
         }
         return -1;
     }
@@ -42,26 +42,24 @@ public class LruCashe
     public void Put(int key, int value)
     {
         LinkedListNode<int> node;
-        if (dic.TryGetValue(key, out node))
+        if (map.TryGetValue(key, out node))
         {
-            node.Value = value;
+            values[key] = value;
             list.Remove(node);
             list.AddFirst(node);            
             return;
         }
 
-        if (dic.Count >= capacity)
+        if (list.Count == capacity)
         {
-            node = list.Last();
-            var idx = reverseDic[node];
-            reverseDic.Remove(node);
-            dic.Remove(idx);
-            list.Remove(node);
+            var lruKey = list.Last.Value;
+            list.RemoveLast();
+            map.Remove(lruKey); 
+            values.Remove(lruKey);
         }
 
-        node = new LinkedListNode<int>(value);
-        dic.Add(key, node);
-        reverseDic.Add(node, key);
-        list.AddFirst(node);
+        node = list.AddFirst(key);
+        map.Add(key, node);
+        values.Add(key, value);
     }
 }
