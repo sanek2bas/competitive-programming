@@ -2,7 +2,7 @@ namespace Top.Interview._150.Common;
 
 public class ListNode
 {
-    public int Value { get; init; }
+    public int Value { get; set; }
 
     public ListNode Next { get; set; }
 
