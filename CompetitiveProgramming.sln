@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.2.11415.280 d18.0
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ozon", "ozon", "{B6E6AE4E-200B-476A-A7F0-931274C29A40}"
 EndProject
@@ -16,6 +16,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concurrency", "leetcode\Concurrency\Concurrency.csproj", "{3DC2C6AD-2400-450D-9106-0580DD9F2A5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concurrency.Tests", "leetcode\Concurrency.Tests\Concurrency.Tests.csproj", "{A672F19B-82BC-4997-A17F-120C616FB1D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "projecteuler", "projecteuler", "{F24FA8E4-554C-9FC8-A7D0-3F33F83D70DE}"
+	ProjectSection(SolutionItems) = preProject
+		ZeroProblem.cpp = ZeroProblem.cpp
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
