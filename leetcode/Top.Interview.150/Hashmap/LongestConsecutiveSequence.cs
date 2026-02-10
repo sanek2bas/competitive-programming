@@ -13,11 +13,11 @@ public class LongestConsecutiveSequence
     {
         var hashSet = new HashSet<int>(nums);
         int longSeq = 0;
-        for (int i = 0; i < nums.Length; i++)
+        foreach (int num in hashSet)
         {
-            if (hashSet.Contains(nums[i] - 1))
+            if (hashSet.Contains(num - 1))
                 continue;
-            int curNum = nums[i];
+            int curNum = num;
             int curSeq = 1;
             while(hashSet.Contains(curNum+1))
             {
