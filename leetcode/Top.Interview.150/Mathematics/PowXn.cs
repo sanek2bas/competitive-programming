@@ -10,22 +10,12 @@ public class PowXn
     /// </summary>
     public double Execute(double x, int n)
     {
+        if (n == 0)
+            return 1;
         if (n < 0)
-        {
-            x = 1/x;
-            n = -n;
-        }
-        
-        double result = 1.0;
-        double curPow = x;
-        while(n > 0)
-        {
-            if ((n % 2) == 1)
-                result *= curPow;
-            curPow *= curPow;
-            n /= 2;
-        }
-
-        return result;
+            return 1 / Execute(x, -n);
+        if (n % 2 == 1)
+            return x * Execute(x, n-1);
+        return Execute(x*x, n/2);
     }
 }
