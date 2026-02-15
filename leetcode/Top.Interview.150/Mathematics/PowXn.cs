@@ -27,15 +27,14 @@ public class PowXn
             exponent = -exponent;
         }
 
-        // Binary exponentiation
         while (exponent > 0) 
         {
-            if ((exponent & 1) == 1) // If current bit is 1 
-                Math.Round(result *= x, 5);
-            x *= x; // Square x
-            exponent >>= 1; // Divide exponent by 2
+            if ((exponent & 1) == 1)
+                result *= x;
+            x *= x;
+            exponent >>= 1;
         }
 
-        return result;
+        return Math.Round(result, 5, MidpointRounding.AwayFromZero);
     }
 }
