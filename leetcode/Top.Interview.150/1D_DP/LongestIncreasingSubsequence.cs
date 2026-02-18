@@ -25,6 +25,10 @@ public class LongestIncreasingSubsequence
             int i = Array.BinarySearch(dp, 0, length, num);
             if (i < 0)
                 i = ~i;
+
+                dp[i] = num;
+
+                if (i == length) length++;
         }
 
                
