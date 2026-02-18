@@ -16,7 +16,6 @@ public class PowXnTest
 
         var result = solution.Execute(x, n);
 
-        await Assert.That(result)
-                    .IsEqualTo(answer);
+        await Assert.That(result).IsEqualTo(answer);
     }
 }
