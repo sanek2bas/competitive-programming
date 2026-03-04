@@ -1,7 +1,6 @@
 using Top.Interview._150.Graph_General;
 
-using Graph_General;
-using System.Collections;
+namespace Graph_General;
 
 public class EvaluateDivisionTest
 {
@@ -70,7 +69,7 @@ public class EvaluateDivisionTest
             new double[] {0.5},
             new List<IList<string>>
             {
-                new List<string> {"a", "c"},
+                new List<string> {"a", "b"},
                 new List<string> {"b","a"},
                 new List<string> {"a", "c"},
                 new List<string> {"x", "y"}

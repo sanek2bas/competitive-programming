@@ -23,48 +23,56 @@ public class EvaluateDivision
         double[] values, 
         IList<IList<string>> queries)
     {
-        double[] ans = new double[queries.size()];
-    // graph.get(A).get(B) := A / B
-    Map<String, Map<String, Double>> graph = new HashMap<>();
+        double[] result = new double[queries.Count];
 
-    // Construct the graph.
-    for (int i = 0; i < equations.size(); ++i) {
-      final String A = equations.get(i).get(0);
-      final String B = equations.get(i).get(1);
-      graph.putIfAbsent(A, new HashMap<>());
-      graph.putIfAbsent(B, new HashMap<>());
-      graph.get(A).put(B, values[i]);
-      graph.get(B).put(A, 1.0 / values[i]);
+        var graph = new Dictionary<string, Dictionary<string, double>>();
+        for (int i = 0; i < equations.Count; i++)
+        {
+            var equation = equations[i];
+            var A = equation[0];
+            var B = equation[1];
+            graph.TryAdd(A, []);
+            graph.TryAdd(B, []);
+            double value = values[i];
+            graph[A].TryAdd(B, value);
+            graph[B].TryAdd(A, 1.0 / value);
+        }
+
+        for (int i = 0; i < queries.Count; i++)
+        {
+            var query = queries[i];
+            string A = query[0];
+            string B = query[1];
+            if (!graph.ContainsKey(A) 
+                || !graph.ContainsKey(B))
+                result[i] = -1.0;
+            else
+                result[i] = Divide(graph, A, B, []);
+        }
+
+        return result;
     }
 
-    for (int i = 0; i < queries.size(); ++i) {
-      final String A = queries.get(i).get(0);
-      final String C = queries.get(i).get(1);
-      if (!graph.containsKey(A) || !graph.containsKey(C))
-        ans[i] = -1.0;
-      else
-        ans[i] = divide(graph, A, C, new HashSet<>());
+    private double Divide(
+        Dictionary<string, Dictionary<string, double>> graph,
+        string A,
+        string B,
+        HashSet<string> seen)
+    {
+        if (A == B)
+            return 1.0;
+
+        seen.Add(A);
+
+        foreach (string key in graph[A].Keys) 
+        {
+            if (seen.Contains(key))
+                continue;
+            double result = Divide(graph, key, B, seen);
+            if (result > 0)
+                return graph[A][key] * result;
+        }
+
+        return -1.0;
     }
-
-    return ans;
-    }
-
-     // Returns A / C.
-  private double divide(Map<String, Map<String, Double>> graph, final String A, final String C,
-                        Set<String> seen) {
-    if (A.equals(C))
-      return 1.0;
-
-    seen.add(A);
-
-    for (final String B : graph.get(A).keySet()) {
-      if (seen.contains(B))
-        continue;
-      final double res = divide(graph, B, C, seen); // B / C
-      if (res > 0)                                  // valid result
-        return graph.get(A).get(B) * res;           // A / C = (A / B) * (B / C)
-    }
-
-    return -1.0; // invalid result
-  }
 }
