@@ -19,7 +19,6 @@ their salary, commission rate, and hire date.
  
 
 Table: Company
-
 +-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
@@ -33,7 +32,6 @@ in which the company is located.
  
 
 Table: Orders
-
 +-------------+------+
 | Column Name | Type |
 +-------------+------+
