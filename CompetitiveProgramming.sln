@@ -27,6 +27,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "interview", "interview", "{76F7FC4F-1A4D-41E5-A8BD-966371A1D7DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payments_Checker", "Payments_Checker", "{3544771B-DA8B-4454-BEA3-793FE6FD22E1}"
+	ProjectSection(SolutionItems) = preProject
+		interview\Payments_Checker\Readme.md = interview\Payments_Checker\Readme.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.Checker.UnitTests", "interview\Payments_Checker\Payments.Checker.UnitTests\Payments.Checker.UnitTests\Payments.Checker.UnitTests.csproj", "{6430CB19-5DBE-48F0-A8D0-345919187352}"
 EndProject
