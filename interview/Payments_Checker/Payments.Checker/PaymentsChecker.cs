@@ -2,8 +2,8 @@
 
 public class PaymentsChecker
 {
-    IPaymentsHistoryService _paymentsHistoryService;
-    IUserLimitsService _userLimitsService;
+    private IPaymentsHistoryService _paymentsHistoryService;
+    private IUserLimitsService _userLimitsService;
 
     public PaymentsChecker(
         IUserLimitsService limitsService,
@@ -15,36 +15,35 @@ public class PaymentsChecker
 
     public CheckPaymentResult CheckPayment(Payment payment)
     {
-        var result = new CheckPaymentResult()
+        if (payment == null)
+            throw new ArgumentNullException(nameof(payment));
+        if (payment.Amount < 0)
+            throw new ArgumentOutOfRangeException(nameof(payment));
+        
+        var userLimits =
+            _userLimitsService.GetUserLimits(payment.UserId);
+        
+        if (payment.Amount > userLimits.SingleOperationLimit)
         {
-            PaymentId = payment.Id
-        };
-
-        var userOnceLimit = 
-            _userLimitsService.GetOnceLimit(payment.UserId);
-        if (payment.Summ > userOnceLimit)
-        {
-            result.Result = false;
-            result.Error = "The once limit was exceeded";
-            return result;
+             return CheckPaymentResult.Failure(
+                CheckPaymentResultType.SingleOperationLimitExceeded,
+                $"Payment amount exceeds the maximum allowed {userLimits.SingleOperationLimit}");
         }
 
-        DateTime endDateTime = DateTime.Now;
-        DateTime startDateTime = endDateTime - TimeSpan.FromDays(1);
-        var userDayLimit =
-            _userLimitsService.GetOnceLimit(payment.UserId);
+        DateTime toDate = payment.OperationTime;
+        DateTime fromDate = toDate.AddHours(-24);
         IList<Payment> lastPayments =
-            _paymentsHistoryService.GetPayments(
-                payment.UserId, startDateTime, endDateTime);
-        if (lastPayments.Sum(x => x.Summ) + payment.Summ > userDayLimit)
+            _paymentsHistoryService.GetPayments(payment.UserId, fromDate, toDate).ToList();
+        
+        decimal totalAmountLastPayments = 
+            lastPayments.Sum(payment => payment.Amount);
+        if (totalAmountLastPayments + payment.Amount > userLimits.DailyLimit)
         {
-            result.Result = false;
-            result.Error = "The day limit was exceeded";
-            return result;
+            return CheckPaymentResult.Failure(
+                CheckPaymentResultType.DailyLimitExceeded,
+                $"Summ of amounts for last 24 hours exceeds the maximum allowed {userLimits.DailyLimit}");
         }
 
-        result.Result = true;
-        result.Error = string.Empty;
-        return result;
+        return CheckPaymentResult.Success();
     }
 }
