@@ -9,9 +9,7 @@ public class EventBus : IEventBus
     public EventBus()
     {
         subscriptions = new ConcurrentDictionary<Guid, Subscription>();
-    }
-
-    
+    }    
 
     public ISubscriptionToken Subscribe(Action<OrderCreated> handler)
     {
