@@ -61,7 +61,7 @@ public class EvaluateDivision
     {
         if (A == B)
             return 1.0;
-
+        
         seen.Add(A);
 
         foreach (string key in graph[A].Keys) 

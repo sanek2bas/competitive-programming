@@ -2,5 +2,5 @@
 
 public interface ISubscriptionToken
 {
-    Guid TokenId { get; }
+    Guid Id { get; }
 }

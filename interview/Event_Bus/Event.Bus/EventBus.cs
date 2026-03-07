@@ -1,40 +1,53 @@
 ﻿using System.Collections.Concurrent;
+using Microsoft.VisualBasic;
 
 namespace Event.Bus;
 
 public class EventBus : IEventBus
 {
-    private readonly ConcurrentDictionary<Guid, Subscription> subscriptions;
+    private readonly ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>> handlers;
+    private bool disposed;
 
     public EventBus()
     {
-        subscriptions = new ConcurrentDictionary<Guid, Subscription>();
+        handlers = 
+            new ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>>();
     }    
 
     public ISubscriptionToken Subscribe(Action<OrderCreated> handler)
     {
-        if (_disposed)
+        if (disposed)
             throw new ObjectDisposedException(nameof(EventBus));
 
         if (handler == null)
             throw new ArgumentNullException(nameof(handler));
 
-        var tokenId = Guid.NewGuid();
-        var subscription = new Subscription(tokenId, handler);
+        var token = new SubscriptionToken();
+        handlers.TryAdd(token, handler);
 
-        _subscriptions.TryAdd(tokenId, subscription);
-
-        return new SubscriptionToken(() => Unsubscribe(tokenId));
+        return token;
     }
 
     public void Unsubscribe(ISubscriptionToken token)
     {
-        throw new NotImplementedException();
+        if (disposed)
+            throw new ObjectDisposedException(nameof(EventBus));
+
+        if (token == null)
+            throw new ArgumentNullException(nameof(token));
+        
+        handlers.TryRemove(token, out var handler);
     }
 
     public void Publish(OrderCreated @event)
     {
-        throw new NotImplementedException();
+        if (@event == null)
+            throw new ArgumentNullException(nameof(@event));
+
+        var currentHandlers = handlers.Values.ToArray();
+        
+        if (currentHandlers.Length == 0)
+            return;
     }
 
     public void Dispose()
