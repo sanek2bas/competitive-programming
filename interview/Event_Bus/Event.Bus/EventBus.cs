@@ -37,21 +37,37 @@ public class EventBus : IEventBus
             throw new ArgumentNullException(nameof(token));
         
         handlers.TryRemove(token, out var handler);
+        token.IsActive = false;
     }
 
     public void Publish(OrderCreated @event)
     {
+        if (disposed)
+            throw new ObjectDisposedException(nameof(EventBus));
+            
         if (@event == null)
             throw new ArgumentNullException(nameof(@event));
 
-        var currentHandlers = handlers.Values.ToArray();
-        
-        if (currentHandlers.Length == 0)
+        var currentTokenHandlers = handlers.ToArray();
+        if (currentTokenHandlers.Length == 0)
             return;
+
+        Task.Run(async () =>
+        {
+            foreach (var tokenHandler in currentTokenHandlers)
+            {
+                if (!tokenHandler.Key.IsActive)
+                    continue;
+                tokenHandler.Value.Invoke(@event);
+            }    
+        });
     }
 
     public void Dispose()
     {
-        throw new NotImplementedException();
+        if (disposed)
+            return;
+        handlers.Clear();
+        disposed = true;
     }
 }
