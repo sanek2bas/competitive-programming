@@ -1,18 +1,16 @@
 ﻿using System.Collections.Concurrent;
-using Microsoft.VisualBasic;
 
 namespace Event.Bus;
 
 public class EventBus : IEventBus
 {
-    private struct Subscription(ISubscriptionToken Token, Action<OrderCreated> Handler);
-    private readonly ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>> handlers;
+    private record Subscription(ISubscriptionToken Token, Action<OrderCreated> Handler);
+    private readonly ConcurrentDictionary<ISubscriptionToken, Subscription> subscriptions;
     private bool disposed;
 
     public EventBus()
     {
-        handlers = 
-            new ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>>();
+        subscriptions = new ConcurrentDictionary<ISubscriptionToken, Subscription>();
     }    
 
     public ISubscriptionToken Subscribe(Action<OrderCreated> handler)
@@ -24,7 +22,8 @@ public class EventBus : IEventBus
             throw new ArgumentNullException(nameof(handler));
 
         var token = new SubscriptionToken();
-        handlers.TryAdd(token, handler);
+        var subscription = new Subscription(token, handler);
+        _ = subscriptions.TryAdd(token, subscription);
 
         return token;
     }
@@ -37,8 +36,8 @@ public class EventBus : IEventBus
         if (token == null)
             throw new ArgumentNullException(nameof(token));
         
-        handlers.TryRemove(token, out var handler);
-        token.Dispose();
+        if (subscriptions.TryRemove(token, out var handler))
+            token.Dispose();
     }
 
     public void Publish(OrderCreated @event)
@@ -49,31 +48,26 @@ public class EventBus : IEventBus
         if (@event == null)
             throw new ArgumentNullException(nameof(@event));
 
-        var currentTokenHandlers = handlers.ToArray();
-        if (currentTokenHandlers.Length == 0)
+        var currentSubscriptions = subscriptions.Values.ToArray();
+        if (currentSubscriptions.Length == 0)
             return;
 
-        Task.Run(async () =>
+        Task.Run(() =>
         {
-            foreach (var tokenHandler in currentTokenHandlers)
+            foreach (Subscription currentSubscription in currentSubscriptions)
             {
-                if (!tokenHandler.Key.IsActive)
+                if (!currentSubscription.Token.IsDisposed)
                     continue;
-                tokenHandler.Value.Invoke(@event);
+                currentSubscription.Handler.Invoke(@event);
             }    
         });
-    }
-
-    private async Task PublishAsync(OrderCreated @event)
-    {
-        
     }
 
     public void Dispose()
     {
         if (disposed)
             return;
-        handlers.Clear();
+        subscriptions.Clear();
         disposed = true;
     }
 }
