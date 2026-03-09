@@ -5,6 +5,7 @@ namespace Event.Bus;
 
 public class EventBus : IEventBus
 {
+    private struct Subscription(ISubscriptionToken Token, Action<OrderCreated> Handler);
     private readonly ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>> handlers;
     private bool disposed;
 
@@ -37,7 +38,7 @@ public class EventBus : IEventBus
             throw new ArgumentNullException(nameof(token));
         
         handlers.TryRemove(token, out var handler);
-        token.IsActive = false;
+        token.Dispose();
     }
 
     public void Publish(OrderCreated @event)
@@ -61,6 +62,11 @@ public class EventBus : IEventBus
                 tokenHandler.Value.Invoke(@event);
             }    
         });
+    }
+
+    private async Task PublishAsync(OrderCreated @event)
+    {
+        
     }
 
     public void Dispose()
