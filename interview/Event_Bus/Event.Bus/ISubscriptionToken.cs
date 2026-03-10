@@ -1,8 +1,6 @@
 ﻿namespace Event.Bus;
 
-public interface ISubscriptionToken : IDisposable
+public interface ISubscriptionToken
 {
     Guid Id { get; }
-
-    bool IsDisposed { get; }
 }

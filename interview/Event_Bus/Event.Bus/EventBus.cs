@@ -1,17 +1,14 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 
 namespace Event.Bus;
 
 public class EventBus : IEventBus
 {
-    private record Subscription(ISubscriptionToken Token, Action<OrderCreated> Handler);
-    private readonly ConcurrentDictionary<ISubscriptionToken, Subscription> subscriptions;
-    private bool disposed;
 
-    public EventBus()
-    {
-        subscriptions = new ConcurrentDictionary<ISubscriptionToken, Subscription>();
-    }    
+    private readonly ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>> handlers
+        = new();
+    private bool disposed;
 
     public ISubscriptionToken Subscribe(Action<OrderCreated> handler)
     {
@@ -22,8 +19,7 @@ public class EventBus : IEventBus
             throw new ArgumentNullException(nameof(handler));
 
         var token = new SubscriptionToken();
-        var subscription = new Subscription(token, handler);
-        _ = subscriptions.TryAdd(token, subscription);
+        handlers.AddOrUpdate(token, handler, (token, oldValue) => handler);
 
         return token;
     }
@@ -36,8 +32,7 @@ public class EventBus : IEventBus
         if (token == null)
             throw new ArgumentNullException(nameof(token));
         
-        if (subscriptions.TryRemove(token, out var handler))
-            token.Dispose();
+        handlers.TryRemove(token, out var handler)
     }
 
     public void Publish(OrderCreated @event)
@@ -48,19 +43,22 @@ public class EventBus : IEventBus
         if (@event == null)
             throw new ArgumentNullException(nameof(@event));
 
-        var currentSubscriptions = subscriptions.Values.ToArray();
-        if (currentSubscriptions.Length == 0)
-            return;
-
-        Task.Run(() =>
+        foreach (var handler in handlers.Values)
         {
-            foreach (Subscription currentSubscription in currentSubscriptions)
-            {
-                if (!currentSubscription.Token.IsDisposed)
-                    continue;
-                currentSubscription.Handler.Invoke(@event);
-            }    
-        });
+            _ = ExecuteHandler(handler, @event);
+        }
+    }
+
+    private static async Task ExecuteHandler(Action<OrderCreated> handler, OrderCreated evt)
+    {
+        try
+        {
+            await handler;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.ToString());
+        }
     }
 
     public void Dispose()

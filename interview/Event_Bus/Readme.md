@@ -18,351 +18,350 @@ class OrderCreated
     public string OrderId { get; }
 }
 
-// 1. Модель сообщения
-public record UserLoggedInEvent(string Username, DateTime Time);
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Immutable;
+using System.Threading.Tasks;
 
-// 2. Интерфейс Хаба
-public interface IEventHub
+public interface IEventBus : IDisposable
 {
+    ISubscriptionToken Subscribe<T>(Func<T, Task> handler);
+    void Unsubscribe(ISubscriptionToken token);
     void Publish<T>(T @event);
-    void Subscribe<T>(Func<T, Task> handler);
 }
 
-// 3. Реализация Хаба
-public class InMemoryEventHub : IEventHub
+public interface ISubscriptionToken
 {
-    // Используем Channel для асинхронной очереди
-    private readonly Channel<object> _channel = Channel.CreateUnbounded<object>();
-    private readonly ConcurrentBag<Delegate> _handlers = new();
+    Guid Id { get; }
+    Type EventType { get; }
+}
 
-    public InMemoryEventHub()
+public sealed class SubscriptionToken : ISubscriptionToken
+{
+    public Guid Id { get; } = Guid.NewGuid();
+    public Type EventType { get; }
+
+    public SubscriptionToken(Type eventType)
     {
-        // Фоновая обработка сообщений
-        Task.Run(async () =>
+        EventType = eventType;
+    }
+}
+
+public sealed class EventBus : IEventBus
+{
+    private readonly ConcurrentDictionary<Type, ImmutableDictionary<Guid, Func<object, Task>>> _handlers
+        = new();
+
+    public ISubscriptionToken Subscribe<T>(Func<T, Task> handler)
+    {
+        var token = new SubscriptionToken(typeof(T));
+
+        _handlers.AddOrUpdate(
+            typeof(T),
+            _ => ImmutableDictionary<Guid, Func<object, Task>>
+                .Empty
+                .Add(token.Id, e => handler((T)e)),
+            (_, existing) => existing.Add(token.Id, e => handler((T)e))
+        );
+
+        return token;
+    }
+
+    public void Unsubscribe(ISubscriptionToken token)
+    {
+        if (token == null) return;
+
+        if (_handlers.TryGetValue(token.EventType, out var handlers))
         {
-            await foreach (var @event in _channel.Reader.ReadAllAsync())
-            {
-                foreach (var handler in _handlers)
-                {
-                    if (handler is Func<object, Task> h)
-                        _ = h(@event); // Fire-and-forget обработка
-                }
-            }
-        });
+            var updated = handlers.Remove(token.Id);
+
+            if (updated.IsEmpty)
+                _handlers.TryRemove(token.EventType, out _);
+            else
+                _handlers[token.EventType] = updated;
+        }
     }
 
     public void Publish<T>(T @event)
     {
-        _channel.Writer.TryWrite(@event);
+        if (!_handlers.TryGetValue(typeof(T), out var handlers))
+            return;
+
+        foreach (var handler in handlers.Values)
+        {
+            _ = ExecuteHandler(handler, @event);
+        }
     }
 
-    public void Subscribe<T>(Func<T, Task> handler)
+    private static async Task ExecuteHandler(Func<object, Task> handler, object evt)
     {
-        _handlers.Add(async (obj) =>
+        try
         {
-            if (obj is T typedEvent)
-            {
-                await handler(typedEvent);
-            }
-        });
+            await handler(evt);
+        }
+        catch (Exception ex)
+        {
+            // логирование ошибки
+            Console.Error.WriteLine(ex);
+        }
+    }
+
+    public void Dispose()
+    {
+        _handlers.Clear();
     }
 }
 
-// 4. Использование
-public class Program
+using System;
+using System.Threading.Tasks;
+using Xunit;
+
+public class EventBusTests
 {
-    public static async Task Main()
+    [Fact]
+    public async Task Publish_Should_Invoke_Handler()
     {
-        var hub = new InMemoryEventHub();
+        var bus = new EventBus();
 
-        // Подписка
-        hub.Subscribe<UserLoggedInEvent>(async (e) =>
+        var tcs = new TaskCompletionSource<string>();
+
+        bus.Subscribe<OrderCreated>(e =>
         {
-            await Task.Delay(100); // Имитация работы
-            Console.WriteLine($"[Подписчик 1] Пользователь {e.Username} вошел в {e.Time}");
+            tcs.SetResult(e.OrderId);
+            return Task.CompletedTask;
         });
 
-        // Публикация (асинхронно)
-        hub.Publish(new UserLoggedInEvent("Ivan", DateTime.Now));
-        hub.Publish(new UserLoggedInEvent("Maria", DateTime.Now));
+        bus.Publish(new OrderCreated("42"));
 
-        await Task.Delay(1000); // Дать время на обработку
+        var result = await tcs.Task.WaitAsync(TimeSpan.FromSeconds(2));
+
+        Assert.Equal("42", result);
+    }
+
+    [Fact]
+    public async Task Publish_Should_Invoke_Multiple_Handlers()
+    {
+        var bus = new EventBus();
+
+        var tcs1 = new TaskCompletionSource();
+        var tcs2 = new TaskCompletionSource();
+
+        bus.Subscribe<OrderCreated>(e =>
+        {
+            tcs1.SetResult();
+            return Task.CompletedTask;
+        });
+
+        bus.Subscribe<OrderCreated>(e =>
+        {
+            tcs2.SetResult();
+            return Task.CompletedTask;
+        });
+
+        bus.Publish(new OrderCreated("1"));
+
+        await Task.WhenAll(
+            tcs1.Task.WaitAsync(TimeSpan.FromSeconds(2)),
+            tcs2.Task.WaitAsync(TimeSpan.FromSeconds(2))
+        );
+    }
+
+    [Fact]
+    public async Task Unsubscribe_Should_Stop_Handler()
+    {
+        var bus = new EventBus();
+
+        var called = false;
+
+        var token = bus.Subscribe<OrderCreated>(e =>
+        {
+            called = true;
+            return Task.CompletedTask;
+        });
+
+        bus.Unsubscribe(token);
+
+        bus.Publish(new OrderCreated("1"));
+
+        await Task.Delay(300);
+
+        Assert.False(called);
+    }
+
+    [Fact]
+    public async Task Publish_Should_Not_Block_Caller()
+    {
+        var bus = new EventBus();
+
+        var tcs = new TaskCompletionSource();
+
+        bus.Subscribe<OrderCreated>(async e =>
+        {
+            await Task.Delay(500);
+            tcs.SetResult();
+        });
+
+        var start = DateTime.UtcNow;
+
+        bus.Publish(new OrderCreated("1"));
+
+        var elapsed = DateTime.UtcNow - start;
+
+        Assert.True(elapsed < TimeSpan.FromMilliseconds(50));
+
+        await tcs.Task.WaitAsync(TimeSpan.FromSeconds(2));
+    }
+
+    [Fact]
+    public async Task Dispose_Should_Stop_Processing()
+    {
+        var bus = new EventBus();
+
+        var called = false;
+
+        bus.Subscribe<OrderCreated>(e =>
+        {
+            called = true;
+            return Task.CompletedTask;
+        });
+
+        bus.Dispose();
+
+        bus.Publish(new OrderCreated("1"));
+
+        await Task.Delay(200);
+
+        Assert.False(called);
     }
 }
 
 
-[Fact]
-    public void Subscribe_AddsHandler_WhenHandlerProvided()
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Immutable;
+using System.Threading;
+using System.Threading.Channels;
+using System.Threading.Tasks;
+
+public interface IEventBus : IDisposable
+{
+    ISubscriptionToken Subscribe<T>(Func<T, Task> handler);
+    void Unsubscribe(ISubscriptionToken token);
+    void Publish<T>(T @event);
+}
+
+public interface ISubscriptionToken
+{
+    Guid Id { get; }
+    Type EventType { get; }
+}
+
+public sealed class SubscriptionToken : ISubscriptionToken
+{
+    public Guid Id { get; } = Guid.NewGuid();
+    public Type EventType { get; }
+
+    public SubscriptionToken(Type type)
     {
-        // Arrange
-        using var eventBus = new EventBus();
-        var handlerCalled = false;
-        
-        // Act
-        var token = eventBus.Subscribe(order => 
-        {
-            handlerCalled = true;
-        });
-        
-        eventBus.Publish(new OrderCreated("123"));
-        
-        // Даем время на асинхронную обработку
-        Thread.Sleep(100);
-        
-        // Assert
-        Assert.True(handlerCalled);
-        Assert.NotNull(token);
+        EventType = type;
+    }
+}
+
+internal sealed class EventEnvelope
+{
+    public Type Type { get; }
+    public object Payload { get; }
+
+    public EventEnvelope(Type type, object payload)
+    {
+        Type = type;
+        Payload = payload;
+    }
+}
+
+public sealed class EventBus : IEventBus
+{
+    private readonly ConcurrentDictionary<Type, ImmutableDictionary<Guid, Func<object, Task>>> _handlers = new();
+
+    private readonly Channel<EventEnvelope> _channel;
+    private readonly CancellationTokenSource _cts = new();
+    private readonly Task _worker;
+
+    public EventBus()
+    {
+        _channel = Channel.CreateUnbounded<EventEnvelope>(
+            new UnboundedChannelOptions
+            {
+                SingleReader = true,
+                SingleWriter = false
+            });
+
+        _worker = Task.Run(ProcessEvents);
     }
 
-    [Fact]
-    public void Subscribe_MultipleHandlers_AllCalled()
+    public ISubscriptionToken Subscribe<T>(Func<T, Task> handler)
     {
-        // Arrange
-        using var eventBus = new EventBus();
-        var callCount1 = 0;
-        var callCount2 = 0;
-        
-        // Act
-        eventBus.Subscribe(order => 
-        {
-            Interlocked.Increment(ref callCount1);
-        });
-        
-        eventBus.Subscribe(order => 
-        {
-            Interlocked.Increment(ref callCount2);
-        });
-        
-        eventBus.Publish(new OrderCreated("123"));
-        
-        // Даем время на асинхронную обработку
-        Thread.Sleep(100);
-        
-        // Assert
-        Assert.Equal(1, callCount1);
-        Assert.Equal(1, callCount2);
+        var token = new SubscriptionToken(typeof(T));
+
+        _handlers.AddOrUpdate(
+            typeof(T),
+            _ => ImmutableDictionary<Guid, Func<object, Task>>
+                .Empty
+                .Add(token.Id, e => handler((T)e)),
+            (_, existing) => existing.Add(token.Id, e => handler((T)e)));
+
+        return token;
     }
 
-    [Fact]
-    public void Unsubscribe_RemovesHandler_WhenTokenProvided()
+    public void Unsubscribe(ISubscriptionToken token)
     {
-        // Arrange
-        using var eventBus = new EventBus();
-        var callCount = 0;
-        
-        var handler = (OrderCreated order) => 
-        {
-            Interlocked.Increment(ref callCount);
-        };
-        
-        // Act
-        var token = eventBus.Subscribe(handler);
-        eventBus.Publish(new OrderCreated("123"));
-        Thread.Sleep(100);
-        
-        eventBus.Unsubscribe(token);
-        eventBus.Publish(new OrderCreated("456"));
-        Thread.Sleep(100);
-        
-        // Assert
-        Assert.Equal(1, callCount);
+        if (!_handlers.TryGetValue(token.EventType, out var handlers))
+            return;
+
+        var updated = handlers.Remove(token.Id);
+
+        if (updated.IsEmpty)
+            _handlers.TryRemove(token.EventType, out _);
+        else
+            _handlers[token.EventType] = updated;
     }
 
-    [Fact]
-    public void Publish_WithSlowHandler_DoesNotBlock()
+    public void Publish<T>(T @event)
     {
-        // Arrange
-        using var eventBus = new EventBus();
-        var mainThreadId = Thread.CurrentThread.ManagedThreadId;
-        var handlerThreadId = 0;
-        
-        eventBus.Subscribe(order => 
-        {
-            Thread.Sleep(1000);
-            handlerThreadId = Thread.CurrentThread.ManagedThreadId;
-        });
-        
-        // Act
-        var startTime = DateTime.Now;
-        eventBus.Publish(new OrderCreated("123"));
-        var publishDuration = (DateTime.Now - startTime).TotalMilliseconds;
-        
-        // Assert
-        Assert.True(publishDuration < 100); // Публикация не должна ждать
-        Thread.Sleep(1100); // Ждем завершения обработчика
-        Assert.NotEqual(mainThreadId, handlerThreadId); // Обработчик выполняется в другом потоке
+        _channel.Writer.TryWrite(new EventEnvelope(typeof(T), @event));
     }
 
-    [Fact]
-    public void Publish_HandlerThrows_ContinuesProcessing()
+    private async Task ProcessEvents()
     {
-        // Arrange
-        using var eventBus = new EventBus();
-        var secondHandlerCalled = false;
-        
-        eventBus.Subscribe(order => 
+        try
         {
-            throw new InvalidOperationException("Test exception");
-        });
-        
-        eventBus.Subscribe(order => 
-        {
-            secondHandlerCalled = true;
-        });
-        
-        // Act
-        eventBus.Publish(new OrderCreated("123"));
-        Thread.Sleep(100);
-        
-        // Assert
-        Assert.True(secondHandlerCalled);
-    }
+            await foreach (var envelope in _channel.Reader.ReadAllAsync(_cts.Token))
+            {
+                if (!_handlers.TryGetValue(envelope.Type, out var handlers))
+                    continue;
 
-    [Fact]
-    public void ConcurrentPublish_HandlesMultiplePublishers()
-    {
-        // Arrange
-        using var eventBus = new EventBus();
-        var callCount = 0;
-        var iterations = 10;
-        
-        eventBus.Subscribe(order => 
-        {
-            Interlocked.Increment(ref callCount);
-            Thread.Sleep(10); // Симулируем работу
-        });
-        
-        // Act
-        var threads = new List<Thread>();
-        for (int i = 0; i < iterations; i++)
-        {
-            var orderId = i.ToString();
-            var thread = new Thread(() => eventBus.Publish(new OrderCreated(orderId)));
-            threads.Add(thread);
-            thread.Start();
+                foreach (var handler in handlers.Values)
+                {
+                    try
+                    {
+                        await handler(envelope.Payload);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine(ex);
+                    }
+                }
+            }
         }
-        
-        foreach (var thread in threads)
+        catch (OperationCanceledException)
         {
-            thread.Join();
         }
-        
-        // Даем время на завершение асинхронной обработки
-        Thread.Sleep(500);
-        
-        // Assert
-        Assert.Equal(iterations, callCount);
     }
 
-    [Fact]
-    public void Subscribe_NullHandler_ThrowsArgumentNullException()
+    public void Dispose()
     {
-        // Arrange
-        using var eventBus = new EventBus();
-        
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => 
-            eventBus.Subscribe(null));
-    }
-
-    [Fact]
-    public void Unsubscribe_NullToken_ThrowsArgumentNullException()
-    {
-        // Arrange
-        using var eventBus = new EventBus();
-        
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => 
-            eventBus.Unsubscribe(null));
-    }
-
-    [Fact]
-    public void Publish_NullEvent_ThrowsArgumentNullException()
-    {
-        // Arrange
-        using var eventBus = new EventBus();
-        
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => 
-            eventBus.Publish(null));
-    }
-
-    [Fact]
-    public void Dispose_MultipleTimes_DoesNotThrow()
-    {
-        // Arrange
-        var eventBus = new EventBus();
-        
-        // Act
-        eventBus.Dispose();
-        
-        // Assert
-        var exception = Record.Exception(() => eventBus.Dispose());
-        Assert.Null(exception);
-    }
-
-    [Fact]
-    public void Dispose_PreventsNewPublications()
-    {
-        // Arrange
-        var eventBus = new EventBus();
-        
-        // Act
-        eventBus.Dispose();
-        
-        // Assert
-        Assert.Throws<ObjectDisposedException>(() => 
-            eventBus.Publish(new OrderCreated("123")));
-    }
-
-    [Fact]
-    public void TokenDispose_RemovesSubscription()
-    {
-        // Arrange
-        using var eventBus = new EventBus();
-        var callCount = 0;
-        
-        var token = eventBus.Subscribe(order => 
-        {
-            Interlocked.Increment(ref callCount);
-        });
-        
-        // Act
-        eventBus.Publish(new OrderCreated("123"));
-        Thread.Sleep(100);
-        token.Dispose();
-        eventBus.Publish(new OrderCreated("456"));
-        Thread.Sleep(100);
-        
-        // Assert
-        Assert.Equal(1, callCount);
-    }
-
-    [Fact]
-    public void Publish_OrderIsDeliveredToAllSubscribers()
-    {
-        // Arrange
-        using var eventBus = new EventBus();
-        string receivedOrderId1 = null;
-        string receivedOrderId2 = null;
-        
-        eventBus.Subscribe(order => 
-        {
-            receivedOrderId1 = order.OrderId;
-        });
-        
-        eventBus.Subscribe(order => 
-        {
-            receivedOrderId2 = order.OrderId;
-        });
-        
-        // Act
-        var testOrderId = "test-123";
-        eventBus.Publish(new OrderCreated(testOrderId));
-        Thread.Sleep(100);
-        
-        // Assert
-        Assert.Equal(testOrderId, receivedOrderId1);
-        Assert.Equal(testOrderId, receivedOrderId2);
+        _cts.Cancel();
+        _channel.Writer.TryComplete();
+        _worker.Wait();
     }
 }
