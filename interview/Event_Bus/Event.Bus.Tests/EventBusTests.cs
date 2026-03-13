@@ -5,7 +5,7 @@ namespace Event.Bus.Tests;
 public class EventBusTests
 {
     [Fact]
-    public void Subscribe_AddsHandler_WhenHandlerProvided()
+    public void Publish_Should_Invoke_Handler()
     {
         using var eventBus = new EventBus();
         var handlerCalled = false;
@@ -18,7 +18,26 @@ public class EventBusTests
         });
         
         eventBus.Publish(new OrderCreated("123"));
-        Thread.Sleep(10000);
+        Thread.Sleep(100);
+        
+        Assert.True(handlerCalled);
+        Assert.Equal("123", orderId);
+        Assert.NotNull(token);
+    }
+
+    [Fact]
+    public void Publish_Should_Invoke_Multiple_Handlers()
+    {
+        using var eventBus = new EventBus();
+
+        var order1Id = string.Empty;
+        var token1 = eventBus.Subscribe(order => 
+        {
+            order1Id = order.OrderId;
+        });
+        
+        eventBus.Publish(new OrderCreated("123"));
+        Thread.Sleep(100);
         
         Assert.True(handlerCalled);
         Assert.Equal("123", orderId);
