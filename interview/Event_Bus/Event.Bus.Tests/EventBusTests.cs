@@ -37,7 +37,6 @@ public class EventBusTests
         {
             tcs1.SetResult("action1");
         });
-
         var token2 = eventBus.Subscribe(order =>
         {
             tcs2.SetResult("action2");
@@ -50,5 +49,21 @@ public class EventBusTests
         Assert.Equal("action1", tcs1.Task.Result);
         Assert.True(tcs2.Task.IsCompleted);
         Assert.Equal("action2", tcs2.Task.Result);
+    }
+
+    [Fact]
+    public void Unsubscribe_Should_Stop_Handler()
+    {
+        var eventBus = new EventBus();
+        var called = false;
+
+        var token = eventBus.Subscribe(
+            order => called = true);
+        eventBus.Unsubscribe(token);
+        
+        eventBus.Publish(new OrderCreated("1"));
+        Thread.Sleep(100);
+
+        Assert.False(called);
     }
 }
