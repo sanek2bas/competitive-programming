@@ -141,7 +141,8 @@ public class EventBusTests
     [Fact]
     public async Task Publish_Should_Invoke_Multiple_Handlers()
     {
-        var bus = new EventBus();
+        var bus = new Event
+        Bus();
 
         var tcs1 = new TaskCompletionSource();
         var tcs2 = new TaskCompletionSource();

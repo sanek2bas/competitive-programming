@@ -30,17 +30,25 @@ public class EventBusTests
     {
         using var eventBus = new EventBus();
 
-        var order1Id = string.Empty;
+        var tcs1 = new TaskCompletionSource<string>();
+        var tcs2 = new TaskCompletionSource<string>();
+
         var token1 = eventBus.Subscribe(order => 
         {
-            order1Id = order.OrderId;
+            tcs1.SetResult("action1");
+        });
+
+        var token2 = eventBus.Subscribe(order =>
+        {
+            tcs2.SetResult("action2");
         });
         
-        eventBus.Publish(new OrderCreated("123"));
+        eventBus.Publish(new OrderCreated("1"));
         Thread.Sleep(100);
         
-        Assert.True(handlerCalled);
-        Assert.Equal("123", orderId);
-        Assert.NotNull(token);
+        Assert.True(tcs1.Task.IsCompleted);
+        Assert.Equal("action1", tcs1.Task.Result);
+        Assert.True(tcs2.Task.IsCompleted);
+        Assert.Equal("action2", tcs2.Task.Result);
     }
 }
