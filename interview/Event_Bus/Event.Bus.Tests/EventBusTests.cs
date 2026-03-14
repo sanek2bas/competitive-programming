@@ -5,7 +5,7 @@ namespace Event.Bus.Tests;
 public class EventBusTests
 {
     [Fact]
-    public void Publish_Should_Invoke_Handler()
+    public void EventBus_Invoke_Handler()
     {
         using var eventBus = new EventBus();
         var handlerCalled = false;
@@ -26,7 +26,7 @@ public class EventBusTests
     }
 
     [Fact]
-    public void Publish_Should_Invoke_Multiple_Handlers()
+    public void EventBus_Invoke_Multiple_Handlers()
     {
         using var eventBus = new EventBus();
 
@@ -52,7 +52,7 @@ public class EventBusTests
     }
 
     [Fact]
-    public void Unsubscribe_Should_Stop_Handler()
+    public void EventBus_Unsubscribe_Not_Invoke_Handler()
     {
         var eventBus = new EventBus();
         var called = false;
@@ -62,6 +62,24 @@ public class EventBusTests
         eventBus.Unsubscribe(token);
         
         eventBus.Publish(new OrderCreated("1"));
+        Thread.Sleep(100);
+
+        Assert.False(called);
+    }
+
+    [Fact]
+    public void EventBus_Dispose()
+    {
+        var eventBus = new EventBus();
+        var called = false;
+
+        eventBus.Subscribe(e =>
+        {
+            called = true;
+        });
+        eventBus.Dispose();
+        eventBus.Publish(new OrderCreated("1"));
+
         Thread.Sleep(100);
 
         Assert.False(called);

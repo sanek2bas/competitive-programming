@@ -1,32 +1,25 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Threading.Channels;
 
 namespace Event.Bus;
 
 public class EventBus : IEventBus
 {
-    private readonly ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>> handlersDic;
-    private readonly Channel<OrderCreated> channel;
-    private readonly CancellationTokenSource cts;
-    private readonly Task worker;
+    private readonly ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>> handlers;
     private bool disposed;
 
     public EventBus()
     {
-        handlersDic = new ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>>();
-        //channel = Channel.CreateUnbounded<OrderCreated>();
-        //cts = new CancellationTokenSource();
-        //worker = Task.Run(Process);
+        handlers = new ConcurrentDictionary<ISubscriptionToken, Action<OrderCreated>>();
     }
 
     public ISubscriptionToken Subscribe(Action<OrderCreated> handler)
     {
-        if (disposed)
-            throw new ObjectDisposedException(nameof(EventBus));
+        //if (disposed)
+        //    throw new ObjectDisposedException(nameof(EventBus));
 
-        if (handler == null)
-            throw new ArgumentNullException(nameof(handler));
+        //if (handler == null)
+        //    throw new ArgumentNullException(nameof(handler));
 
         var token = new SubscriptionToken();
         handlersDic.AddOrUpdate(token, handler, (token, oldValue) => handler);
@@ -36,46 +29,32 @@ public class EventBus : IEventBus
 
     public void Unsubscribe(ISubscriptionToken token)
     {
-        if (disposed)
-            throw new ObjectDisposedException(nameof(EventBus));
+        //if (disposed)
+        //    throw new ObjectDisposedException(nameof(EventBus));
 
-        if (token == null)
-            throw new ArgumentNullException(nameof(token));
+        //if (token == null)
+        //    throw new ArgumentNullException(nameof(token));
         
         handlersDic.TryRemove(token, out var handler);
     }
 
     public void Publish(OrderCreated @event)
     {
-        if (disposed)
-            throw new ObjectDisposedException(nameof(EventBus));
+        //if (disposed)
+        //    throw new ObjectDisposedException(nameof(EventBus));
             
-        if (@event == null)
-            throw new ArgumentNullException(nameof(@event));
+        //if (@event == null)
+        //    throw new ArgumentNullException(nameof(@event));
 
-        foreach (var handler in handlersDic.Values)
+        foreach (var handler in handlers.Values)
         {
             _ = ExecuteHandler(handler, @event);
         }
     }
 
-    private async Task Process()
-    {
-        try
-        {
-            await foreach(var evnt in channel.Reader.ReadAllAsync(cts.Token))
-            {
-                var handlers = handlersDic.Values.ToList();
-                foreach(Action<OrderCreated> handler in handlers)
-                    handler(evnt);
-            }
-        }
-        catch(OperationCanceledException ex)
-        {
-            
-        }
-    }
-    private static async Task ExecuteHandler(Action<OrderCreated> handler, OrderCreated evt)
+    private async Task ExecuteHandler(
+        Action<OrderCreated> handler, 
+        OrderCreated evt)
     {
         try
         {
