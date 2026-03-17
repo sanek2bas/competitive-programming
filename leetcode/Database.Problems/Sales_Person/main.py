@@ -4,7 +4,8 @@ import psycopg2 as pc
 database_url = "postgresql://postgres:postgres@localhost:8080/test"
 
 def read_sql_file(filename):
-    abs_path = os.path.abspath(filename)
+    cwd = os.getcwd()
+    abs_path = os.path.realpath(filename)
     base_dir = os.path.dirname(abs_path)
     file_path = os.path.join(base_dir, filename)
     with open(file_path, 'r') as file:
