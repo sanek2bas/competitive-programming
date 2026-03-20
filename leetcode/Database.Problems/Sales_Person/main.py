@@ -11,19 +11,22 @@ def read_sql_file(filename):
     return sql_query
 
 try:
-    query_init = read_sql_file("init.sql")
-    query = read_sql_file("query.sql");
+    init_query = read_sql_file("init.sql")
+    solution_query = read_sql_file("solution.sql")
 
     connection = pc.connect(database_url)
     cursor = connection.cursor()
 
-    cursor.execute(query_init)
+    cursor.execute(init_query)
     connection.commit()
 
-    cursor.execute(query)
+    cursor.execute(solution_query)
     connection.commit()
 
-    print(cursor.fetchall())
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
     cursor.close()
 except Exception as e:
     print(f'Error: {e}')
