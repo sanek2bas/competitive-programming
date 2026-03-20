@@ -10,7 +10,7 @@ Table: SalesPerson
 | salary          | int     |
 | commission_rate | int     |
 | hire_date       | date    |
------------------------------
+
 sales_id is the primary key (column with unique values) for this table.
 Each row of this table indicates the name and the ID of a salesperson 
 alongside their salary, commission rate, and hire date.
@@ -21,20 +21,20 @@ Table: Company
 | com_id      | int     |
 | name        | varchar |
 | city        | varchar |
+
 com_id is the primary key (column with unique values) for this table.
 Each row of this table indicates the name and the ID of a 
 company and the city in which the company is located.
  
 Table: Orders
-+-------------+------+
 | Column Name | Type |
-+-------------+------+
+|-------------|------|
 | order_id    | int  |
 | order_date  | date |
 | com_id      | int  |
 | sales_id    | int  |
 | amount      | int  |
-+-------------+------+
+
 order_id is the primary key (column with unique values) for this table.
 com_id is a foreign key (reference column) to com_id from the Company table.
 sales_id is a foreign key (reference column) to sales_id from the SalesPerson 
