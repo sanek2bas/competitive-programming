@@ -12,15 +12,17 @@ def read_sql_file(filename):
 
 try:
     query_init = read_sql_file("init.sql")
+    query = read_sql_file("query.sql");
+
     connection = pc.connect(database_url)
     cursor = connection.cursor()
 
     cursor.execute(query_init)
     connection.commit()
 
-    cursor.execute("SELECT * FROM SalesPerson")
+    cursor.execute(query)
     connection.commit()
-    
+
     print(cursor.fetchall())
     cursor.close()
 except Exception as e:
