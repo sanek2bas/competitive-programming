@@ -3,15 +3,15 @@ https://leetcode.com/problems/sales-person/description/
 607 Sales Person
 
 Table: SalesPerson
------------------------------
+
 | Column Name     | Type    |
------------------------------
+|-----------------|---------|
 | sales_id        | int     |
 | name            | varchar |
 | salary          | int     |
 | commission_rate | int     |
 | hire_date       | date    |
------------------------------
+
 sales_id is the primary key (column with unique values) for this table.
 Each row of this table indicates the name and the ID of a salesperson alongside 
 their salary, commission rate, and hire date.
