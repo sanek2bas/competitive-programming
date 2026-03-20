@@ -18,13 +18,12 @@ their salary, commission rate, and hire date.
  
 
 Table: Company
-+-------------+---------+
 | Column Name | Type    |
-+-------------+---------+
+|-------------|---------|
 | com_id      | int     |
 | name        | varchar |
 | city        | varchar |
-+-------------+---------+
+
 com_id is the primary key (column with unique values) for this table.
 Each row of this table indicates the name and the ID of a company and the city
 in which the company is located.
