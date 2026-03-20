@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS SalesPerson
+DROP TABLE IF EXISTS SalesPerson CASCADE;
 CREATE TABLE SalesPerson (
     sales_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -7,14 +7,14 @@ CREATE TABLE SalesPerson (
     hire_date DATE
 );
 
-DROP TABLE IF EXISTS Company
+DROP TABLE IF EXISTS Company CASCADE;
 CREATE TABLE Company (
     com_id INT PRIMARY KEY,
     name VARCHAR(100),
     city VARCHAR(100)
 );
 
-DROP TABLE IF EXISTS Orders
+DROP TABLE IF EXISTS Orders CASCADE;
 CREATE TABLE Orders (
     order_id INT PRIMARY KEY,
     order_date DATE,
@@ -24,7 +24,6 @@ CREATE TABLE Orders (
     FOREIGN KEY (com_id) REFERENCES Company(com_id),
     FOREIGN KEY (sales_id) REFERENCES SalesPerson(sales_id)
 );
-
 
 INSERT INTO SalesPerson (sales_id, name, salary, commission_rate, hire_date) 
 VALUES
