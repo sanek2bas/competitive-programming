@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
 
-namespace interview.Event.Bus;
+namespace Event.Bus;
 
 public class EventBus : IEventBus
 {
