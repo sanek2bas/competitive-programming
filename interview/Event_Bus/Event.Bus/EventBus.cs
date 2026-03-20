@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
 
-namespace Event.Bus;
+namespace interview.Event.Bus;
 
 public class EventBus : IEventBus
 {
@@ -22,7 +22,7 @@ public class EventBus : IEventBus
         //    throw new ArgumentNullException(nameof(handler));
 
         var token = new SubscriptionToken();
-        handlersDic.AddOrUpdate(token, handler, (token, oldValue) => handler);
+        handlers.AddOrUpdate(token, handler, (token, oldValue) => handler);
 
         return token;
     }
@@ -35,7 +35,7 @@ public class EventBus : IEventBus
         //if (token == null)
         //    throw new ArgumentNullException(nameof(token));
         
-        handlersDic.TryRemove(token, out var handler);
+        handlers.TryRemove(token, out var handler);
     }
 
     public void Publish(OrderCreated @event)
@@ -70,7 +70,7 @@ public class EventBus : IEventBus
     {
         if (disposed)
             return;
-        handlersDic.Clear();
+        handlers.Clear();
         disposed = true;
     }
 }
