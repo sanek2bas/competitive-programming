@@ -71,7 +71,6 @@ Company table:
 | 4      | GREEN  | Austin   |
 
 Orders table:
-
 | order_id | order_date | com_id | sales_id | amount |
 |----------|------------|--------|----------|--------|
 | 1        | 1/1/2014   | 3      | 4        | 10000  |
@@ -80,7 +79,6 @@ Orders table:
 | 4        | 4/1/2014   | 1      | 4        | 25000  |
 
 Output: 
-
 | name |
 |------|
 | Amy  |
