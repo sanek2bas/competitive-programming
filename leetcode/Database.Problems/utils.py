@@ -1,4 +1,3 @@
-from pathlib import Path
 import psycopg2 as pc
 
 database_url = "postgresql://postgres:postgres@localhost:8080/test"
