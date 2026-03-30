@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS 
+CREATE TABLE Person(
+    personId INT PRIMARY KEY,
+    lastName VARCHAR(100),
+    firstName VARCHAR(100)
+);
