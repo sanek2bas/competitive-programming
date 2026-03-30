@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS Person CASCADE
+DROP TABLE IF EXISTS Person CASCADE;
 CREATE TABLE Person(
     personId INT PRIMARY KEY,
     lastName VARCHAR(100),
     firstName VARCHAR(100)
 );
 
-DROP TABLE IF EXISTS Address CASCADE
+DROP TABLE IF EXISTS Address CASCADE;
 CREATE TABLE Address(
     addressId INT PRIMARY KEY,
     personId INT,
@@ -15,13 +15,17 @@ CREATE TABLE Address(
 );
 
 INSERT INTO Person (
-    personsId, lastName, firstName)
+    personId, lastName, firstName)
 VALUES
 (1, 'Wang', 'Allen'),
 (2, 'Alice', 'Bob');
 
+SET FOREIGN_KEY_CHECKS = 0;
+
 INSERT INTO Address (
-    addressId, personsId, city, state)
+    addressId, personId, city, state)
 VALUES
 (1, 2, 'New York City', 'New York'),
-(2, 3, 'Leetcode', 'California);
+(2, 3, 'Leetcode', 'California');
+
+SET FOREIGN_KEY_CHECKS = 1;

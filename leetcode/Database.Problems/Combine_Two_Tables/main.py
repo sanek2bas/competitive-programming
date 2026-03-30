@@ -1,8 +1,18 @@
-from common import *
+import os
+import sys
+from pathlib import Path
+
+current_dir = Path(__file__).resolve().parent
+parent_folder = current_dir.parent
+sys.path.insert(0, str(parent_folder))
+
+from utils import *
 
 try:
-    init_query = read_sql_file("init.sql")
-    solution_query = read_sql_file("solution.sql")
+    init_sql_path = os.path.join(current_dir, 'init.sql')
+    init_query = read_sql_file(init_sql_path)
+    solution_sql_path = os.path.join(current_dir, 'solution.sql')
+    solution_query = read_sql_file(solution_sql_path)
 
     connection = get_connection()
     cursor = connection.cursor()
