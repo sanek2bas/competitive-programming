@@ -10,9 +10,12 @@ CREATE TABLE Address(
     addressId INT PRIMARY KEY,
     personId INT,
     city VARCHAR(100),
-    state VARCHAR(100),
-    FOREIGN KEY (personId) REFERENCES Person(personId)
+    state VARCHAR(100)
 );
+
+ALTER TABLE Address 
+ADD CONSTRAINT fk_address_person_check 
+FOREIGN KEY (personId) REFERENCES Person(personId);
 
 INSERT INTO Person (
     personId, lastName, firstName)
@@ -20,7 +23,8 @@ VALUES
 (1, 'Wang', 'Allen'),
 (2, 'Alice', 'Bob');
 
-SET FOREIGN_KEY_CHECKS = 0;
+ALTER TABLE Address 
+DROP CONSTRAINT fk_address_person_check;
 
 INSERT INTO Address (
     addressId, personId, city, state)
@@ -28,4 +32,6 @@ VALUES
 (1, 2, 'New York City', 'New York'),
 (2, 3, 'Leetcode', 'California');
 
-SET FOREIGN_KEY_CHECKS = 1;
+--ALTER TABLE Address
+--ADD CONSTRAINT fk_address_person_check
+--FOREIGN KEY (personId) REFERENCES Person(personId);
