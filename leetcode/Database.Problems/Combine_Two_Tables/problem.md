@@ -45,7 +45,6 @@ Person table:
 |----------|----------|-----------|
 | 1        | Wang     | Allen     |
 | 2        | Alice    | Bob       |
-|----------|----------|-----------|
 
 Address table:
 | addressId | personId | city          | state      |
@@ -55,7 +54,7 @@ Address table:
 
 Output: 
 | firstName | lastName | city          | state    |
-+-----------+----------+---------------+----------+
+|-----------|----------|---------------|----------|
 | Allen     | Wang     | Null          | Null     |
 | Bob       | Alice    | New York City | New York |
 

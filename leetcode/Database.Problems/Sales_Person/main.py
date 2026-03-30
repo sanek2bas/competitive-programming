@@ -1,20 +1,10 @@
-from pathlib import Path
-import psycopg2 as pc
-
-database_url = "postgresql://postgres:postgres@localhost:8080/test"
-
-def read_sql_file(filename):
-    base_dir = Path(__file__).resolve().parent
-    file_path = base_dir / filename
-    with open(file_path, 'r') as file:
-        sql_query = file.read()
-    return sql_query
+import common
 
 try:
-    init_query = read_sql_file("init.sql")
-    solution_query = read_sql_file("solution.sql")
+    init_query = common.read_sql_file("init.sql")
+    solution_query = common.read_sql_file("solution.sql")
 
-    connection = pc.connect(database_url)
+    connection = common.get_connection()
     cursor = connection.cursor()
 
     cursor.execute(init_query)
@@ -28,8 +18,10 @@ try:
         print(row)
 
     cursor.close()
+
 except Exception as e:
     print(f'Error: {e}')
+
 finally:
     if connection:
         connection.close()
