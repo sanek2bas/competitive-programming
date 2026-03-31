@@ -1,6 +1,6 @@
 https://leetcode.com/problems/combine-two-tables/description/
 
-175 Combine Two Tables
+175. Combine Two Tables
 
 Table: Person
 | Column Name | Type    |
