@@ -18,9 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concurrency.Tests", "leetcode\Concurrency.Tests\Concurrency.Tests.csproj", "{A672F19B-82BC-4997-A17F-120C616FB1D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "projecteuler", "projecteuler", "{F24FA8E4-554C-9FC8-A7D0-3F33F83D70DE}"
-	ProjectSection(SolutionItems) = preProject
-		ZeroProblem.cpp = ZeroProblem.cpp
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.Checker", "interview\Payments_Checker\Payments.Checker\Payments.Checker.csproj", "{2BB352A6-1FB6-1969-9A13-CAD776FDD9C1}"
 EndProject

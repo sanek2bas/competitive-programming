@@ -1,6 +1,6 @@
 https://leetcode.com/problems/sales-person/description/
 
-607 Sales Person
+607. Sales Person
 
 Table: SalesPerson
 | Column Name     | Type    |
