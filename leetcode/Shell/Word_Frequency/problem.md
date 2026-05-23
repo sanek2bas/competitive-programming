@@ -1,10 +1,14 @@
+https://leetcode.com/problems/word-frequency/description/
+
+192. Word Frequency
+
 Write a bash script to calculate the frequency of each word in 
 a text file words.txt.
 
 For simplicity sake, you may assume:
 
-words.txt contains only lowercase characters and space ' ' characters.
-Each word must consist of lowercase characters only.
+words.txt contains only lowercase characters and space ' ' characters. 
+Each word must consist of lowercase characters only. 
 Words are separated by one or more whitespace characters.
 Example:
 
