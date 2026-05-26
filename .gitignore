@@ -65,6 +65,15 @@ artifacts/
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
+# Docker & secrets
+.env
+.env.*.local
+docker-compose.override.yml
+appsettings.*.local.json
+
+# User Secrets (для разработки)
+secrets.json
+
 # StyleCop
 StyleCopReport.xml
 
