@@ -1,3 +1,5 @@
+namespace Top.Interview._150.Multidimensional_DP;
+
 public class BestTimeToBuyAndSellStock3
 {
     /// <summary>
@@ -10,31 +12,43 @@ public class BestTimeToBuyAndSellStock3
     /// Note: You may not engage in multiple transactions 
     /// simultaneously (i.e., you must sell the stock before you buy again).
     /// </summary>
-    public bool Execute(int[] prices)
+    public int Execute(int[] prices)
     {
-        int s1Length = s1.Length;
-        int s2Length = s2.Length;
-        int s3Length = s3.Length;
-        if (s1Length + s2Length != s3Length)
-            return false;
+        if (prices == null 
+            || prices.Length == 0) return 0;
         
-        bool[] dp = new bool[s2Length + 1];
-        for(int i = 0; i <= s1Length; i++)
+        int[][] pre = new int[2][];
+        int[][] cur = new int[2][];
+        
+        for (int i = 0; i < 2; i++) 
         {
-            for(int j = 0; j <= s2Length; j++)
-            {
-                if (i == 0 && j == 0)
-                    dp[j] = true;
-                else if (i == 0)
-                    dp[j] = dp[j - 1] && s2[j - 1] == s3[j - 1];
-                else if (j == 0)
-                    dp[j] = dp[j] && s1[i - 1] == s3[i - 1];
-                else
-                    dp[j] = dp[j] && s1[i - 1] == s3[i + j - 1] ||
-                            dp[j - 1] && s2[j - 1] == s3[i + j - 1];
-            }
+            pre[i] = new int[3];
+            cur[i] = new int[3];
         }
+        
+        for (int i = prices.Length - 1; i >= 0; i--) 
+        {
+            for (int j = 0; j < 2; j++) 
+            {
+                for (int k = 0; k < 3; k++) 
+                {
+                    if (k == 0) 
+                    {
+                        cur[j][k] = 0;
+                        continue;
+                    }
+                    
+                    if (j == 1)
+                        cur[1][k] = Math.Max(-prices[i] + pre[0][k], pre[1][k]);
+                    else 
+                        cur[0][k] = Math.Max(prices[i] + pre[1][k - 1], pre[0][k]);
+                }
+            }
 
-        return dp[s2Length];
+            for (int j = 0; j < 2; j++) 
+                Array.Copy(cur[j], pre[j], 3);
+        }
+        
+        return pre[1][2];
     }
 }
