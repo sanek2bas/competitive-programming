@@ -42,11 +42,4 @@ public class LowestCommonAncestorOfBinaryTreeTest
     {
         return TreeNode.Create(values);
     }
-
-    private int?[] ConvertToArray(TreeNode node)
-    {
-        if (node == null)
-            return [];
-        return node.ToArray();
-    }
 }
