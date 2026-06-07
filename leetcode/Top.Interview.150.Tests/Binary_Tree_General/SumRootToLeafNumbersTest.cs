@@ -26,7 +26,7 @@ public class SumRootToLeafNumbersTest
             CreateTreeNode(4, 9, 0, 5, 1),
             1026);
     }
-
+    
     private TreeNode CreateTreeNode(params int?[] values)
     {
         return TreeNode.Create(values);
