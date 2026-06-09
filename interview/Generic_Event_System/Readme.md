@@ -6,4 +6,4 @@
 
 Формат ответа: Яндекс документ / Notion / GitHub Gist (можно с диаграммами draw.io или Mermaid)
 
-Исходный код в папе source_code
+Исходный код в папке source_code
