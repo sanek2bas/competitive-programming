@@ -34,7 +34,7 @@ public class MinStackTest
         }
     }
 
-    public IEnumerable<IList<(string command, int arg)>>  DataSource()
+    public IEnumerable<IList<(string command, int arg)>> DataSource()
     {
         yield return new List<(string, int)>
         {
