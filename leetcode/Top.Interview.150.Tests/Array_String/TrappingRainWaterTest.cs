@@ -1,14 +1,14 @@
-using Top.Interview._150.Backtracking;
+using Top.Interview._150.Array_String;
 
-namespace Backtracking;
+namespace Array_String;
 
-public class CandyTest
+public class TrappingRainWaterTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
     public async Task Solution(int[] ratings, int answer)
     {
-        var solution = new Candy();
+        var solution = new TrappingRainWater();
 
         var result = solution.Execute(ratings);
         
@@ -18,13 +18,13 @@ public class CandyTest
     public IEnumerable<(int[] ratings, int answer)> DataSource()
     {
         yield return (
-            new int[] {1, 0, 2},
-            5
+            new int[] {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
+            6
         );
 
         yield return (
-            new int[] {1, 2, 2},
-            4
+            new int[] {4, 2, 0, 3, 2, 5},
+            9
         );
     }
 }
