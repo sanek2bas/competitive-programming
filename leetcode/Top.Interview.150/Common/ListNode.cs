@@ -11,9 +11,8 @@ public class ListNode
         Value = value;
     }
 
-    public int[] ToArray()
+    public static int[] ConvertToArray(ListNode node)
     {
-        var node = this;
         var values = new List<int>();
         while (node != null)
         {

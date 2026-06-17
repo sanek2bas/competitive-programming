@@ -13,7 +13,8 @@ public class ReverseLinkedList2Test
 
         var result = solution.Execute(head, left, right);
         
-        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
+        await Assert.That(ListNode.ConvertToArray(result))
+                    .IsEquivalentTo(answer);
     }
 
     public IEnumerable<(ListNode head, int left, int right, int[] answer)> DataSource()

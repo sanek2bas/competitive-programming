@@ -13,15 +13,16 @@ public class RemoveNthNodeFromEndOfListTest
 
         var result = solution.Execute(head, n);
 
-        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
+        await Assert.That(ListNode.ConvertToArray(result))
+                    .IsEquivalentTo(answer);
     }
 
     public IEnumerable<(ListNode head, int n, int[] answer)> DataSource()
     {
         yield return (
-            CreateListNode(1 ,2, 3, 4, 5),
+            CreateListNode(1, 2, 3, 4, 5),
             2,
-            [ 1, 2, 5 ]);
+            [ 1, 2, 3, 5 ]);
 
         yield return (
             CreateListNode(1),

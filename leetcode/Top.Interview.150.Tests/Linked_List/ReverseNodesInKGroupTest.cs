@@ -3,32 +3,33 @@ using Top.Interview._150.Linked_List;
 
 namespace Linked_List;
 
-public class PartitionListTest
+public class ReverseNodesInKGroupTest
 {
     [Test]
     [MethodDataSource(nameof(DataSource))]
-    public async Task Solution(ListNode head, int x, int[] answer)
+    public async Task Solution(ListNode head, int k, int[] answer)
     {
-        var solution = new RotateList();
+        var solution = new ReverseNodesInKGroup();
 
-        var result = solution.Execute(head, x);
-        
+        var result = solution.Execute(head, k);
+
         await Assert.That(ListNode.ConvertToArray(result))
                     .IsEquivalentTo(answer);
     }
 
-    public IEnumerable<(ListNode head, int x, int[] answer)> DataSource()
+    public IEnumerable<(ListNode head, int k, int[] answer)> DataSource()
     {
         yield return (
             CreateListNode(1, 2, 3, 4, 5),
             2,
-            new int[] { 4, 5, 1, 2, 3 });
+            [ 2, 1, 4, 3, 5 ]);
+
         yield return (
-            CreateListNode(0, 1, 2), 
-            4,
-            new int[] {2, 0, 1});
+            CreateListNode(1, 2, 3, 4, 5),
+            3,
+            [3, 2, 1, 4, 5]);
     }
-    
+
     private ListNode CreateListNode(params int[] numbers)
     {
         return ListNode.Create(numbers);

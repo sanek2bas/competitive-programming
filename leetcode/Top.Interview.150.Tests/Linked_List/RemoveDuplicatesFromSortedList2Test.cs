@@ -13,7 +13,8 @@ public class RemoveDuplicatesFromSortedList2Test
 
         var result = solution.Execute(head);
 
-        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
+        await Assert.That(ListNode.ConvertToArray(result))
+                    .IsEquivalentTo(answer);
     }
 
     public IEnumerable<(ListNode result, int[] answer)> DataSource()

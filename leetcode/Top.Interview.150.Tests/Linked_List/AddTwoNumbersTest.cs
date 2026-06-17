@@ -13,7 +13,8 @@ public class AddTwoNumbersTest
 
         var result = solution.Execute(node1, node2);
 
-        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
+        await Assert.That(ListNode.ConvertToArray(result))
+                    .IsEquivalentTo(answer);
     }
 
     public IEnumerable<(ListNode node1, ListNode node2, int[] answer)> DataSource()
