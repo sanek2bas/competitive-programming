@@ -1,5 +1,3 @@
-using Top.Interview._150.Common;
-
 namespace Top.Interview._150.Trie;
 
 public class WordSearch2
