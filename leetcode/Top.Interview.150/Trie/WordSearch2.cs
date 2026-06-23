@@ -1,3 +1,4 @@
+using Top.Interview._150.Common;
 namespace Top.Interview._150.Trie;
 
 public class WordSearch2
@@ -13,49 +14,67 @@ public class WordSearch2
     /// </summary>
     public IList<string> Execute(char[][] board, string[] words)
     {
-        int ROWS = board.Length;
-        int COLS = board[0].Length;
-        List<string> res = new List<string>();
+        var result = new List<string>();
+        var root = BuildTrie(words);
 
-        foreach (string word in words) 
+        int rows = board.Length;
+        int cols = board[0].Length;
+
+        for (int r = 0; r < rows; r++) 
         {
-            bool flag = false;
-            for (int r = 0; r < ROWS && !flag; r++) 
-            {
-                for (int c = 0; c < COLS; c++) 
-                {
-                    if (board[r][c] != word[0]) 
-                        continue;
-                    if (Backtrack(board, r, c, word, 0)) {
-                        res.Add(word);
-                        flag = true;
-                        break;
-                    }
-                }
-            }
+            for (int c = 0; c < cols; c++)
+                DFS(board, r, c, root, result);
         }
-        return res;
+
+        return result;
     }
 
-    private bool Backtrack(char[][] board, int r, int c, string word, int i) 
+    private void DFS(char[][] board, int r, int c, TrieNode node, List<string> result) 
     {
-        if (i == word.Length) 
-            return true;
-        
         if (r < 0 
-            || c < 0 
             || r >= board.Length 
-            || c >= board[0].Length 
-            || board[r][c] != word[i])
-            return false;
+            || c < 0 
+            || c >= board[0].Length) 
+            return;
+        
+        char ch = board[r][c];
+        if (ch == '#' 
+            || node.Children[ch - 'a'] == null) 
+            return;
 
-        board[r][c] = '*';
-        bool ret = 
-            Backtrack(board, r + 1, c, word, i + 1) 
-            || Backtrack(board, r - 1, c, word, i + 1) 
-            || Backtrack(board, r, c + 1, word, i + 1) 
-            || Backtrack(board, r, c - 1, word, i + 1);
-        board[r][c] = word[i];
-        return ret;
+        node = node.Children[ch - 'a'];
+
+        if (node.Word != null) 
+        {
+            result.Add(node.Word);
+            node.Word = null;
+        }
+
+        board[r][c] = '#';
+
+        DFS(board, r + 1, c, node, result);
+        DFS(board, r - 1, c, node, result);
+        DFS(board, r, c + 1, node, result);
+        DFS(board, r, c - 1, node, result);
+
+        board[r][c] = ch;
+    }
+
+    private TrieNode BuildTrie(IList<string> words) 
+    {
+        var root = new TrieNode();
+        foreach (string word in words) 
+        {
+            TrieNode curr = root;
+            foreach (char ch in word) 
+            {
+                int index = ch - 'a';
+                if (curr.Children[index] == null)
+                    curr.Children[index] = new TrieNode();
+                curr = curr.Children[index];
+            }
+            curr.Word = word;
+        }
+        return root;
     }
 }
