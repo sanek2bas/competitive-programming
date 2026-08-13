@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace TopInterview150.Bit_Manipulation;
+namespace Top.Interview._150.Bit_Manipulation;
 
 public class AddBinary
 {

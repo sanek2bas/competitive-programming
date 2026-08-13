@@ -56,6 +56,7 @@ public class TrieNode
 {
     public TrieNode[] Children { get; init; }
     public bool IsWord { get; set; }
+    public string Word { get; set; }
 
     public TrieNode()
     {

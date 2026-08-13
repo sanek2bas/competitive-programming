@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Payments.Checker\Payments.Checker.csproj" />
+    <ProjectReference Include="..\Payments.Checker\Payments.Checker.csproj" />
   </ItemGroup>
 
   <ItemGroup>

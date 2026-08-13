@@ -12,8 +12,9 @@ public class RotateListTest
         var solution = new RotateList();
 
         var result = solution.Execute(head, k);
-        
-        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
+
+        await Assert.That(ListNode.ConvertToArray(result))
+                    .IsEquivalentTo(answer);
     }
 
     public IEnumerable<(ListNode head, int k, int[] answer)> DataSource()

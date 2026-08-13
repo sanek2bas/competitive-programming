@@ -5,7 +5,8 @@ public class PalindromeNumber
     /// <summary>
     /// # 9
     /// https://leetcode.com/problems/palindrome-number/description/
-    /// Given an integer x, return true if x is a palindrome, and false otherwise.
+    /// Given an integer x, return true if x is a palindrome, 
+    /// and false otherwise.
     /// </summary>
     public bool Execute(int x)
     {

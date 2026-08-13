@@ -14,6 +14,7 @@ public class SummaryRangesTest
         
         await Assert.That(result).IsEquivalentTo(answer);
     }
+    
     public IEnumerable<(int[], IList<string>)> DataSource()
     {
         yield return (

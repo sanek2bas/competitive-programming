@@ -1,0 +1,27 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/interview/" />
+  <Folder Name="/interview/Event_Bus/">
+    <File Path="interview/Event_Bus/Readme.md" />
+    <Project Path="interview/Event_Bus/Event.Bus.Tests/Event.Bus.Tests.csproj" />
+    <Project Path="interview/Event_Bus/Event.Bus/Event.Bus.csproj" />
+  </Folder>
+  <Folder Name="/interview/Payments_Checker/">
+    <File Path="interview/Payments_Checker/Readme.md" />
+    <Project Path="interview/Payments_Checker/Payments.Checker.UnitTests/Payments.Checker.UnitTests.csproj" />
+    <Project Path="interview/Payments_Checker/Payments.Checker/Payments.Checker.csproj" />
+  </Folder>
+  <Folder Name="/leetcode/">
+    <Project Path="leetcode/Concurrency.Tests/Concurrency.Tests.csproj" />
+    <Project Path="leetcode/Concurrency/Concurrency.csproj" />
+    <Project Path="leetcode/Top.Interview.150.Tests/Top.Interview.150.Tests.csproj" />
+    <Project Path="leetcode/Top.Interview.150/Top.Interview.150.csproj" />
+  </Folder>
+  <Folder Name="/projecteuler/">
+    <File Path="project_euler/Readme.md" />
+  </Folder>
+</Solution>

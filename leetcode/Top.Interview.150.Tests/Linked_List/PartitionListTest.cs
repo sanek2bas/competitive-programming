@@ -13,7 +13,8 @@ public class PartitionListTest
 
         var result = solution.Execute(head, x);
         
-        await Assert.That(result.ToArray()).IsEquivalentTo(answer);
+        await Assert.That(ListNode.ConvertToArray(result))
+                    .IsEquivalentTo(answer);
     }
 
     public IEnumerable<(ListNode head, int x, int[] answer)> DataSource()

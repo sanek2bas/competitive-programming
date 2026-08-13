@@ -1,4 +1,4 @@
-﻿using TopInterview150.Bit_Manipulation;
+﻿using Top.Interview._150.Bit_Manipulation;
 
 namespace Bit_Manipulation;
 

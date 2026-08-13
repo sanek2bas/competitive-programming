@@ -1,5 +1,7 @@
 using Top.Interview._150.Common;
 
+namespace Top.Interview._150.Binary_Tree_General;
+
 public class SymmetricTree
 {
     /// <summary>

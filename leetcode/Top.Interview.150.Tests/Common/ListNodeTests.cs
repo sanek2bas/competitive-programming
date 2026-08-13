@@ -94,7 +94,7 @@ public class ListNodeTests
         var val = 42;
         var root = CreateListNode(val);
 
-        var result = root.ToArray();
+        var result = ListNode.ConvertToArray(root);
         
         await Assert.That(result).HasCount(1);
         await Assert.That(result[0]).IsEqualTo(val);
@@ -109,9 +109,8 @@ public class ListNodeTests
         var originalArray = Enumerable.Range(start, count).ToArray();
         var root = CreateListNode(originalArray);
         
-        var resultArray = root.ToArray();
-        
-        await Assert.That(resultArray).IsEquivalentTo(originalArray);
+        await Assert.That(ListNode.ConvertToArray(root))
+                    .IsEquivalentTo(originalArray);
     }
 
     private ListNode CreateListNode(params int[] numbers)
