@@ -3,16 +3,16 @@
     static void Main(string[] args)
     {
         var admin = new User(1, "AdminUser", "IT");
-        admin.Roles.Add("Admin");
+        admin.Roles.Add(Role.Admin);
 
         var manager = new User(2, "ManagerUser", "HR");
-        admin.Roles.Add("Manager");
+        admin.Roles.Add(Role.Manager);
 
         var regularUser = new User(3, "RegularUser", "Sales");
-        admin.Roles.Add("User");
+        admin.Roles.Add(Role.User);
 
         var guest = new User(4, "GuestUser", "Marketing");
-        admin.Roles.Add("Guest");
+        admin.Roles.Add(Role.Guest);
 
         var publicResource = new Resource(
             1, "Document", "Public Document", "AdminUser", "IT", DateTime.Now, true);
@@ -30,12 +30,17 @@
         executeResource.Attributes.Add("Version", 3.0);
         
         var abacService = new Service();
-
         Console.WriteLine("ABAC Access Tests:");
-        Console.WriteLine($"Admin Read Public Resource: {abacService.EvaluateAccess(admin, publicResource, "Read")}");
-        Console.WriteLine($"Guest Read Public Resource: {abacService.EvaluateAccess(guest, publicResource, "Read")}");
-        Console.WriteLine($"Guest Write Private Resource: {abacService.EvaluateAccess(guest, privateResource, "Write")}");
-        Console.WriteLine($"Manager Write Private Resource: {abacService.EvaluateAccess(manager, privateResource, "Write")}");
-        Console.WriteLine($"Admin Delete Private Resource: {abacService.EvaluateAccess(admin, privateResource, "Delete")}");
+
+        Console.WriteLine(
+            $"Admin Read Public Resource: {abacService.EvaluateAccess(admin, publicResource, Permission.Read)}");
+        Console.WriteLine(
+            $"Guest Read Public Resource: {abacService.EvaluateAccess(guest, publicResource, Permission.Read)}");
+        Console.WriteLine(
+            $"Guest Write Private Resource: {abacService.EvaluateAccess(guest, privateResource, Permission.Write)}");
+        Console.WriteLine(
+            $"Manager Write Private Resource: {abacService.EvaluateAccess(manager, privateResource, Permission.Write)}");
+        Console.WriteLine(
+            $"Admin Delete Private Resource: {abacService.EvaluateAccess(admin, privateResource, Permission.Delete)}");
     }
 }

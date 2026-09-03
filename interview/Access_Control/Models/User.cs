@@ -7,7 +7,7 @@ public class User
 
     public string Department { get; set; }
     
-    public List<string> Roles { get; }
+    public List<Role> Roles { get; }
 
     public User(
         int id, 
@@ -17,6 +17,6 @@ public class User
         Id = id;
         Username = userName;
         Department = department;
-        Roles = new List<string>();
+        Roles = new List<Role>();
     }
 }

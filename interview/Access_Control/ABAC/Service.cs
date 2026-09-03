@@ -1,61 +1,61 @@
 public class Service()
 {
-    public bool EvaluateAccess(User user, Resource resource, string action)
+    public bool EvaluateAccess(User user, Resource resource, Permission action)
     {
         // Policy 1: Users can only read public resources
-        if (action == "Read" && resource.IsPublic)
+        if (action == Permission.Read && resource.IsPublic)
             return true;
 
         // Policy 2: Users can read, write, delete resources in their department
         if (user.Department == resource.Department 
-            && new[] { "Read", "Write", "Delete" }.Contains(action))
+            && new[] { Permission.Read, Permission.Write, Permission.Delete }.Contains(action))
             return true;
 
         // Policy 3: Only resource owners can delete their resources
-        if (action == "Delete" 
+        if (action == Permission.Delete 
             && user.Username == resource.Owner)
             return true;
 
         // Policy 4: Users can create resources in their department
-        if (action == "Create" 
+        if (action == Permission.Create 
             && user.Department == resource.Department)
             return true;
 
         // Policy 5: Users can execute resources if they have Executor role attribute
-        if (action == "Execute" 
-            && user.Roles.Contains("Executor"))
+        if (action == Permission.Execute 
+            && user.Roles.Contains(Role.User))
             return true;
 
         // Policy 6: Department managers can access all resources in their department
-        if (user.Roles.Contains("Manager") && user.Department == resource.Department)
+        if (user.Roles.Contains(Role.Manager) && user.Department == resource.Department)
             return true;
 
         // Policy 7: Admins have all access
-        if (user.Roles.Contains("Admin"))
+        if (user.Roles.Contains(Role.Admin))
             return true;
 
         return false;
     }
 
-    public bool EvaluateComplexAccess(ExtendedUser user, Resource resource, string action, DateTime currentTime, bool isWeekend = false)
+    public bool EvaluateComplexAccess(ExtendedUser user, Resource resource, Permission action, DateTime currentTime, bool isWeekend = false)
     {
         // Time-based access control
         if (currentTime.Hour < 9 || currentTime.Hour > 17)
         {
             // Only admins can access after hours
-            return user.Roles.Contains("Admin");
+            return user.Roles.Contains(Role.Admin);
         }
 
         // Weekend access restrictions
         if (isWeekend && 
-            !user.Roles.Contains("Admin"))
+            !user.Roles.Contains(Role.Admin))
             return false;
 
         // Resource sensitivity check
         if (resource.Attributes.ContainsKey("Sensitivity"))
         {
             string sensitivity = resource.Attributes["Sensitivity"].ToString();
-            if (sensitivity == "Confidential" && !user.Roles.Contains("Manager"))
+            if (sensitivity == "Confidential" && !user.Roles.Contains(Role.Manager))
                 return false;
         }
 

@@ -1,10 +1,10 @@
 public class Service
 {
-    private readonly Dictionary<string, List<Permission>> rolePermissions;
+    private readonly Dictionary<Role, List<Permission>> rolePermissions;
     
     public Service()
     {
-        rolePermissions = new Dictionary<string, List<Permission>>();
+        rolePermissions = new Dictionary<Role, List<Permission>>();
         InitializeRoles();
     }
 
@@ -29,7 +29,7 @@ public class Service
         return requiredPermissions.All(p => HasPermission(user, p));
     }
 
-    public void AddRolePermission(string role, Permission permission)
+    public void AddRolePermission(Role role, Permission permission)
     {
         if (!rolePermissions.ContainsKey(role))
             rolePermissions[role] = new List<Permission>();
@@ -38,7 +38,7 @@ public class Service
             rolePermissions[role].Add(permission);
     }
 
-    public void RemoveRolePermission(string role, Permission permission)
+    public void RemoveRolePermission(Role role, Permission permission)
     {
         if (rolePermissions.ContainsKey(role))
             rolePermissions[role].Remove(permission);
@@ -46,7 +46,7 @@ public class Service
 
     private void InitializeRoles()
     {
-        rolePermissions["Admin"] = new List<Permission> 
+        rolePermissions[Role.Admin] = new List<Permission> 
         { 
             Permission.Read, 
             Permission.Write, 
@@ -54,20 +54,20 @@ public class Service
             Permission.Execute
         };
         
-        rolePermissions["Manager"] = new List<Permission> 
+        rolePermissions[Role.Manager] = new List<Permission> 
         { 
             Permission.Read, 
             Permission.Write, 
             Permission.Delete 
         };
 
-        rolePermissions["User"] = new List<Permission> 
+        rolePermissions[Role.User] = new List<Permission> 
         { 
             Permission.Read, 
             Permission.Write 
         };
 
-        rolePermissions["Guest"] = new List<Permission> 
+        rolePermissions[Role.Guest] = new List<Permission> 
         { 
            Permission.Read 
         };
