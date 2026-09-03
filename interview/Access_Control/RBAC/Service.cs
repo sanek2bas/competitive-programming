@@ -1,3 +1,5 @@
+namespace RBAC;
+
 public class Service
 {
     private readonly Dictionary<Role, List<Permission>> rolePermissions;

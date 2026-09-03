@@ -8,6 +8,8 @@ RBAC (Role-Based Access Control) — это управление доступо�
 
 ABAC (Attribute-Based Access Control) — это разграничение доступа на основе атрибутов. Решение принимается динамически на основе набора характеристик: атрибутов пользователя, ресурса (гриф секретности, владелец), действия и контекста.
 
+Combined BAC (Role-Attribute-Based Access Control) - пример использования комбинации двух (RBAC и ABAC) способов управдения доступом.
+
 ---
 
 ## Examples
@@ -16,3 +18,4 @@ ABAC (Attribute-Based Access Control) — это разграничение до
 
 ### [ABAC](./ABAC/)
 
+### [Combined BAC](./CombinedBAC/)

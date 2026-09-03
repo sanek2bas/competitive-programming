@@ -30,19 +30,19 @@ public class Program
             3, "Script", "Script", "AdminUser", "IT", DateTime.Now, false);
         executeResource.Attributes.Add("Sensitivity", "Internal");
         executeResource.Attributes.Add("Version", 3.0);
-        
-        var abacService = new Service();
-        Console.WriteLine("ABAC Access Tests:");
 
+        var rbac = new RBAC.Service();
+        var abac = new ABAC.Service();
+        var combinedService = new Service(rbac, abac);
+        Console.WriteLine("Combined Access Tests:");
+        
         Console.WriteLine(
-            $"Admin Read Public Resource: {abacService.EvaluateAccess(admin, publicResource, Permission.Read)}");
+            $"User Read Public: {combinedService.HasAccess(regularUser, publicResource, Permission.Read)}");
         Console.WriteLine(
-            $"Guest Read Public Resource: {abacService.EvaluateAccess(guest, publicResource, Permission.Read)}");
+            $"User Delete Public: {combinedService.HasAccess(regularUser, publicResource, Permission.Delete)}");
         Console.WriteLine(
-            $"Guest Write Private Resource: {abacService.EvaluateAccess(guest, privateResource, Permission.Write)}");
+            $"Manager Read Private: {combinedService.HasAccess(manager, privateResource, Permission.Read)}");
         Console.WriteLine(
-            $"Manager Write Private Resource: {abacService.EvaluateAccess(manager, privateResource, Permission.Write)}");
-        Console.WriteLine(
-            $"Admin Delete Private Resource: {abacService.EvaluateAccess(admin, privateResource, Permission.Delete)}");
+            $"Admin Delete Private: {combinedService.HasAccess(admin, privateResource, Permission.Delete)}");
     }
 }

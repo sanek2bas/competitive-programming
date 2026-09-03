@@ -15,6 +15,12 @@
     <Project Path="interview/Payments_Checker/Payments.Checker.UnitTests/Payments.Checker.UnitTests.csproj" />
     <Project Path="interview/Payments_Checker/Payments.Checker/Payments.Checker.csproj" />
   </Folder>
+  <Folder Name="/interview/Access_Control/">
+    <File Path="interview/Access_Control/Readme.md" />
+    <Project Path="interview/Access_Control/ABAC/ABAC.csproj" />
+    <Project Path="interview/Access_Control/RBAC/RBAC.csproj" />
+    <Project Path="interview/Access_Control/CombinedBAC/CombinedBAC.csproj" />
+  </Folder>
   <Folder Name="/leetcode/">
     <Project Path="leetcode/Concurrency.Tests/Concurrency.Tests.csproj" />
     <Project Path="leetcode/Concurrency/Concurrency.csproj" />

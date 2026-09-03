@@ -1,3 +1,5 @@
+namespace ABAC;
+
 public class Service()
 {
     public bool EvaluateAccess(User user, Resource resource, Permission action)
