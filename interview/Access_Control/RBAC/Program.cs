@@ -2,21 +2,17 @@
 {
     static void Main(string[] args)
     {
-        var admin = new User(1, "AdminUser");
+        var admin = new User(1, "AdminUser", "IT");
         admin.Roles.Add("Admin");
-        admin.Department = "IT";
 
-        var manager = new User(2, "ManagerUser");
+        var manager = new User(2, "ManagerUser", "HR");
         admin.Roles.Add("Manager");
-        admin.Department = "HR";
 
-        var regularUser = new User(3, "RegularUser");
+        var regularUser = new User(3, "RegularUser", "Sales");
         admin.Roles.Add("User");
-        admin.Department = "Sales";
 
-        var guest = new User(4, "GuestUser");
+        var guest = new User(4, "GuestUser", "Marketing");
         admin.Roles.Add("Guest");
-        admin.Department = "Marketing";
         
         var rbacService = new Service();
         Console.WriteLine("RBAC Permission Tests:");
