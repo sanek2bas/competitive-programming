@@ -1,13 +1,5 @@
 # Примеры для знакомства с моделями контроля доступа
 
-## Contents
-
-- [Overview](#overview)
-- [Examples](#examples)
-- [How Do Message Queues Work?](#how-do-message-queues-work)
-
----
-
 ## Overview
 
 Популярные модели управления доступом, когторые определяют, кто и какие действия может совершать с ресурсами в информационных системах.
@@ -18,9 +10,9 @@ ABAC (Attribute-Based Access Control) — это разграничение до
 
 ## Examples
 
-### 1. RBAC (Role-Based)
-[RBAC](./RBAC/)
+### 1. [RBAC](./RBAC/)
 
 
-### 2. ABAC (Attribute-Based)
-[ABAC](./ABAC/)
+
+### 2. [ABAC](./ABAC/)
+
