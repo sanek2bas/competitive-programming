@@ -10,9 +10,7 @@ ABAC (Attribute-Based Access Control) — это разграничение до
 
 ## Examples
 
-### 1. [RBAC](./RBAC/)
+### [RBAC](./RBAC/)
 
-
-
-### 2. [ABAC](./ABAC/)
+### [ABAC](./ABAC/)
 
