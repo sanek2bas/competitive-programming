@@ -2,8 +2,6 @@
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("=== RBAC Example ===");
-
         var admin = new User(1, "AdminUser");
         admin.Roles.Add("Admin");
         admin.Department = "IT";
@@ -26,7 +24,5 @@
         Console.WriteLine($"Admin Has Delete Permission: {rbacService.HasPermission(admin, Permission.Delete)}");
         Console.WriteLine($"Regular User Has Delete Permission: {rbacService.HasPermission(regularUser, Permission.Delete)}");
         Console.WriteLine($"Guest Has Write Permission: {rbacService.HasPermission(guest, Permission.Write)}");
-
-        Console.WriteLine("\n=== ABAC Example ===\n");
     }
 }
