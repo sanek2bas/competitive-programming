@@ -20,6 +20,7 @@
     <Project Path="interview/Access_Control/ABAC/ABAC.csproj" />
     <Project Path="interview/Access_Control/RBAC/RBAC.csproj" />
     <Project Path="interview/Access_Control/CombinedBAC/CombinedBAC.csproj" />
+    <Project Path="interview/Access_Control/AdvancedABAC/AdvancedABAC.csproj" />
   </Folder>
   <Folder Name="/leetcode/">
     <Project Path="leetcode/Concurrency.Tests/Concurrency.Tests.csproj" />

@@ -10,6 +10,8 @@ ABAC (Attribute-Based Access Control) — это разграничение до
 
 Combined BAC (Role-Attribute-Based Access Control) - пример использования комбинации двух (RBAC и ABAC) способов управдения доступом.
 
+Advanced ABAC (Advanced Attribute-Based Access Control) - усовершенствованная версия ABAC с использованием механизма управления политиками.
+
 ---
 
 ## Examples
@@ -19,3 +21,5 @@ Combined BAC (Role-Attribute-Based Access Control) - пример использ
 ### [ABAC](./ABAC/)
 
 ### [Combined BAC](./CombinedBAC/)
+
+### [Adcanvanced ABAC](./AdvancedABAC//)

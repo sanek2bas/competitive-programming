@@ -1,6 +1,4 @@
-﻿using ABAC;
-
-public class Program
+﻿public class Program
 {
     static void Main(string[] args)
     {
@@ -33,6 +31,7 @@ public class Program
 
         var rbac = new RBAC.Service();
         var abac = new ABAC.Service();
+
         var combinedService = new Service(rbac, abac);
         Console.WriteLine("Combined Access Tests:");
         
