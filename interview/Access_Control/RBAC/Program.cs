@@ -20,7 +20,7 @@ public class Program
         Console.WriteLine("RBAC Permission Tests:");
         
         Console.WriteLine(
-            $"Admin Has Write Permission: + {rbacService.HasPermission(admin, Permission.Write)}");
+            $"Admin Has Write Permission: {rbacService.HasPermission(admin, Permission.Write)}");
         Console.WriteLine(
             $"Admin Has Delete Permission: {rbacService.HasPermission(admin, Permission.Delete)}");
         Console.WriteLine(
