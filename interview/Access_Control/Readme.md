@@ -22,4 +22,4 @@ Advanced ABAC (Advanced Attribute-Based Access Control) - усовершенст
 
 ### [Combined BAC](./CombinedBAC/)
 
-### [Adcanvanced ABAC](./AdvancedABAC//)
+### [Advanced ABAC](./AdvancedABAC//)
