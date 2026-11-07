@@ -1,4 +1,4 @@
-Задача на одном из собеседований в Яндекс
+# Задача на одном из собеседований в Яндекс
 
 Вы — backend-разработчик в финтех компании.
 Компания предоставляет платежные услуги и должна контролировать лимиты пользователей.
@@ -40,7 +40,7 @@ Product owner просит создать систему проверки лим
 строго последовательно. Во время проверки лимита не может быть проведен платеж 
 того же пользователя. 
 
-
+```csharp
 class PaymentsChecker
 {
     IPaymentsHistoryService _paymentsHistoryService;
@@ -51,14 +51,18 @@ class PaymentsChecker
         // TODO: implement
     }
 }
+```
 
+```csharp
 interface IPaymentsHistoryService
 {
     // TODO: any functions
 }
+```
 
+```csharp
 interface IUserLimitsService
 {
     // TODO: any functions
 }
-*/
+```
