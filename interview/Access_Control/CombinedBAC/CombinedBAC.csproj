@@ -2,8 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" /> 
-    <ProjectReference Include="..\RBAC\RBAC.csproj" /> 
-    <ProjectReference Include="..\ABAC\ABAC.csproj" /> 
   </ItemGroup>
   
   <PropertyGroup>
